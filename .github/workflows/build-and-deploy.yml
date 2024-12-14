@@ -1,8 +1,19 @@
 name: build-and-deploy
+
 on:
   push:
     branches:
       - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,18 +28,24 @@ jobs:
           cache: 'npm'
           cache-dependency-path: 'package-lock.json'
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        with:
+          static_site_generator: next
+
       - name: Install
         run: npm install
 
       - name: Build
         run: npm run build
 
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./out
+
   deploy:
     needs: build
-
-    permissions:
-      pages: write
-      id-token: write
 
     environment:
       name: github-pages
