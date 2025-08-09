@@ -1,11 +1,12 @@
-// import reactLogo from './assets/react.svg';
-// import viteLogo from '/vite.svg';
+import { createFileRoute } from '@tanstack/react-router';
 
-import './App.css';
+export const Route = createFileRoute('/')({
+	component: Index,
+});
 
-const App = () => {
+function Index() {
 	return (
-		<>
+		<div className='p-2'>
 			<div>
 				<p>Hello Vite</p>
 				<p>This is Mohammad's website</p>
@@ -15,8 +16,6 @@ const App = () => {
 				<p className='font-mono'>This text is in Roboto.</p>
 				<p className='font-serif'>And this text is in fancy Garamond.</p>
 			</div>
-		</>
+		</div>
 	);
-};
-
-export default App;
+}
