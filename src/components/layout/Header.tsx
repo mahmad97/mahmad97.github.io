@@ -1,17 +1,21 @@
 import { Link } from '@tanstack/react-router';
 
+import ThemeToggle from '../ui/ThemeToggle';
+
 const Header = () => {
 	return (
-		<header className='flex h-14 px-6 items-center justify-between'>
-			<Link to='/' className='flex gap-2'>
+		<header className='flex h-14 px-8 border-b items-center justify-between'>
+			<Link to='/' className='flex gap-4'>
 				<div className=''>👤</div>
 				<p className='text-xl'>Mohammad Ahmad</p>
 			</Link>
 
-			<div className='flex gap-6'>
+			<div className='flex gap-4'>
 				<div>Search</div>
 
-				<nav className='flex gap-2'>
+				<div className='border-l'></div>
+
+				<nav className='flex gap-4'>
 					<Link to='/' className='[&.active]:font-bold'>
 						Home
 					</Link>
@@ -26,9 +30,9 @@ const Header = () => {
 					</Link> */}
 				</nav>
 
-				<div>
-					<p>Day/night mode</p>
-				</div>
+				<div className='border-l'></div>
+
+				<ThemeToggle />
 			</div>
 		</header>
 	);

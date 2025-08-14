@@ -7,3 +7,5 @@
 	--font-serif: 'EB Garamond', serif;
 	--font-mono: 'Roboto Mono', monospace;
 }
+
+@custom-variant dark (&:where(.dark, .dark *));

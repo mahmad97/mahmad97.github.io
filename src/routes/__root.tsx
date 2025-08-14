@@ -11,11 +11,10 @@ export const Route = createRootRoute({
 
 const App = () => {
 	return (
-		<>
+		<div className='w-full h-full bg-slate-50 dark:bg-slate-950 min-w-[640px]'>
 			<Header />
-			<hr />
 			<Outlet />
 			<TanStackRouterDevtools />
-		</>
+		</div>
 	);
 };

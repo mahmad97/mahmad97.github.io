@@ -5,6 +5,31 @@
 		<!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Mohammad Ahmad</title>
+		<script id="set-theme">
+			function setTheme(newTheme) {
+				if (newTheme === 'dark') document.documentElement.classList.add('dark');
+				else document.documentElement.classList.remove('dark');
+			}
+
+			var preferredTheme = null;
+			try {
+				preferredTheme = localStorage.getItem('theme');
+			} catch (_) {}
+
+			if (
+				preferredTheme &&
+				(preferredTheme === 'dark' || preferredTheme === 'light')
+			) {
+				setTheme(preferredTheme);
+			} else {
+				localStorage.setItem('theme', 'system');
+				var systemTheme = window.matchMedia('(prefers-color-scheme: dark)')
+					.matches
+					? 'dark'
+					: 'light';
+				setTheme(systemTheme);
+			}
+		</script>
 	</head>
 	<body>
 		<div id="root"></div>
