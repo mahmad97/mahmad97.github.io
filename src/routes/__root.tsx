@@ -1,3 +1,5 @@
+import type { ReactElement } from 'react';
+
 import { createRootRoute, Outlet } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 
@@ -9,7 +11,7 @@ export const Route = createRootRoute({
 	component: () => <App />,
 });
 
-const App = () => {
+const App = (): ReactElement => {
 	return (
 		<div>
 			<Header />

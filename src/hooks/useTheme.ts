@@ -3,12 +3,15 @@ import { useSyncExternalStore } from 'react';
 type Theme = 'light' | 'dark' | 'system';
 type DocTheme = 'light' | 'dark';
 
-const setDocTheme = (newTheme: DocTheme) => {
+const setDocTheme = (newTheme: DocTheme): void => {
 	if (newTheme === 'dark') document.documentElement.classList.add('dark');
 	else document.documentElement.classList.remove('dark');
 };
 
-const onStorageThemeChange = (event: StorageEvent, listener: () => void) => {
+const onStorageThemeChange = (
+	event: StorageEvent,
+	listener: () => void
+): void => {
 	if (event.key !== 'theme') return;
 
 	const newTheme = event.newValue;
@@ -28,7 +31,7 @@ const onStorageThemeChange = (event: StorageEvent, listener: () => void) => {
 const onSystemThemeChange = (
 	event: MediaQueryListEvent,
 	listener: () => void
-) => {
+): void => {
 	const theme = window.localStorage.getItem('theme');
 
 	if (theme === 'light' || theme === 'dark') return;
@@ -59,13 +62,19 @@ const useTheme = () => {
 		};
 	};
 
-	const getSnapshot = () => window.localStorage.getItem('theme');
+	const initialTheme = window.localStorage.getItem('theme');
+	const getSnapshot = () =>
+		initialTheme === 'dark'
+			? 'dark'
+			: initialTheme === 'light'
+				? 'light'
+				: 'system';
 
-	const getServerSnapshot = () => 'system';
+	const getServerSnapshot = (): 'system' => 'system';
 
 	const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
-	const setTheme = (newValue: Theme) => {
+	const setTheme = (newValue: Theme): void => {
 		window.localStorage.setItem('theme', newValue);
 		window.dispatchEvent(
 			new StorageEvent('storage', { key: 'theme', newValue })

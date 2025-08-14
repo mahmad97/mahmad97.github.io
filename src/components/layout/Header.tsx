@@ -1,8 +1,10 @@
+import type { ReactElement } from 'react';
+
 import { Link } from '@tanstack/react-router';
 
 import ThemeToggle from '../ui/ThemeToggle';
 
-const Header = () => {
+const Header = (): ReactElement => {
 	const navTextStyle =
 		'text-base font-normal [&.active]:font-bold text-gray-800 dark:text-gray-200';
 
