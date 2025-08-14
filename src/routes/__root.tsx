@@ -13,10 +13,10 @@ export const Route = createRootRoute({
 
 const App = (): ReactElement => {
 	return (
-		<div>
+		<>
 			<Header />
 			<Outlet />
 			<TanStackRouterDevtools />
-		</div>
+		</>
 	);
 };
