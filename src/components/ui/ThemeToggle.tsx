@@ -39,7 +39,7 @@ const ThemeToggle = (): ReactElement => {
 	return (
 		<button
 			onClick={handleClick}
-			className='relative w-8 h-8 border flex items-center justify-center rounded-md border-slate-400 dark:border-slate-600 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-blue-500 transition-colors overflow-hidden'>
+			className='relative w-8 h-8 border flex items-center justify-center cursor-pointer rounded-md border-slate-400 dark:border-slate-600 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-blue-500 transition-colors overflow-hidden'>
 			{animating && (
 				<span
 					className='absolute inset-0 flex items-center justify-center'
