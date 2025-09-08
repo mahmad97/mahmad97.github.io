@@ -20,7 +20,7 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
-		"@tanstack/react-router": "^1.131.28",
+		"@tanstack/react-router": "^1.131.36",
 		"@tanstack/react-router-devtools": "^1.131.27",
 		"lucide-react": "^0.539.0",
 		"react": "^19.1.0",
