@@ -1,13 +1,13 @@
 import type { ReactElement } from 'react';
 
-import { Link } from 'react-router';
+import { Link, NavLink } from 'react-router';
 
 import Logo from '@/assets/logo.svg?react';
 import ThemeToggle from '@/components/ui/ThemeToggle';
 
 const Header = (): ReactElement => {
 	const navTextStyle =
-		'text-base font-normal [&.active]:font-bold text-gray-800 dark:text-gray-200';
+		'text-lg font-normal [&.active]:font-bold text-gray-800 dark:text-gray-200';
 
 	return (
 		<header className='border-b border-slate-400 dark:border-slate-600 backdrop-blur'>
@@ -17,16 +17,16 @@ const Header = (): ReactElement => {
 				</Link>
 
 				<div className='flex gap-4 items-center'>
-					<nav className='px-4 border-x flex gap-4 border-slate-400 dark:border-slate-600'>
-						<Link to='/' className={navTextStyle}>
+					<nav className='px-8 border-x flex gap-8 border-slate-400 dark:border-slate-600'>
+						<NavLink to='/' className={navTextStyle}>
 							Home
-						</Link>
-						<Link to='/about' className={navTextStyle}>
+						</NavLink>
+						<NavLink to='/about' className={navTextStyle}>
 							About
-						</Link>
-						<Link to='/research' className={navTextStyle}>
+						</NavLink>
+						<NavLink to='/research' className={navTextStyle}>
 							Research
-						</Link>
+						</NavLink>
 						{/* <Link to='/blog' className='[&.active]:font-bold'>
 						Blog
 					</Link> */}

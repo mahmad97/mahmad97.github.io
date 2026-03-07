@@ -10,7 +10,7 @@ const setDocTheme = (newTheme: DocTheme): void => {
 
 const onStorageThemeChange = (
 	event: StorageEvent,
-	listener: () => void
+	listener: () => void,
 ): void => {
 	if (event.key !== 'theme') return;
 
@@ -30,7 +30,7 @@ const onStorageThemeChange = (
 
 const onSystemThemeChange = (
 	event: MediaQueryListEvent,
-	listener: () => void
+	listener: () => void,
 ): void => {
 	const theme = window.localStorage.getItem('theme');
 
@@ -46,19 +46,20 @@ const useTheme = () => {
 	const subscribe = (listener: () => void) => {
 		const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
-		window.addEventListener('storage', (event) => {
+		const handleStorageChange = (event: StorageEvent) => {
 			onStorageThemeChange(event, listener);
-		});
-		mediaQuery.addEventListener('change', (event) => {
+		};
+
+		const handleSystemThemeChange = (event: MediaQueryListEvent) => {
 			onSystemThemeChange(event, listener);
-		});
+		};
+
+		window.addEventListener('storage', handleStorageChange);
+		mediaQuery.addEventListener('change', handleSystemThemeChange);
+
 		return () => {
-			window.removeEventListener('storage', (event) => {
-				onStorageThemeChange(event, listener);
-			});
-			mediaQuery.removeEventListener('change', (event) => {
-				onSystemThemeChange(event, listener);
-			});
+			window.removeEventListener('storage', handleStorageChange);
+			mediaQuery.removeEventListener('change', handleSystemThemeChange);
 		};
 	};
 
@@ -77,7 +78,7 @@ const useTheme = () => {
 	const setTheme = (newValue: Theme): void => {
 		window.localStorage.setItem('theme', newValue);
 		window.dispatchEvent(
-			new StorageEvent('storage', { key: 'theme', newValue })
+			new StorageEvent('storage', { key: 'theme', newValue }),
 		);
 	};
 

@@ -1,10 +1,12 @@
-const About = () => {
+import type { ReactElement } from 'react';
+
+import PageContainer from '@/components/layout/PageContainer';
+
+const About = (): ReactElement => {
 	return (
-		<div className='p-2'>
-			<div>
-				<p>About page</p>
-			</div>
-		</div>
+		<PageContainer heading='About'>
+			<p>About page</p>
+		</PageContainer>
 	);
 };
 

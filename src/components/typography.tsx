@@ -1,4 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
+// Exporting style constants alongside components for design token reusability
 import type { ReactElement, ReactNode } from 'react';
 
 type TypographyProps = Readonly<{
@@ -7,7 +8,7 @@ type TypographyProps = Readonly<{
 }>;
 
 const headingTextStyle =
-	'text-2xl font-extrabold text-neutral-800 dark:text-neutral-200';
+	'text-4xl font-semibold text-neutral-800 dark:text-neutral-200';
 
 const smallTextStyle =
 	'text-xs font-normal text-neutral-600 dark:text-neutral-400';
@@ -23,38 +24,39 @@ const errorTextStyle = 'text-xs font-medium text-red-500';
 
 const buttonTextStyle = 'text-base font-bold text-neutral-100';
 
-const Heading = (props: TypographyProps): ReactElement => {
-	return (
-		<h1 className={`inline-block ${headingTextStyle} ${props.className ?? ''}`}>
-			{props.children}
-		</h1>
-	);
-};
+const Heading = ({
+	children,
+	className = '',
+}: TypographyProps): ReactElement => (
+	<h1 className={`inline-block ${headingTextStyle} ${className}`}>
+		{children}
+	</h1>
+);
 
-const SmallText = (props: TypographyProps): ReactElement => {
-	return (
-		<h1 className={`inline-block ${smallTextStyle} ${props.className ?? ''}`}>
-			{props.children}
-		</h1>
-	);
-};
+const SmallText = ({
+	children,
+	className = '',
+}: TypographyProps): ReactElement => (
+	<span className={`inline-block ${smallTextStyle} ${className}`}>
+		{children}
+	</span>
+);
 
-const SmallLinkText = (props: TypographyProps): ReactElement => {
-	return (
-		<h1
-			className={`inline-block ${smallLinkTextStyle} ${props.className ?? ''}`}>
-			{props.children}
-		</h1>
-	);
-};
+const SmallLinkText = ({
+	children,
+	className = '',
+}: TypographyProps): ReactElement => (
+	<a className={`inline-block ${smallLinkTextStyle} ${className}`}>
+		{children}
+	</a>
+);
 
-const ErrorText = (props: TypographyProps): ReactElement => {
-	return (
-		<p className={`inline-block ${errorTextStyle} ${props.className ?? ''}`}>
-			{props.children}
-		</p>
-	);
-};
+const ErrorText = ({
+	children,
+	className = '',
+}: TypographyProps): ReactElement => (
+	<p className={`inline-block ${errorTextStyle} ${className}`}>{children}</p>
+);
 
 export {
 	headingTextStyle,
