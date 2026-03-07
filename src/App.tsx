@@ -11,7 +11,7 @@ import './App.css';
 
 const App = () => {
 	return (
-		<>
+		<div className='min-w-xs min-h-screen'>
 			<Header />
 			<Routes>
 				<Route path='/' element={<Home />} />
@@ -20,7 +20,7 @@ const App = () => {
 				{/* <Route path='/blog/:slug' element={<BlogPost />} />
 				<Route path='*' element={<NotFound />} /> */}
 			</Routes>
-		</>
+		</div>
 	);
 };
 
