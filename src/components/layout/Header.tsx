@@ -2,9 +2,8 @@ import type { ReactElement } from 'react';
 
 import { Link } from 'react-router';
 
-import ThemeToggle from '../ui/ThemeToggle';
-// @ts-expect-error svg import
-import Logo from '../../assets/logo.svg?react';
+import Logo from '@/assets/logo.svg?react';
+import ThemeToggle from '@/components/ui/ThemeToggle';
 
 const Header = (): ReactElement => {
 	const navTextStyle =
@@ -13,8 +12,8 @@ const Header = (): ReactElement => {
 	return (
 		<header className='border-b border-slate-400 dark:border-slate-600 backdrop-blur'>
 			<div className='max-w-7xl h-16 mx-auto px-8 flex items-center justify-between'>
-				<Link to='/'>
-					<Logo style={{ width: '3rem', height: '3rem' }} />
+				<Link to='/' className='w-12 h-12 [&>svg]:w-full [&>svg]:h-full'>
+					<Logo />
 				</Link>
 
 				<div className='flex gap-4 items-center'>

@@ -3,7 +3,7 @@ import type { ReactElement } from 'react';
 import { Sun, Moon, Monitor } from 'lucide-react';
 import { useState } from 'react';
 
-import { useTheme } from '../../hooks/useTheme';
+import { useTheme } from '@/hooks/useTheme';
 
 import './ThemeToggle.css';
 
