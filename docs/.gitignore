@@ -1,0 +1,12 @@
+# LaTeX compilation artifacts
+*.aux
+*.log
+*.out
+*.fdb_latexmk
+*.fls
+*.pdf
+*.dvi
+*.ps
+*.synctex.gz
+*.bbl
+*.blg

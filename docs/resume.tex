@@ -1,0 +1,196 @@
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{fontawesome5}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+
+\begin{document}
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%----------HEADING----------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{{\Large Mohammad Ahmad}} & Phone: 717-943-5417 \\
+  LinkedIn: \href{https://www.linkedin.com/in/mahmad97}{linkedin.com/in/mahmad97} & Email: \href{mailto:mahmad97taha@gmail.com}{mahmad97taha@gmail.com} \\
+  GitHub: \href{https://github.com/mahmad97} {github.com/mahmad97} & Location: Fremont, CA 94536 \\
+\end{tabular*}
+
+
+%----------Introduction----------
+\section{Summary}
+Software Engineer with 2 years of Frontend and Backend experience building scalable and performant consumer applications. Expertise in developing responsive interfaces, robust web applications, and building data pipelines.
+
+
+%-----------Skills-----------
+\section{Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{
+    \item
+    \textbf{Languages: }{JavaScript/TypeScript, Python, Java, C/C++, Go, C\#, Haskell, bash/shell}\\
+    \textbf{Frameworks/Libraries: }{(Frontend) Next.js, React.js, Redux, HTML, CSS, TailwindCSS, MaterialUI, Webpack; (Backend) Node.js, Express.js; (ML) Python, Pytorch, Pandas, Numpy, Flask; (Infrastructure) Linux, Git, Docker, Kubernetes, AWS; (Testing) Cypress, Jest, Enzyme, React Testing Library; (Database) NoSQL, SQL, MongoDB, PostgreSQL, MySQL}\\
+    \textbf{Technical Skills: }{RESTful APIs, Web APIs, AI/ML, Object-Oriented Programming, Functional Programming, Software Engineering, Full-stack Development, CI/CD, System Design, Data Structures, Algorithm Design, Software Testing}\\
+    \textbf{Other Skills: }{Agile Methodologies, Scrum}
+    }
+ \end{itemize}
+
+
+%-----------Education-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Master of Science in Computer Science}{Aug 2022 - May 2024}
+	  {The Pennsylvania State University (Penn State), PA, USA}{CGPA: 3.57}
+
+	\resumeSubheading
+      {Bachelor of Engineering in Computer Science}{Sep 2016 - Jun 2020}
+      {The University of Hong Kong (HKU), Hong Kong}{CGPA: 3.33}
+  \resumeSubHeadingListEnd
+
+
+%-----------Experience-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+  	\resumeSubheading
+      {\textbf{Teaching Assistant at Penn State}}{Sep 2022 - May 2024}
+      {Teaching, Mentoring, Grading}{}
+    \resumeItemListStart
+      \resumeItem{Teaching Assistant for courses ``COMP 512 Advanced Operating Systems", ``CMPSC 472 Operating System Concepts", ``CMPSC 462 Data Structures", and ``CMPSC 101 Introduction to Programming".}
+    \resumeItemListEnd
+    
+  	\resumeSubheading
+      {\textbf{Software Engineer at GOGOX}}{Sep 2020 - Jul 2022}
+      {Full-stack Development, React.js, Next.js, Web Services, Web Technologies}{}
+    \resumeItemListStart
+      \resumeItem{\textbf{Developed in-house transport management system} to replace third-party legacy application.}
+      \setlength{\itemindent}{+.2in}
+      \resumeItem{This lead to regional \textbf{cost reductions of 40\%}, later scaled to other operating regions as well.}
+      \resumeItem{Allowed the system to be \textbf{more flexible to business needs} and \textbf{consistent across our operating regions}.}
+      \setlength{\itemindent}{0in}
+      \resumeItem{\textbf{Revamped the signup and order flows.}}
+      \setlength{\itemindent}{+.2in}
+      \resumeItem{\textbf{Reduced `flow abandonment' by 15\%} by reducing number of views and forms in the flows.}
+      \resumeItem{Updated design and branding to be \textbf{consistent with products across company}.}
+      \resumeItem{\textbf{Reduced redundancy} by adding reusable components.}
+      \setlength{\itemindent}{0in}
+      \resumeItem{\textbf{Other achievements:}}
+      \setlength{\itemindent}{+.2in}
+      \resumeItem{Collaborated with product and design teams to ensure smooth delivery of software across multiple regions.}
+      \resumeItem{Consolidated the design components used in the web applications to \textbf{achieve uniform branding}.}
+      \resumeItem{Added unit tests to improve code maintainability. \textbf{Improved code coverage from 40\% to 75\%}.}
+      \setlength{\itemindent}{0in}
+    \resumeItemListEnd
+        
+    \resumeSubheading
+      {\textbf{Software Engineer Intern at Set Sail Software}}{May 2019 - Aug 2019}
+      {Front-end Development, Vue.js}{}
+    \resumeItemListStart
+      \resumeItem{Removed the process of manual report-making by developing an on-demand and real time analytics dashboard.}
+      \resumeItem{Aided product development life-cycle by implementing different kinds of user-behavior analytics.}
+    \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+%-----------Projects-----------
+\section{Projects}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+    {Vehicle Lane-change Prediction - Master's Project (Penn State) \; \href{https://github.com/mahmad97/Vehicle-Lane-Change-Prediction-using-LSTMHMM}{\underline{link}}}{Dec 2023}
+    {Deep Learning, Prediction System, Autonomous Driving, Sequence Classification}{}
+    \resumeItemListStart
+      \resumeItem{Developed a hybrid LSTM-HMM based model for vehicle lane-change prediction on the NGSIM dataset.}
+      \resumeItem{Model outperformed baseline models based on LSTM and HMM techniques.}
+      \resumeItem{Concluded that a such a hybrid model can improve performance for the lane-change prediction problem.}
+    \resumeItemListEnd
+    
+    \resumeSubheading
+    {Skin Infection Detection}{Apr 2023}
+    {Deep Learning, Classification System, Android, Flask, Node.js, PostgreSQL, Docker}{}
+    \resumeItemListStart
+      \resumeItem{Implemented and deployed a real-time skin infection detection application using a secure, transparent, scalable, and reliable distributed architecture.}
+      \resumeItem{Allowed users to receive quick and early diagnosis, potentially improving health outcomes through timely intervention.}
+    \resumeItemListEnd
+    
+    \resumeSubheading
+    {AI Skincare Advisor - Final Year Project (HKU) \; \href{https://github.com/mahmad97/AI_skincare_advisor}{\underline{link}}}{Apr 2020}
+    {Artificial Intelligence, Image Processing, Data Analysis, Machine Learning, Recommendation System}{}
+    \resumeItemListStart
+      \resumeItem{Developed a pipeline of CV and ML algorithms to analyze user pictures and input to score skin problems.}
+      \resumeItem{Application selects skincare products for the user from a database compiled using data from Sephora's website.}
+      \resumeItem{The products are selected based on user's feature scores and text input using NLP and ML techniques.}
+    \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+%-------------------------------------------
+\end{document}

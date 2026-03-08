@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
 
-import { Sun, Moon, Monitor } from 'lucide-react';
 import { useState } from 'react';
+import { LuMonitor, LuMoonStar, LuSun } from 'react-icons/lu';
 
 import { useTheme } from '@/hooks/useTheme';
 
@@ -28,11 +28,11 @@ const ThemeToggle = (): ReactElement => {
 	const getIcon = (mode: string): ReactElement => {
 		switch (mode) {
 			case 'light':
-				return <Sun className='w-6 h-6' strokeWidth={2.5} />;
+				return <LuSun size={24} strokeWidth={2.5} />;
 			case 'dark':
-				return <Moon className='w-6 h-6' strokeWidth={2.5} />;
+				return <LuMoonStar size={24} strokeWidth={2.5} />;
 			default:
-				return <Monitor className='w-6 h-6' strokeWidth={2.5} />;
+				return <LuMonitor size={24} strokeWidth={2.5} />;
 		}
 	};
 

@@ -1,8 +1,8 @@
 import type { ReactElement } from 'react';
 
-import { Mail } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { FaGoogleScholar } from 'react-icons/fa6';
+import { LuMail } from 'react-icons/lu';
 
 import OrchidIcon from '@/assets/orchidicon.svg?react';
 import PageContainer from '@/components/layout/PageContainer';
@@ -35,7 +35,7 @@ const Home = (): ReactElement => {
 							href='mailto:mohammad.ahmad@utsa.edu'
 							title='Email'
 							className={linkButtonStyle}>
-							<Mail size={24} />
+							<LuMail size={24} strokeWidth={2.5} />
 						</a>
 
 						<a
@@ -76,7 +76,14 @@ const Home = (): ReactElement => {
 						</a>
 					</div>
 
-					<div>Resume</div>
+					<a
+						href='/resume.pdf'
+						target='_blank'
+						rel='noopener noreferrer'
+						className={linkButtonStyle}
+						title='Download Resume'>
+						Download Resume
+					</a>
 				</div>
 			</div>
 

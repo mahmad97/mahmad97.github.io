@@ -25,6 +25,17 @@ jobs:
         with:
           node-version-file: '.nvmrc'
 
+      - name: Compile LaTeX files
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: ./*.tex
+          working_directory: docs/
+
+      - name: Move PDFs to public directory
+        run: |
+          mv docs/resume.pdf public/resume.pdf
+          mv docs/cv.pdf public/cv.pdf
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
