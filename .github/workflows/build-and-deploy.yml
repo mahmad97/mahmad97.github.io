@@ -32,9 +32,7 @@ jobs:
           working_directory: docs/
 
       - name: Move PDFs to public directory
-        run: |
-          mv docs/resume.pdf public/resume.pdf
-          mv docs/cv.pdf public/cv.pdf
+        run: mv docs/*.pdf public/
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
