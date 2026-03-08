@@ -10,6 +10,12 @@ type TypographyProps = Readonly<{
 const headingTextStyle =
 	'text-4xl font-semibold text-neutral-800 dark:text-neutral-200';
 
+const subheadingTextStyle =
+	'text-2xl font-medium text-neutral-800 dark:text-neutral-200';
+
+const xlTextStyle =
+	'text-xl font-normal text-neutral-800 dark:text-neutral-200';
+
 const smallTextStyle =
 	'text-xs font-normal text-neutral-600 dark:text-neutral-400';
 
@@ -31,6 +37,22 @@ const Heading = ({
 	<h1 className={`inline-block ${headingTextStyle} ${className}`}>
 		{children}
 	</h1>
+);
+
+const Subheading = ({
+	children,
+	className = '',
+}: TypographyProps): ReactElement => (
+	<h2 className={`inline-block ${subheadingTextStyle} ${className}`}>
+		{children}
+	</h2>
+);
+
+const XlText = ({
+	children,
+	className = '',
+}: TypographyProps): ReactElement => (
+	<p className={`inline-block ${xlTextStyle} ${className}`}>{children}</p>
 );
 
 const SmallText = ({
@@ -60,6 +82,8 @@ const ErrorText = ({
 
 export {
 	headingTextStyle,
+	subheadingTextStyle,
+	xlTextStyle,
 	smallTextStyle,
 	smallLinkTextStyle,
 	labelTextStyle,
@@ -67,6 +91,8 @@ export {
 	errorTextStyle,
 	buttonTextStyle,
 	Heading,
+	Subheading,
+	XlText,
 	SmallText,
 	SmallLinkText,
 	ErrorText,

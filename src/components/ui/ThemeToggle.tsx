@@ -28,18 +28,18 @@ const ThemeToggle = (): ReactElement => {
 	const getIcon = (mode: string): ReactElement => {
 		switch (mode) {
 			case 'light':
-				return <Sun className='w-5 h-5' strokeWidth={2.5} />;
+				return <Sun className='w-6 h-6' strokeWidth={2.5} />;
 			case 'dark':
-				return <Moon className='w-5 h-5' strokeWidth={2.5} />;
+				return <Moon className='w-6 h-6' strokeWidth={2.5} />;
 			default:
-				return <Monitor className='w-5 h-5' strokeWidth={2.5} />;
+				return <Monitor className='w-6 h-6' strokeWidth={2.5} />;
 		}
 	};
 
 	return (
 		<button
 			onClick={handleClick}
-			className='relative w-8 h-8 border flex items-center justify-center cursor-pointer rounded-md border-slate-400 dark:border-slate-600 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-blue-500 transition-colors overflow-hidden'>
+			className='relative w-9 h-9 border flex items-center justify-center cursor-pointer rounded-md border-slate-400 dark:border-slate-600 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-blue-500 transition-colors overflow-hidden'>
 			{animating && (
 				<span
 					className='absolute inset-0 flex items-center justify-center'
