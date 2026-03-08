@@ -2,14 +2,14 @@ import type { ReactElement } from 'react';
 
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { FaGoogleScholar } from 'react-icons/fa6';
-import { LuMail } from 'react-icons/lu';
+import { LuFileUser, LuMail } from 'react-icons/lu';
 
 import OrchidIcon from '@/assets/orchidicon.svg?react';
 import PageContainer from '@/components/layout/PageContainer';
 import { Heading, XlText } from '@/components/typography';
 
 const linkButtonStyle =
-	'relative w-9 h-9 border flex items-center justify-center cursor-pointer rounded-md border-slate-400 dark:border-slate-600 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-blue-500 transition-colors';
+	'relative w-9 h-9 border flex items-center justify-center rounded-md border-slate-500 dark:border-slate-600 bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 text-blue-500 transition-colors duration-300';
 
 const Home = (): ReactElement => {
 	return (
@@ -76,14 +76,17 @@ const Home = (): ReactElement => {
 						</a>
 					</div>
 
-					<a
-						href='/resume.pdf'
-						target='_blank'
-						rel='noopener noreferrer'
-						className={linkButtonStyle}
-						title='Download Resume'>
-						Download Resume
-					</a>
+					<div>
+						<a
+							href='/resume.pdf'
+							title='Resume'
+							target='_blank'
+							rel='noopener noreferrer'
+							className='p-2 border inline-flex items-center gap-2 rounded-md border-blue-500 hover:border-blue-600 bg-blue-500 hover:bg-blue-600 text-gray-100 font-medium transition-colors duration-300'>
+							<LuFileUser size={24} strokeWidth={2} />
+							Resume
+						</a>
+					</div>
 				</div>
 			</div>
 
