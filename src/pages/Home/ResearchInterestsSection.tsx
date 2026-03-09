@@ -13,7 +13,7 @@ const researchInterests = [
 ];
 
 const ResearchInterestsSection = (): ReactElement => (
-	<div className='mb-8'>
+	<div>
 		<Subheading className='mb-4'>Research Interests</Subheading>
 		<div className='flex flex-wrap gap-2'>
 			{researchInterests.map((interest) => (

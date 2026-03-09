@@ -21,12 +21,12 @@ const newsItems: NewsItem[] = [
 ];
 
 const NewsSection = (): ReactElement => (
-	<div className='mb-8'>
+	<div>
 		<Subheading className='mb-4'>News</Subheading>
 		<ul className='space-y-3'>
 			{newsItems.map((item) => (
 				<li key={item.date} className='flex gap-4'>
-					<span className='text-base font-medium text-slate-500 dark:text-slate-400 shrink-0 w-20'>
+					<span className='text-base font-medium text-neutral-500 dark:text-neutral-400 shrink-0 w-20'>
 						{item.date}
 					</span>
 					<BaseText>{item.text}</BaseText>

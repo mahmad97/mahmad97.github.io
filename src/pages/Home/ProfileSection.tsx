@@ -11,7 +11,7 @@ import IconButton from '@/components/ui/IconButton';
 import { Heading, XlText } from '@/components/typography';
 
 const ProfileSection = (): ReactElement => (
-	<div className='flex flex-col md:flex-row gap-6 md:gap-8 mb-8'>
+	<div className='flex flex-col md:flex-row gap-6 md:gap-8'>
 		<img
 			src={profileImg}
 			alt='Profile picture'

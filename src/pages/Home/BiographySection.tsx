@@ -3,7 +3,7 @@ import type { ReactElement } from 'react';
 import { BaseText, InlineLink, Subheading } from '@/components/typography';
 
 const BiographySection = (): ReactElement => (
-	<div className='mb-8'>
+	<div>
 		<Subheading className='mb-4'>Biography</Subheading>
 		<BaseText className='mb-4'>
 			I am a PhD student in Computer Science at{' '}
