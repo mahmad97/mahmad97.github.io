@@ -19,7 +19,7 @@ const ResearchInterestsSection = (): ReactElement => (
 			{researchInterests.map((interest) => (
 				<span
 					key={interest}
-					className='px-3 py-1 text-sm rounded-full border border-blue-300 dark:border-blue-700 bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300'>
+					className='px-3 py-1 text-sm rounded-full border border-blue-300 dark:border-blue-700 bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 transition-colors duration-200'>
 					{interest}
 				</span>
 			))}

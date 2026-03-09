@@ -26,7 +26,7 @@ const NewsSection = (): ReactElement => (
 		<ul className='space-y-3'>
 			{newsItems.map((item) => (
 				<li key={item.date} className='flex gap-4'>
-					<span className='text-base font-medium text-neutral-500 dark:text-neutral-400 shrink-0 w-20'>
+					<span className='text-base font-medium text-neutral-500 dark:text-neutral-400 transition-colors duration-200 shrink-0 w-20'>
 						{item.date}
 					</span>
 					<BaseText>{item.text}</BaseText>

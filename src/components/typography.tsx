@@ -14,32 +14,37 @@ type LinkProps = Readonly<{
 }>;
 
 const headingTextStyle =
-	'text-4xl font-semibold text-neutral-800 dark:text-neutral-200';
+	'text-4xl font-semibold text-neutral-800 dark:text-neutral-200 transition-colors duration-200';
 
 const subheadingTextStyle =
-	'text-2xl font-semibold text-neutral-800 dark:text-neutral-200';
+	'text-3xl font-semibold text-neutral-800 dark:text-neutral-200 transition-colors duration-200';
+
+const subsubheadingTextStyle =
+	'text-2xl font-semibold text-neutral-800 dark:text-neutral-200 transition-colors duration-200';
 
 const xlTextStyle =
-	'text-xl font-normal text-neutral-800 dark:text-neutral-200';
+	'text-xl font-normal text-neutral-800 dark:text-neutral-200 transition-colors duration-200';
+
+const navTextStyle =
+	'text-lg font-normal transition-colors duration-200 [&.active]:font-bold [&.active]:text-blue-500 [&:not(.active)]:text-neutral-700 hover:[&:not(.active)]:text-neutral-800 dark:[&:not(.active)]:text-neutral-300 dark:hover:[&:not(.active)]:text-neutral-200';
 
 const baseTextStyle =
-	'text-base font-normal text-neutral-800 dark:text-neutral-200';
+	'text-base font-normal text-neutral-800 dark:text-neutral-200 transition-colors duration-200';
 
 const smallTextStyle =
-	'text-xs font-normal text-neutral-600 dark:text-neutral-400';
+	'text-sm font-normal text-neutral-600 dark:text-neutral-400 transition-colors duration-200';
 
 const inlineLinkTextStyle = 'text-blue-500 hover:underline';
 
-const smallLinkTextStyle = 'text-xs font-normal text-blue-500 hover:underline';
+// const labelTextStyle =
+// 	'text-base font-bold text-slate-800 dark:text-slate-300 transition-colors duration-200';
 
-const labelTextStyle = 'text-base font-bold text-slate-800 dark:text-slate-300';
+// const inputTextStyle =
+// 	'text-base font-normal text-neutral-700 dark:text-neutral-300 transition-colors duration-200';
 
-const inputTextStyle =
-	'text-base font-normal text-neutral-700 dark:text-neutral-300';
+// const errorTextStyle = 'text-xs font-medium text-red-500';
 
-const errorTextStyle = 'text-xs font-medium text-red-500';
-
-const buttonTextStyle = 'text-base font-bold text-neutral-100';
+// const buttonTextStyle = 'text-base font-bold text-neutral-100';
 
 const Heading = ({
 	children,
@@ -57,11 +62,18 @@ const Subheading = ({
 	<h2 className={`block ${subheadingTextStyle} ${className}`}>{children}</h2>
 );
 
+const Subsubheading = ({
+	children,
+	className = '',
+}: TypographyProps): ReactElement => (
+	<h3 className={`block ${subsubheadingTextStyle} ${className}`}>{children}</h3>
+);
+
 const XlText = ({
 	children,
 	className = '',
 }: TypographyProps): ReactElement => (
-	<p className={`inline-block ${xlTextStyle} ${className}`}>{children}</p>
+	<h4 className={`inline-block ${xlTextStyle} ${className}`}>{children}</h4>
 );
 
 const BaseText = ({
@@ -94,44 +106,20 @@ const InlineLink = ({
 	</a>
 );
 
-const SmallLinkText = ({
-	children,
-	href,
-	className = '',
-}: LinkProps): ReactElement => (
-	<a
-		href={href}
-		target='_blank'
-		rel='noopener noreferrer'
-		className={`inline-block ${smallLinkTextStyle} ${className}`}>
-		{children}
-	</a>
-);
-
-const ErrorText = ({
-	children,
-	className = '',
-}: TypographyProps): ReactElement => (
-	<p className={`inline-block ${errorTextStyle} ${className}`}>{children}</p>
-);
-
 export {
 	headingTextStyle,
 	subheadingTextStyle,
+	subsubheadingTextStyle,
 	xlTextStyle,
+	navTextStyle,
 	baseTextStyle,
 	smallTextStyle,
-	smallLinkTextStyle,
-	labelTextStyle,
-	inputTextStyle,
-	errorTextStyle,
-	buttonTextStyle,
+	inlineLinkTextStyle,
 	Heading,
 	Subheading,
+	Subsubheading,
 	XlText,
 	BaseText,
-	InlineLink,
 	SmallText,
-	SmallLinkText,
-	ErrorText,
+	InlineLink,
 };

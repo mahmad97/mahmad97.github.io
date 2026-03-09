@@ -5,23 +5,21 @@ import { LuMenu, LuX } from 'react-icons/lu';
 import { Link, NavLink } from 'react-router';
 
 import Logo from '@/assets/logo.svg?react';
+import { navTextStyle } from '@/components/typography';
 import ThemeToggle from '@/components/ui/ThemeToggle';
-
-const navTextStyle =
-	'text-lg font-normal [&.active]:font-bold [&.active]:text-blue-500 [&:not(.active)]:text-neutral-700 hover:[&:not(.active)]:text-neutral-800 dark:[&:not(.active)]:text-neutral-300 dark:hover:[&:not(.active)]:text-neutral-200';
 
 const Header = (): ReactElement => {
 	const [menuOpen, setMenuOpen] = useState(false);
 
 	return (
-		<header className='sticky top-0 border-b border-slate-400 dark:border-slate-600 backdrop-blur'>
+		<header className='sticky top-0 z-10 border-b border-slate-400 dark:border-slate-600 backdrop-blur transition-colors duration-200'>
 			<div className='max-w-5xl h-16 mx-auto px-4 md:px-8 flex items-center justify-between'>
 				<Link to='/' className='w-10 h-10 [&>svg]:w-full [&>svg]:h-full mr-8'>
 					<Logo />
 				</Link>
 
 				<div className='hidden md:flex items-center'>
-					<nav className='px-6 border-x flex gap-6 border-slate-400 dark:border-slate-600'>
+					<nav className='px-6 border-x flex gap-6 border-slate-400 dark:border-slate-600 transition-colors duration-200'>
 						<NavLink to='/' className={navTextStyle}>
 							Home
 						</NavLink>
