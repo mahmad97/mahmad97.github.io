@@ -38,10 +38,13 @@ const ThemeToggle = (): ReactElement => {
 	};
 
 	return (
-		<IconButton title='Toggle theme' onClick={handleClick} className='overflow-hidden'>
+		<IconButton
+			title='Toggle theme'
+			onClick={handleClick}
+			className='overflow-hidden'>
 			{animating && (
 				<span
-					className='absolute inset-0 flex items-center justify-center'
+					className='absolute'
 					style={{ animation: 'slideOut 0.25s forwards' }}
 					onAnimationEnd={() => setAnimating(false)}>
 					{getIcon(prevThemeRef.current)}
@@ -49,7 +52,7 @@ const ThemeToggle = (): ReactElement => {
 			)}
 
 			<span
-				className='absolute inset-0 flex items-center justify-center'
+				className='absolute'
 				style={animating ? { animation: 'slideIn 0.25s forwards' } : {}}>
 				{getIcon(theme)}
 			</span>
