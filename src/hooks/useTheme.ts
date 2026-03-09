@@ -42,37 +42,34 @@ const onSystemThemeChange = (
 	listener();
 };
 
-const useTheme = () => {
-	const subscribe = (listener: () => void) => {
-		const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+const subscribe = (listener: () => void) => {
+	const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
-		const handleStorageChange = (event: StorageEvent) => {
-			onStorageThemeChange(event, listener);
-		};
-
-		const handleSystemThemeChange = (event: MediaQueryListEvent) => {
-			onSystemThemeChange(event, listener);
-		};
-
-		window.addEventListener('storage', handleStorageChange);
-		mediaQuery.addEventListener('change', handleSystemThemeChange);
-
-		return () => {
-			window.removeEventListener('storage', handleStorageChange);
-			mediaQuery.removeEventListener('change', handleSystemThemeChange);
-		};
+	const handleStorageChange = (event: StorageEvent) => {
+		onStorageThemeChange(event, listener);
 	};
 
-	const initialTheme = window.localStorage.getItem('theme');
-	const getSnapshot = () =>
-		initialTheme === 'dark'
-			? 'dark'
-			: initialTheme === 'light'
-				? 'light'
-				: 'system';
+	const handleSystemThemeChange = (event: MediaQueryListEvent) => {
+		onSystemThemeChange(event, listener);
+	};
 
-	const getServerSnapshot = (): 'system' => 'system';
+	window.addEventListener('storage', handleStorageChange);
+	mediaQuery.addEventListener('change', handleSystemThemeChange);
 
+	return () => {
+		window.removeEventListener('storage', handleStorageChange);
+		mediaQuery.removeEventListener('change', handleSystemThemeChange);
+	};
+};
+
+const getSnapshot = (): Theme => {
+	const theme = window.localStorage.getItem('theme');
+	return theme === 'dark' ? 'dark' : theme === 'light' ? 'light' : 'system';
+};
+
+const getServerSnapshot = (): 'system' => 'system';
+
+const useTheme = () => {
 	const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
 	const setTheme = (newValue: Theme): void => {

@@ -7,10 +7,11 @@ type IconButtonProps = Readonly<{
 	target?: string;
 	rel?: string;
 	onClick?: () => void;
+	className?: string;
 }>;
 
 const iconButtonStyle =
-	'relative w-9 h-9 border flex items-center justify-center rounded-md border-slate-500 dark:border-slate-600 bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 text-blue-500 transition-colors duration-300';
+	'relative w-9 h-9 border flex items-center justify-center rounded-md cursor-pointer border-slate-400 dark:border-slate-600 bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-blue-500 transition-colors duration-200';
 
 const IconButton = ({
 	children,
@@ -19,6 +20,7 @@ const IconButton = ({
 	target,
 	rel,
 	onClick,
+	className = '',
 }: IconButtonProps): ReactElement =>
 	href ? (
 		<a
@@ -27,7 +29,7 @@ const IconButton = ({
 			aria-label={title}
 			target={target}
 			rel={rel}
-			className={iconButtonStyle}>
+			className={`${iconButtonStyle} ${className}`}>
 			{children}
 		</a>
 	) : (
@@ -36,7 +38,7 @@ const IconButton = ({
 			title={title}
 			aria-label={title}
 			onClick={onClick}
-			className={iconButtonStyle}>
+			className={`${iconButtonStyle} ${className}`}>
 			{children}
 		</button>
 	);

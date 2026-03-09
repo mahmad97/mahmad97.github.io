@@ -32,7 +32,7 @@ const inlineLinkTextStyle = 'text-blue-500 hover:underline';
 
 const smallLinkTextStyle = 'text-xs font-normal text-blue-500 hover:underline';
 
-const labelTextStyle = 'text-base font-bold text-gray-800 dark:text-gray-300';
+const labelTextStyle = 'text-base font-bold text-slate-800 dark:text-slate-300';
 
 const inputTextStyle =
 	'text-base font-normal text-neutral-700 dark:text-neutral-300';
@@ -96,9 +96,14 @@ const InlineLink = ({
 
 const SmallLinkText = ({
 	children,
+	href,
 	className = '',
-}: TypographyProps): ReactElement => (
-	<a className={`inline-block ${smallLinkTextStyle} ${className}`}>
+}: LinkProps): ReactElement => (
+	<a
+		href={href}
+		target='_blank'
+		rel='noopener noreferrer'
+		className={`inline-block ${smallLinkTextStyle} ${className}`}>
 		{children}
 	</a>
 );

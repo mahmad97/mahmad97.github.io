@@ -1,19 +1,31 @@
 import type { ReactElement } from 'react';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { LuMonitor, LuMoonStar, LuSun } from 'react-icons/lu';
 
+import IconButton from '@/components/ui/IconButton';
 import { useTheme } from '@/hooks/useTheme';
 
 import './ThemeToggle.css';
 
+const getIcon = (mode: string): ReactElement => {
+	switch (mode) {
+		case 'light':
+			return <LuSun size={24} strokeWidth={2.5} />;
+		case 'dark':
+			return <LuMoonStar size={24} strokeWidth={2.5} />;
+		default:
+			return <LuMonitor size={24} strokeWidth={2.5} />;
+	}
+};
+
 const ThemeToggle = (): ReactElement => {
 	const [theme, setTheme] = useTheme();
-	const [prevTheme, setPrevTheme] = useState(theme);
+	const prevThemeRef = useRef(theme);
 	const [animating, setAnimating] = useState(false);
 
 	const handleClick = (): void => {
-		setPrevTheme(theme);
+		prevThemeRef.current = theme;
 		setAnimating(true);
 
 		if (theme === 'light') {
@@ -25,27 +37,14 @@ const ThemeToggle = (): ReactElement => {
 		}
 	};
 
-	const getIcon = (mode: string): ReactElement => {
-		switch (mode) {
-			case 'light':
-				return <LuSun size={24} strokeWidth={2.5} />;
-			case 'dark':
-				return <LuMoonStar size={24} strokeWidth={2.5} />;
-			default:
-				return <LuMonitor size={24} strokeWidth={2.5} />;
-		}
-	};
-
 	return (
-		<button
-			onClick={handleClick}
-			className='relative w-9 h-9 border flex items-center justify-center cursor-pointer rounded-md border-slate-400 dark:border-slate-600 bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 text-blue-500 transition-colors duration-300 overflow-hidden'>
+		<IconButton title='Toggle theme' onClick={handleClick} className='overflow-hidden'>
 			{animating && (
 				<span
 					className='absolute inset-0 flex items-center justify-center'
 					style={{ animation: 'slideOut 0.25s forwards' }}
 					onAnimationEnd={() => setAnimating(false)}>
-					{getIcon(prevTheme)}
+					{getIcon(prevThemeRef.current)}
 				</span>
 			)}
 
@@ -54,7 +53,7 @@ const ThemeToggle = (): ReactElement => {
 				style={animating ? { animation: 'slideIn 0.25s forwards' } : {}}>
 				{getIcon(theme)}
 			</span>
-		</button>
+		</IconButton>
 	);
 };
 

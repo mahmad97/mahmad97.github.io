@@ -16,3 +16,12 @@ Accessible at [mahmad.dev](https://mahmad.dev) and [mahmad97.github.io](https://
 | Package Manager | [npm](https://www.npmjs.com/)                                                      |
 | Deployment      | [GitHub Actions](https://github.com/features/actions)                              |
 | Typesetting     | [LaTeX](https://www.latex-project.org/)                                            |
+
+## Development Tools
+
+| Category        | Technology                                |
+| --------------- | ----------------------------------------- |
+| Editor/IDE      | [VS Code](https://code.visualstudio.com/) |
+| AI Assist       | [Claude](https://claude.ai/new)           |
+| Version Control | [Git](https://git-scm.com/)               |
+| Repository      | [GitHub](https://github.com/)             |
