@@ -7,17 +7,28 @@ type TypographyProps = Readonly<{
 	className?: string;
 }>;
 
+type LinkProps = Readonly<{
+	children: ReactNode;
+	href: string;
+	className?: string;
+}>;
+
 const headingTextStyle =
 	'text-4xl font-semibold text-neutral-800 dark:text-neutral-200';
 
 const subheadingTextStyle =
-	'text-2xl font-medium text-neutral-800 dark:text-neutral-200';
+	'text-2xl font-semibold text-neutral-800 dark:text-neutral-200';
 
 const xlTextStyle =
 	'text-xl font-normal text-neutral-800 dark:text-neutral-200';
 
+const baseTextStyle =
+	'text-base font-normal text-neutral-800 dark:text-neutral-200';
+
 const smallTextStyle =
 	'text-xs font-normal text-neutral-600 dark:text-neutral-400';
+
+const inlineLinkTextStyle = 'text-blue-500 hover:underline';
 
 const smallLinkTextStyle = 'text-xs font-normal text-blue-500 hover:underline';
 
@@ -43,9 +54,7 @@ const Subheading = ({
 	children,
 	className = '',
 }: TypographyProps): ReactElement => (
-	<h2 className={`inline-block ${subheadingTextStyle} ${className}`}>
-		{children}
-	</h2>
+	<h2 className={`block ${subheadingTextStyle} ${className}`}>{children}</h2>
 );
 
 const XlText = ({
@@ -55,6 +64,13 @@ const XlText = ({
 	<p className={`inline-block ${xlTextStyle} ${className}`}>{children}</p>
 );
 
+const BaseText = ({
+	children,
+	className = '',
+}: TypographyProps): ReactElement => (
+	<p className={`block ${baseTextStyle} ${className}`}>{children}</p>
+);
+
 const SmallText = ({
 	children,
 	className = '',
@@ -62,6 +78,20 @@ const SmallText = ({
 	<span className={`inline-block ${smallTextStyle} ${className}`}>
 		{children}
 	</span>
+);
+
+const InlineLink = ({
+	children,
+	href,
+	className = '',
+}: LinkProps): ReactElement => (
+	<a
+		href={href}
+		target='_blank'
+		rel='noopener noreferrer'
+		className={`${inlineLinkTextStyle} ${className}`}>
+		{children}
+	</a>
 );
 
 const SmallLinkText = ({
@@ -84,6 +114,7 @@ export {
 	headingTextStyle,
 	subheadingTextStyle,
 	xlTextStyle,
+	baseTextStyle,
 	smallTextStyle,
 	smallLinkTextStyle,
 	labelTextStyle,
@@ -93,6 +124,8 @@ export {
 	Heading,
 	Subheading,
 	XlText,
+	BaseText,
+	InlineLink,
 	SmallText,
 	SmallLinkText,
 	ErrorText,
