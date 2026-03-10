@@ -8,7 +8,7 @@ const parseText = (text: string): ReactNode => {
 
 	return parts.map((part, i) => {
 		const match = part.match(/\[([^\]]+)\]\(([^)]+)\)/);
-		
+
 		if (match) {
 			return (
 				<InlineLink key={i} href={match[2]}>

@@ -11,17 +11,18 @@ import IconButton from '@/components/ui/IconButton';
 import { Heading, XlText } from '@/components/typography';
 
 const ProfileSection = (): ReactElement => (
-	<div className='flex flex-col md:flex-row gap-6 md:gap-8'>
+	<div className='flex flex-col lg:flex-row gap-6 lg:gap-8'>
 		<img
 			src={profileImg}
 			alt='Profile picture'
-			className='w-56 h-56 mx-auto md:mx-0 md:w-72 md:h-72 lg:w-96 lg:h-96 rounded-lg object-cover shrink-0'
+			className='w-64 h-64 mx-auto lg:mx-0 lg:w-96 lg:h-96 rounded-lg object-cover shrink-0'
 		/>
+
 		<div className='flex flex-col flex-grow gap-6 md:gap-8'>
 			<div className='flex flex-col'>
 				<Heading className='mb-4'>Mohammad Ahmad</Heading>
-				<XlText className='mb-2'>PhD Student in Computer Science</XlText>
-				<XlText className='mb-2'>College of AI, Cyber and Computing</XlText>
+				<XlText className='mb-1'>PhD Student in Computer Science</XlText>
+				<XlText className='mb-1'>College of AI, Cyber and Computing</XlText>
 				<XlText>The University of Texas at San Antonio</XlText>
 			</div>
 
