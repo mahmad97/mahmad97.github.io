@@ -27,7 +27,7 @@ type NavigationProps = Readonly<{
 }>;
 
 const Navigation = ({ onClose }: NavigationProps): ReactElement => (
-	<nav className='min-h-0 flex-1 overflow-y-auto flex flex-col gap-4 py-4'>
+	<nav className='min-h-0 flex-1 overflow-y-auto flex flex-col gap-3 py-3'>
 		{navGroups.map((group) => (
 			<div key={group.label} className='flex flex-col gap-1'>
 				<span className={navHeadingStyle}>{group.label}</span>

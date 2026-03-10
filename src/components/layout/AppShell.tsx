@@ -15,7 +15,7 @@ const AppShell = (): ReactElement => {
 			<Header onMenuClick={() => setOpen(true)} />
 
 			{/* Mobile drawer */}
-			{open && <SideDrawer />}
+			{open && <SideDrawer closeDrawer={() => setOpen(false)} />}
 
 			{/* Desktop sidebar */}
 			<Sidebar />
