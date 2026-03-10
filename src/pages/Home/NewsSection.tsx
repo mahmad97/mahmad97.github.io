@@ -1,35 +1,42 @@
 import type { ReactElement, ReactNode } from 'react';
 
 import { BaseText, InlineLink, Subheading } from '@/components/typography';
+import newsData from '@/data/news.json';
 
-type NewsItem = Readonly<{ date: string; text: ReactNode }>;
+const parseText = (text: string): ReactNode => {
+	const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
 
-const newsItems: NewsItem[] = [
-	{
-		date: 'Jan 2025',
-		text: (
-			<>
-				Started PhD in Computer Science at{' '}
-				<InlineLink href='https://www.utsa.edu/'>UTSA</InlineLink>, advised by{' '}
-				<InlineLink href='https://sites.google.com/view/mxie'>
-					Dr. Mimi Xie
+	return parts.map((part, i) => {
+		const match = part.match(/\[([^\]]+)\]\(([^)]+)\)/);
+		
+		if (match) {
+			return (
+				<InlineLink key={i} href={match[2]}>
+					{match[1]}
 				</InlineLink>
-				.
-			</>
-		),
-	},
-];
+			);
+		}
+
+		return part;
+	});
+};
+
+const currentYear = new Date().getFullYear();
+const recentNews = newsData.filter((item) => {
+	const year = parseInt(item.date.split(' ')[1]);
+	return year >= currentYear - 2;
+});
 
 const NewsSection = (): ReactElement => (
 	<div>
 		<Subheading className='mb-4'>News</Subheading>
 		<ul className='space-y-3'>
-			{newsItems.map((item) => (
+			{recentNews.map((item) => (
 				<li key={item.date} className='flex gap-4'>
-					<span className='text-base font-medium text-neutral-500 dark:text-neutral-400 transition-colors duration-200 shrink-0 w-20'>
+					<span className=' w-20 shrink-0 text-base font-medium text-neutral-500 dark:text-neutral-400 transition-colors duration-200'>
 						{item.date}
 					</span>
-					<BaseText>{item.text}</BaseText>
+					<BaseText>{parseText(item.text)}</BaseText>
 				</li>
 			))}
 		</ul>

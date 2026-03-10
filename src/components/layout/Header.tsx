@@ -20,9 +20,6 @@ const Header = (): ReactElement => {
 
 				<div className='hidden md:flex items-center'>
 					<nav className='px-6 border-x flex gap-6 border-slate-400 dark:border-slate-600 transition-colors duration-200'>
-						<NavLink to='/' className={navTextStyle}>
-							Home
-						</NavLink>
 						<NavLink to='/publications' className={navTextStyle}>
 							Publications
 						</NavLink>
@@ -32,8 +29,8 @@ const Header = (): ReactElement => {
 						<NavLink to='/background' className={navTextStyle}>
 							Background
 						</NavLink>
-						<NavLink to='/people' className={navTextStyle}>
-							People
+						<NavLink to='/affiliations' className={navTextStyle}>
+							Affiliations
 						</NavLink>
 					</nav>
 				</div>
@@ -58,28 +55,10 @@ const Header = (): ReactElement => {
 			{menuOpen && (
 				<nav className='md:hidden border-t border-slate-400 dark:border-slate-600 flex flex-col px-4 py-3 gap-2'>
 					<NavLink
-						to='/'
-						className={navTextStyle}
-						onClick={() => setMenuOpen(false)}>
-						Home
-					</NavLink>
-					<NavLink
 						to='/publications'
 						className={navTextStyle}
 						onClick={() => setMenuOpen(false)}>
 						Publications
-					</NavLink>
-					<NavLink
-						to='/background'
-						className={navTextStyle}
-						onClick={() => setMenuOpen(false)}>
-						Background
-					</NavLink>
-					<NavLink
-						to='/people'
-						className={navTextStyle}
-						onClick={() => setMenuOpen(false)}>
-						People
 					</NavLink>
 					<NavLink
 						to='/awards'
@@ -88,10 +67,16 @@ const Header = (): ReactElement => {
 						Awards
 					</NavLink>
 					<NavLink
-						to='/about'
+						to='/background'
 						className={navTextStyle}
 						onClick={() => setMenuOpen(false)}>
-						About
+						Background
+					</NavLink>
+					<NavLink
+						to='/affiliations'
+						className={navTextStyle}
+						onClick={() => setMenuOpen(false)}>
+						Affiliations
 					</NavLink>
 				</nav>
 			)}
