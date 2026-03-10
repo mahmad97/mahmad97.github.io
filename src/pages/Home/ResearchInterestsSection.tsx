@@ -14,7 +14,7 @@ const researchInterests = [
 ];
 
 const ResearchInterestsSection = (): ReactElement => (
-	<div>
+	<section>
 		<Subheading className='mb-4'>Research Interests</Subheading>
 		<div className='flex flex-wrap gap-2'>
 			{researchInterests.map((interest) => (
@@ -25,7 +25,7 @@ const ResearchInterestsSection = (): ReactElement => (
 				</span>
 			))}
 		</div>
-	</div>
+	</section>
 );
 
 export default ResearchInterestsSection;

@@ -28,7 +28,7 @@ const recentNews = newsData.filter((item) => {
 });
 
 const NewsSection = (): ReactElement => (
-	<div>
+	<section>
 		<Subheading className='mb-4'>News</Subheading>
 		<ul className='space-y-3'>
 			{recentNews.map((item) => (
@@ -40,7 +40,7 @@ const NewsSection = (): ReactElement => (
 				</li>
 			))}
 		</ul>
-	</div>
+	</section>
 );
 
 export default NewsSection;

@@ -11,11 +11,11 @@ import IconButton from '@/components/ui/IconButton';
 import { Heading, XlText } from '@/components/typography';
 
 const ProfileSection = (): ReactElement => (
-	<div className='flex flex-col lg:flex-row gap-6 lg:gap-8'>
+	<section className='flex flex-col lg:flex-row gap-6 lg:gap-8'>
 		<img
 			src={profileImg}
 			alt='Profile picture'
-			className='w-64 h-64 mx-auto lg:mx-0 lg:w-96 lg:h-96 rounded-lg object-cover shrink-0'
+			className='w-64 h-64 mx-auto lg:mx-0 lg:w-96 lg:h-96 rounded-lg shrink-0'
 		/>
 
 		<div className='flex flex-col flex-grow gap-6 md:gap-8'>
@@ -71,7 +71,7 @@ const ProfileSection = (): ReactElement => (
 				</Button>
 			</div>
 		</div>
-	</div>
+	</section>
 );
 
 export default ProfileSection;
