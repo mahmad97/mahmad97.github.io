@@ -11,7 +11,7 @@ type HeaderProps = Readonly<{
 }>;
 
 const Header = ({ onMenuClick }: HeaderProps): ReactElement => (
-	<header className='border-b md:hidden border-slate-400 dark:border-slate-600 backdrop-blur transition-colors duration-200'>
+	<header className='sticky top-0 z-10 border-b md:hidden border-slate-400 dark:border-slate-600 backdrop-blur transition-colors duration-200'>
 		<div className='h-16 px-4 flex items-center justify-between'>
 			<Link to='/' className='w-10 h-10 [&>svg]:w-full [&>svg]:h-full'>
 				<Logo />
