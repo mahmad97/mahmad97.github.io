@@ -6,10 +6,11 @@ const researchInterests = [
 	'Computer Architecture',
 	'In-Memory Computing',
 	'Domain Wall Memory',
-	'Energy-Efficient Computing',
 	'Embedded Systems',
 	'TinyML',
 	'ML on Novel Hardware',
+	'Intermittent Computing',
+	'IoT',
 ];
 
 const ResearchInterestsSection = (): ReactElement => (
