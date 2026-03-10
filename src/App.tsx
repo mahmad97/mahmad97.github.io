@@ -2,14 +2,14 @@ import type { ReactElement } from 'react';
 
 import { Routes, Route } from 'react-router';
 
+import AppShell from './components/layout/AppShell';
 import Footer from '@/components/layout/Footer';
-import Header from '@/components/layout/Header';
 import Affiliations from '@/pages/Affiliations';
 import Awards from '@/pages/Awards';
 import Background from '@/pages/Background';
 import Home from '@/pages/Home';
+import Projects from '@/pages/Projects';
 import Publications from '@/pages/Publications';
-// import Research from '@/pages/Research';
 // import BlogPost from './pages/BlogPost';
 // import NotFound from './pages/NotFound';
 
@@ -17,21 +17,23 @@ import './App.css';
 
 const App = (): ReactElement => {
 	return (
-		<div className='min-w-xs min-h-screen flex flex-col'>
-			<Header />
-			<main className='flex-grow'>
-				<Routes>
-					<Route path='/' element={<Home />} />
-					<Route path='/publications' element={<Publications />} />
-					<Route path='/awards' element={<Awards />} />
-					<Route path='/background' element={<Background />} />
-					<Route path='/affiliations' element={<Affiliations />} />
-					{/* <Route path='/research' element={<Research />} /> */}
-					{/* <Route path='/blog/:slug' element={<BlogPost />} />
-					<Route path='*' element={<NotFound />} /> */}
-				</Routes>
-			</main>
-			<Footer />
+		<div className='min-w-xs h-screen flex flex-col md:flex-row'>
+			<AppShell />
+			<div className='flex-grow overflow-y-auto flex flex-col'>
+				<main className='flex-grow'>
+					<Routes>
+						<Route path='/' element={<Home />} />
+						<Route path='/publications' element={<Publications />} />
+						<Route path='/projects' element={<Projects />} />
+						<Route path='/background' element={<Background />} />
+						<Route path='/awards' element={<Awards />} />
+						<Route path='/affiliations' element={<Affiliations />} />
+						{/* <Route path='/blog/:slug' element={<BlogPost />} />
+						<Route path='*' element={<NotFound />} /> */}
+					</Routes>
+				</main>
+				<Footer />
+			</div>
 		</div>
 	);
 };

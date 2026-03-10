@@ -25,8 +25,11 @@ const subsubheadingTextStyle =
 const xlTextStyle =
 	'text-xl font-normal text-neutral-800 dark:text-neutral-200 transition-colors duration-200';
 
+const navHeadingStyle =
+	'text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 transition-colors duration-200';
+
 const navTextStyle =
-	'text-lg font-normal transition-colors duration-200 [&.active]:font-bold [&.active]:text-blue-500 [&:not(.active)]:text-neutral-700 hover:[&:not(.active)]:text-neutral-800 dark:[&:not(.active)]:text-neutral-300 dark:hover:[&:not(.active)]:text-neutral-200';
+	'text-base font-normal [&.active]:font-bold pl-3 border-l -ml-px border-transparent [&.active]:border-blue-500 hover:[&:not(.active)]:border-neutral-800 dark:hover:[&:not(.active)]:border-neutral-200 [&.active]:text-blue-500 [&:not(.active)]:text-neutral-700 hover:[&:not(.active)]:text-neutral-800 dark:[&:not(.active)]:text-neutral-300 dark:hover:[&:not(.active)]:text-neutral-200 transition-colors duration-200';
 
 const baseTextStyle =
 	'text-base font-normal text-neutral-800 dark:text-neutral-200 transition-colors duration-200';
@@ -111,6 +114,7 @@ export {
 	subheadingTextStyle,
 	subsubheadingTextStyle,
 	xlTextStyle,
+	navHeadingStyle,
 	navTextStyle,
 	baseTextStyle,
 	smallTextStyle,

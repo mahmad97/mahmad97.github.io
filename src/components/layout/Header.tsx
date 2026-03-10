@@ -1,87 +1,34 @@
 import type { ReactElement } from 'react';
 
-import { useState } from 'react';
-import { LuMenu, LuX } from 'react-icons/lu';
-import { Link, NavLink } from 'react-router';
+import { LuMenu } from 'react-icons/lu';
+import { Link } from 'react-router';
 
 import Logo from '@/assets/logo.svg?react';
-import { navTextStyle } from '@/components/typography';
 import ThemeToggle from '@/components/ui/ThemeToggle';
 
-const Header = (): ReactElement => {
-	const [menuOpen, setMenuOpen] = useState(false);
+type HeaderProps = Readonly<{
+	onMenuClick: () => void;
+}>;
 
-	return (
-		<header className='sticky top-0 z-10 border-b border-slate-400 dark:border-slate-600 backdrop-blur transition-colors duration-200'>
-			<div className='max-w-5xl h-16 mx-auto px-4 md:px-8 flex items-center justify-between'>
-				<Link to='/' className='w-10 h-10 [&>svg]:w-full [&>svg]:h-full mr-8'>
-					<Logo />
-				</Link>
+const Header = ({ onMenuClick }: HeaderProps): ReactElement => (
+	<header className='border-b md:hidden border-slate-400 dark:border-slate-600 backdrop-blur transition-colors duration-200'>
+		<div className='h-16 px-4 flex items-center justify-between'>
+			<Link to='/' className='w-10 h-10 [&>svg]:w-full [&>svg]:h-full'>
+				<Logo />
+			</Link>
 
-				<div className='hidden md:flex items-center'>
-					<nav className='px-6 border-x flex gap-6 border-slate-400 dark:border-slate-600 transition-colors duration-200'>
-						<NavLink to='/publications' className={navTextStyle}>
-							Publications
-						</NavLink>
-						<NavLink to='/awards' className={navTextStyle}>
-							Awards
-						</NavLink>
-						<NavLink to='/background' className={navTextStyle}>
-							Background
-						</NavLink>
-						<NavLink to='/affiliations' className={navTextStyle}>
-							Affiliations
-						</NavLink>
-					</nav>
-				</div>
-
-				<div className='flex gap-4 items-center ml-8'>
-					<ThemeToggle />
-
-					<button
-						type='button'
-						className='md:hidden cursor-pointer text-blue-500'
-						aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-						onClick={() => setMenuOpen((prev) => !prev)}>
-						{menuOpen ? (
-							<LuX size={24} strokeWidth={2.5} />
-						) : (
-							<LuMenu size={24} strokeWidth={2.5} />
-						)}
-					</button>
-				</div>
+			<div className='flex gap-4 items-center'>
+				<ThemeToggle />
+				<button
+					type='button'
+					className='cursor-pointer text-blue-500'
+					aria-label='Open menu'
+					onClick={onMenuClick}>
+					<LuMenu size={24} strokeWidth={2.5} />
+				</button>
 			</div>
-
-			{menuOpen && (
-				<nav className='md:hidden border-t border-slate-400 dark:border-slate-600 flex flex-col px-4 py-3 gap-2'>
-					<NavLink
-						to='/publications'
-						className={navTextStyle}
-						onClick={() => setMenuOpen(false)}>
-						Publications
-					</NavLink>
-					<NavLink
-						to='/awards'
-						className={navTextStyle}
-						onClick={() => setMenuOpen(false)}>
-						Awards
-					</NavLink>
-					<NavLink
-						to='/background'
-						className={navTextStyle}
-						onClick={() => setMenuOpen(false)}>
-						Background
-					</NavLink>
-					<NavLink
-						to='/affiliations'
-						className={navTextStyle}
-						onClick={() => setMenuOpen(false)}>
-						Affiliations
-					</NavLink>
-				</nav>
-			)}
-		</header>
-	);
-};
+		</div>
+	</header>
+);
 
 export default Header;
