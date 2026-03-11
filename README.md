@@ -11,7 +11,6 @@ npm install      # Install dependencies
 npm run dev      # Start dev server at localhost:3000
 npm run build    # Type-check and build for production
 npm run preview  # Preview production build at localhost:3000
-npm run lint     # Run ESLint
 ```
 
 ## Tech Stack
