@@ -8,6 +8,7 @@ import Affiliations from '@/pages/Affiliations';
 import Awards from '@/pages/Awards';
 import Background from '@/pages/Background';
 import Home from '@/pages/Home';
+import News from '@/pages/News';
 import Projects from '@/pages/Projects';
 import Publications from '@/pages/Publications';
 // import BlogPost from './pages/BlogPost';
@@ -25,7 +26,8 @@ const App = (): ReactElement => {
 						<Route path='/' element={<Home />} />
 						<Route path='/publications' element={<Publications />} />
 						<Route path='/projects' element={<Projects />} />
-						<Route path='/background' element={<Background />} />
+						<Route path='/news' element={<News />} />
+					<Route path='/background' element={<Background />} />
 						<Route path='/awards' element={<Awards />} />
 						<Route path='/affiliations' element={<Affiliations />} />
 						{/* <Route path='/blog/:slug' element={<BlogPost />} />

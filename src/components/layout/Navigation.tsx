@@ -15,6 +15,7 @@ const navGroups = [
 	{
 		label: 'About',
 		links: [
+			{ to: '/news', label: 'News' },
 			{ to: '/background', label: 'Background' },
 			{ to: '/awards', label: 'Awards' },
 			{ to: '/affiliations', label: 'Affiliations' },

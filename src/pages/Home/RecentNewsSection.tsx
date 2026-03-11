@@ -24,12 +24,12 @@ const parseText = (text: string): ReactNode => {
 const currentYear = new Date().getFullYear();
 const recentNews = newsData.filter((item) => {
 	const year = parseInt(item.date.split(' ')[1]);
-	return year >= currentYear - 2;
+	return year >= currentYear - 4;
 });
 
-const NewsSection = (): ReactElement => (
+const RecentNewsSection = (): ReactElement => (
 	<section>
-		<Subheading className='mb-4'>News</Subheading>
+		<Subheading className='mb-4'>Recent News</Subheading>
 		<ul className='space-y-3'>
 			{recentNews.map((item) => (
 				<li key={item.date} className='flex gap-4'>
@@ -43,4 +43,4 @@ const NewsSection = (): ReactElement => (
 	</section>
 );
 
-export default NewsSection;
+export default RecentNewsSection;

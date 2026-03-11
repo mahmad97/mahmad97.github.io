@@ -3,7 +3,7 @@ import type { ReactElement } from 'react';
 import PageContainer from '@/components/layout/PageContainer';
 
 import BiographySection from './BiographySection';
-import NewsSection from './NewsSection';
+import NewsSection from './RecentNewsSection';
 import ProfileSection from './ProfileSection';
 import ResearchInterestsSection from './ResearchInterestsSection';
 
