@@ -3,7 +3,7 @@ import type { ReactElement } from 'react';
 import { LuMenu } from 'react-icons/lu';
 import { Link } from 'react-router';
 
-import Logo from '@/assets/logo.svg?react';
+import Logo from '@/assets/logos/MA.svg?react';
 import ThemeToggle from '@/components/ui/ThemeToggle';
 
 type HeaderProps = Readonly<{

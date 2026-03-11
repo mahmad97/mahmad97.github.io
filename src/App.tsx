@@ -27,7 +27,7 @@ const App = (): ReactElement => {
 						<Route path='/publications' element={<Publications />} />
 						<Route path='/projects' element={<Projects />} />
 						<Route path='/news' element={<News />} />
-					<Route path='/background' element={<Background />} />
+						<Route path='/background' element={<Background />} />
 						<Route path='/awards' element={<Awards />} />
 						<Route path='/affiliations' element={<Affiliations />} />
 						{/* <Route path='/blog/:slug' element={<BlogPost />} />

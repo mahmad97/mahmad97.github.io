@@ -3,7 +3,7 @@ import type { ReactElement } from 'react';
 import { LuX } from 'react-icons/lu';
 import { Link } from 'react-router';
 
-import Logo from '@/assets/logo.svg?react';
+import MALogo from '@/assets/logos/MA.svg?react';
 import Navigation from '@/components/layout/Navigation';
 
 type SideDrawerProps = Readonly<{
@@ -25,7 +25,7 @@ const SideDrawer = ({ isOpen, closeDrawer }: SideDrawerProps): ReactElement => {
 						to='/'
 						className='w-10 h-10 [&>svg]:w-full [&>svg]:h-full'
 						onClick={closeDrawer}>
-						<Logo />
+						<MALogo />
 					</Link>
 
 					<button
