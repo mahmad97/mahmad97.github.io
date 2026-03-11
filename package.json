@@ -17,8 +17,9 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc -b && vite build",
+		"preview": "vite preview",
 		"lint": "eslint .",
-		"preview": "vite preview"
+		"analyze": "npx vite-bundle-visualizer"
 	},
 	"dependencies": {
 		"react": "^19.2.0",
