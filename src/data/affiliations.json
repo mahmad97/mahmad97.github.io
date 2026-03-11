@@ -1,0 +1,57 @@
+{
+	"academic": [
+		{
+			"institution": "The University of Texas at San Antonio",
+			"url": "https://www.utsa.edu/",
+			"logo": "/logos/utsa.png",
+			"roles": "PhD Student, GRA, GTA"
+		},
+		{
+			"institution": "The Pennsylvania State University",
+			"url": "https://www.psu.edu/",
+			"logo": "/logos/psu.png",
+			"roles": "MS Student, GRA, GTA"
+		},
+		{
+			"institution": "The University of Hong Kong",
+			"url": "https://www.hku.hk/",
+			"logo": "/logos/hku.png",
+			"roles": "BEng Student, UGTA"
+		},
+		{
+			"institution": "The University of British Columbia",
+			"url": "https://www.ubc.ca/",
+			"logo": "/logos/ubc.png",
+			"roles": "Exchange Student (BSc)"
+		},
+		{
+			"institution": "Karachi Grammar School",
+			"url": "https://kgs.edu.pk/",
+			"logo": "/logos/kgs.png",
+			"roles": "Student, Prefect"
+		}
+	],
+	"advisors": [
+		{
+			"name": "Dr. Jane Doe",
+			"url": "https://example.edu/~jdoe",
+			"title": "Associate Professor",
+			"institution": "Example University"
+		}
+	],
+	"collaborators": [
+		{
+			"name": "John Smith",
+			"url": "https://example.edu/~jsmith",
+			"institution": "Example University"
+		}
+	],
+	"organizational": [
+		{
+			"organization": "Example Corp",
+			"url": "https://example.com",
+			"role": "Software Engineer",
+			"years": "2020 – 2022"
+		}
+	]
+}

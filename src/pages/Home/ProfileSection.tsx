@@ -4,8 +4,8 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { FaGoogleScholar } from 'react-icons/fa6';
 import { LuFileUser, LuMail } from 'react-icons/lu';
 
-import profileImg from '@/assets/profile.png';
-import OrchidIcon from '@/assets/orchidicon.svg?react';
+import profileImg from '@/assets/images/profile.png';
+import OrchidIcon from '@/assets/icons/orchid.svg?react';
 import Button from '@/components/ui/Button';
 import IconButton from '@/components/ui/IconButton';
 import { Heading, XlText } from '@/components/typography';
