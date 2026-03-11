@@ -2,6 +2,18 @@
 
 Accessible at [mahmad.dev](https://mahmad.dev) and [mahmad97.github.io](https://mahmad97.github.io)
 
+## Getting Started
+
+Requires [Node.js](https://nodejs.org/) 24 and npm 11.
+
+```bash
+npm install      # Install dependencies
+npm run dev      # Start dev server at localhost:3000
+npm run build    # Type-check and build for production
+npm run preview  # Preview production build at localhost:3000
+npm run lint     # Run ESLint
+```
+
 ## Tech Stack
 
 | Category        | Technology                                                                         |
