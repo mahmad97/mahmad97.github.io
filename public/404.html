@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<script id="404-redirect">
+			// Redirect to the root with the path encoded as a query param.
+			// The index.html will decode it and restore the original URL via history.replaceState.
+			var path = window.location.pathname.slice(1);
+			var search = window.location.search;
+			var hash = window.location.hash;
+			window.location.replace(
+				'/' +
+					(path ? '?/' + path + (search ? '&' + search.slice(1) : '') : '') +
+					hash,
+			);
+		</script>
+	</head>
+	<body></body>
+</html>

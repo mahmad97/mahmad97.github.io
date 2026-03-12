@@ -30,6 +30,22 @@
 				setTheme(systemTheme);
 			}
 		</script>
+		<script id="404-redirect">
+			// Restore the path that was encoded by 404.html.
+			(function () {
+				var redirect = window.location.search;
+				if (redirect.startsWith('?/')) {
+					var parts = redirect.slice(2).split('&');
+					var path = parts[0];
+					var query = parts[1] ? '?' + parts[1] : '';
+					window.history.replaceState(
+						null,
+						null,
+						'/' + path + query + window.location.hash,
+					);
+				}
+			})();
+		</script>
 	</head>
 	<body
 		class="w-full h-full min-w-xs bg-slate-50 dark:bg-slate-950 text-neutral-800 dark:text-neutral-200 transition-colors duration-200">

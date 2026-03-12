@@ -9,10 +9,10 @@ import Awards from '@/pages/Awards';
 import Background from '@/pages/Background';
 import Home from '@/pages/Home';
 import News from '@/pages/News';
+import NotFound from '@/pages/NotFound';
 import Projects from '@/pages/Projects';
 import Publications from '@/pages/Publications';
 // import BlogPost from './pages/BlogPost';
-// import NotFound from './pages/NotFound';
 
 import './App.css';
 
@@ -30,8 +30,8 @@ const App = (): ReactElement => {
 						<Route path='/background' element={<Background />} />
 						<Route path='/awards' element={<Awards />} />
 						<Route path='/affiliations' element={<Affiliations />} />
-						{/* <Route path='/blog/:slug' element={<BlogPost />} />
-						<Route path='*' element={<NotFound />} /> */}
+						{/* <Route path='/blog/:slug' element={<BlogPost />} /> */}
+						<Route path='*' element={<NotFound />} />
 					</Routes>
 				</main>
 				<Footer />
