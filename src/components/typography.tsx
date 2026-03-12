@@ -1,6 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 // Exporting style constants alongside components for design token reusability
 import type { ReactElement, ReactNode } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 type TypographyProps = Readonly<{
 	children: ReactNode;
@@ -23,13 +24,7 @@ const subsubheadingTextStyle =
 	'text-2xl font-semibold text-neutral-800 dark:text-neutral-200 transition-colors duration-200';
 
 const xlTextStyle =
-	'text-xl font-normal text-neutral-800 dark:text-neutral-200 transition-colors duration-200';
-
-const navHeadingStyle =
-	'text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 transition-colors duration-200';
-
-const navTextStyle =
-	'text-base font-normal [&.active]:font-bold pl-3 border-l -ml-px border-transparent [&.active]:border-blue-500 hover:[&:not(.active)]:border-neutral-800 dark:hover:[&:not(.active)]:border-neutral-200 [&.active]:text-blue-500 [&:not(.active)]:text-neutral-700 hover:[&:not(.active)]:text-neutral-800 dark:[&:not(.active)]:text-neutral-300 dark:hover:[&:not(.active)]:text-neutral-200 transition-colors duration-200';
+	'text-xl font-medium text-neutral-800 dark:text-neutral-200 transition-colors duration-200';
 
 const baseTextStyle =
 	'text-base font-normal text-neutral-800 dark:text-neutral-200 transition-colors duration-200';
@@ -37,7 +32,13 @@ const baseTextStyle =
 const smallTextStyle =
 	'text-sm font-normal text-neutral-600 dark:text-neutral-400 transition-colors duration-200';
 
-const inlineLinkTextStyle = 'text-blue-500 hover:underline';
+const inlineLinkTextStyle = 'text-blue-500 dark:text-blue-500 hover:underline';
+
+const navHeadingStyle =
+	'text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 transition-colors duration-200';
+
+const navTextStyle =
+	'text-base font-normal [&.active]:font-bold pl-3 border-l -ml-px border-transparent [&.active]:border-blue-500 hover:[&:not(.active)]:border-neutral-800 dark:hover:[&:not(.active)]:border-neutral-200 [&.active]:text-blue-500 [&:not(.active)]:text-neutral-700 hover:[&:not(.active)]:text-neutral-800 dark:[&:not(.active)]:text-neutral-300 dark:hover:[&:not(.active)]:text-neutral-200 transition-colors duration-200';
 
 // const labelTextStyle =
 // 	'text-base font-bold text-slate-800 dark:text-slate-300 transition-colors duration-200';
@@ -49,62 +50,47 @@ const inlineLinkTextStyle = 'text-blue-500 hover:underline';
 
 // const buttonTextStyle = 'text-base font-bold text-neutral-100';
 
-const Heading = ({
-	children,
-	className = '',
-}: TypographyProps): ReactElement => (
-	<h1 className={`inline-block ${headingTextStyle} ${className}`}>
+const Heading = ({ children, className }: TypographyProps): ReactElement => (
+	<h1 className={twMerge('inline-block', headingTextStyle, className)}>
 		{children}
 	</h1>
 );
 
-const Subheading = ({
-	children,
-	className = '',
-}: TypographyProps): ReactElement => (
-	<h2 className={`block ${subheadingTextStyle} ${className}`}>{children}</h2>
+const Subheading = ({ children, className }: TypographyProps): ReactElement => (
+	<h2 className={twMerge('block', subheadingTextStyle, className)}>
+		{children}
+	</h2>
 );
 
 const Subsubheading = ({
 	children,
-	className = '',
+	className,
 }: TypographyProps): ReactElement => (
-	<h3 className={`block ${subsubheadingTextStyle} ${className}`}>{children}</h3>
+	<h3 className={twMerge('block', subsubheadingTextStyle, className)}>
+		{children}
+	</h3>
 );
 
-const XlText = ({
-	children,
-	className = '',
-}: TypographyProps): ReactElement => (
-	<h4 className={`inline-block ${xlTextStyle} ${className}`}>{children}</h4>
+const XlText = ({ children, className }: TypographyProps): ReactElement => (
+	<h4 className={twMerge('block', xlTextStyle, className)}>{children}</h4>
 );
 
-const BaseText = ({
-	children,
-	className = '',
-}: TypographyProps): ReactElement => (
-	<p className={`block ${baseTextStyle} ${className}`}>{children}</p>
+const BaseText = ({ children, className }: TypographyProps): ReactElement => (
+	<p className={twMerge('block', baseTextStyle, className)}>{children}</p>
 );
 
-const SmallText = ({
-	children,
-	className = '',
-}: TypographyProps): ReactElement => (
-	<span className={`inline-block ${smallTextStyle} ${className}`}>
+const SmallText = ({ children, className }: TypographyProps): ReactElement => (
+	<span className={twMerge('inline-block', smallTextStyle, className)}>
 		{children}
 	</span>
 );
 
-const InlineLink = ({
-	children,
-	href,
-	className = '',
-}: LinkProps): ReactElement => (
+const InlineLink = ({ children, href, className }: LinkProps): ReactElement => (
 	<a
 		href={href}
 		target='_blank'
 		rel='noopener noreferrer'
-		className={`${inlineLinkTextStyle} ${className}`}>
+		className={twMerge(inlineLinkTextStyle, className)}>
 		{children}
 	</a>
 );
