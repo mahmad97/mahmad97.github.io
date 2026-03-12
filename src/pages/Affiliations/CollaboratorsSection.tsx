@@ -1,18 +1,27 @@
 import type { ReactElement } from 'react';
 
-import { InlineLink, SmallText, Subheading, XlText } from '@/components/typography';
+import {
+	InlineLink,
+	SmallText,
+	Subheading,
+	XlText,
+} from '@/components/typography';
 import { collaborators } from '@/data/affiliations.json';
 
 const CollaboratorsSection = (): ReactElement => (
 	<section className='flex flex-col gap-3'>
 		<Subheading>Collaborators</Subheading>
-		<ul className='flex flex-col gap-4'>
+		<ul className='grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-2'>
 			{collaborators.map((item) => (
 				<li key={item.name} className='flex flex-col'>
-					<InlineLink href={item.url}>
-						<XlText>{item.name}</XlText>
-					</InlineLink>
-					<SmallText>{item.institution}</SmallText>
+					<XlText className='text-blue-500 dark:text-blue-500'>
+						{item.url ? (
+							<InlineLink href={item.url}>{item.name}</InlineLink>
+						) : (
+							item.name
+						)}
+					</XlText>
+					<SmallText className='block'>{item.affiliation}</SmallText>
 				</li>
 			))}
 		</ul>

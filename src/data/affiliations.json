@@ -65,9 +65,34 @@
 	],
 	"collaborators": [
 		{
-			"name": "John Smith",
-			"url": "https://example.edu/~jsmith",
-			"institution": "Example University"
+			"name": "Sadegh Sirjani",
+			"url": "https://msadeqsirjani.com/",
+			"affiliation": "ASIC Lab, UTSA"
+		},
+		{
+			"name": "Wei Wei",
+			"url": "https://iamdoublewei.github.io/",
+			"affiliation": "ASIC Lab, UTSA"
+		},
+		{
+			"name": "Shyamala Palanisamy",
+			"url": "https://sites.google.com/site/shypal38",
+			"affiliation": "ASIC Lab, UTSA"
+		},
+		{
+			"name": "Terrence Wong",
+			"url": "https://www.linkedin.com/in/terrence-wong-tk/",
+			"affiliation": "GoGoX"
+		},
+		{
+			"name": "Hon-Kang Chan",
+			"url": "https://www.linkedin.com/in/hon-kang-chan-11431738/",
+			"affiliation": "GoGoX"
+		},
+		{
+			"name": "Matthew Ng",
+			"url": "https://www.linkedin.com/in/matthew-ng-770200148/",
+			"affiliation": "GoGoX"
 		}
 	],
 	"organizational": [
