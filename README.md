@@ -2,6 +2,8 @@
 
 Accessible at [mahmad.dev](https://mahmad.dev) and [mahmad97.github.io](https://mahmad97.github.io)
 
+Feel free to use the code as a template or as an inspiration for your own website.
+
 ## Getting Started
 
 Requires [Node.js](https://nodejs.org/) 24 and npm 11.
