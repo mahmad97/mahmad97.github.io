@@ -31,12 +31,36 @@
 			"roles": "Student, Prefect"
 		}
 	],
-	"advisors": [
+	"advisorsAndSupervisors": [
 		{
-			"name": "Dr. Jane Doe",
-			"url": "https://example.edu/~jdoe",
-			"title": "Associate Professor",
-			"institution": "Example University"
+			"name": "Dr. Mimi Xie",
+			"url": "https://sites.google.com/view/mxie",
+			"title": "Assistant Professor",
+			"affiliation": "The University of Texas at San Antonio"
+		},
+		{
+			"name": "Dr. Truong X. Tran",
+			"url": "https://sites.psu.edu/truongtran/",
+			"title": "Assistant Professor",
+			"affiliation": "The Pennsylvania State University"
+		},
+		{
+			"name": "Arun Kumar",
+			"url": "https://www.linkedin.com/in/arun-kumar-4b33b315/",
+			"title": "Engineering Manager",
+			"affiliation": "GoGoX"
+		},
+		{
+			"name": "Robert Dong",
+			"url": "https://www.linkedin.com/in/robert-dong/",
+			"title": "Lead Software Engineer",
+			"affiliation": "GoGoX"
+		},
+		{
+			"name": "Dr. Carmen Ka Man Lam",
+			"url": "https://cs.hku.hk/people/academic-staff/kmlam",
+			"title": "Lecturer",
+			"affiliation": "The University of Hong Kong"
 		}
 	],
 	"collaborators": [
