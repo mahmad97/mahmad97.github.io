@@ -1,7 +1,7 @@
 import type { ReactElement, ReactNode } from 'react';
 
 import PageContainer from '@/components/layout/PageContainer';
-import { BaseText, InlineLink } from '@/components/typography';
+import { BaseText, InlineLink, SmallText } from '@/components/typography';
 import newsData from '@/data/news.json';
 
 const parseText = (text: string): ReactNode => {
@@ -27,9 +27,9 @@ const News = (): ReactElement => (
 		<ul className='space-y-3'>
 			{newsData.map((item, i) => (
 				<li key={i} className='flex gap-4'>
-					<span className='w-20 shrink-0 text-base font-medium text-neutral-500 dark:text-neutral-400 transition-colors duration-200'>
+					<SmallText className='w-20 shrink-0 text-base font-medium'>
 						{item.date}
-					</span>
+					</SmallText>
 					<BaseText>{parseText(item.text)}</BaseText>
 				</li>
 			))}

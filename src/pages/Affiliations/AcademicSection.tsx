@@ -10,7 +10,7 @@ const AcademicSection = (): ReactElement => (
 			{data.academic.map((item) => (
 				<li
 					key={item.institution}
-					className='flex flex-col items-center gap-3 rounded-xl border border-slate-400 dark:border-slate-600 p-4 text-center transition-colors duration-200'>
+					className='p-4 border flex flex-col items-center text-center gap-3 rounded-xl border-slate-400 dark:border-slate-600 transition-colors duration-200'>
 					{item.logo ? (
 						<img
 							src={item.logo}
@@ -21,9 +21,9 @@ const AcademicSection = (): ReactElement => (
 						<div className='h-16 w-full rounded-lg bg-neutral-100 dark:bg-neutral-800' />
 					)}
 					<div className='flex flex-col gap-1'>
-						<InlineLink href={item.url} className='text-sm font-medium'>
-							{item.institution}
-						</InlineLink>
+						<SmallText className='font-semibold'>
+							<InlineLink href={item.url}>{item.institution}</InlineLink>
+						</SmallText>
 						<SmallText className='block'>{item.roles}</SmallText>
 					</div>
 				</li>

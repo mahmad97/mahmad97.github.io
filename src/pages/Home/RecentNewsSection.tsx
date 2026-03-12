@@ -1,6 +1,11 @@
 import type { ReactElement, ReactNode } from 'react';
 
-import { BaseText, InlineLink, Subheading } from '@/components/typography';
+import {
+	BaseText,
+	InlineLink,
+	SmallText,
+	Subheading,
+} from '@/components/typography';
 import newsData from '@/data/news.json';
 
 const parseText = (text: string): ReactNode => {
@@ -33,9 +38,9 @@ const RecentNewsSection = (): ReactElement => (
 		<ul className='space-y-3'>
 			{recentNews.map((item) => (
 				<li key={item.date} className='flex gap-4'>
-					<span className=' w-20 shrink-0 text-base font-medium text-neutral-500 dark:text-neutral-400 transition-colors duration-200'>
+					<SmallText className='w-20 shrink-0 text-base font-medium'>
 						{item.date}
-					</span>
+					</SmallText>
 					<BaseText>{parseText(item.text)}</BaseText>
 				</li>
 			))}
