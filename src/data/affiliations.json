@@ -72,10 +72,17 @@
 	],
 	"organizational": [
 		{
-			"organization": "Example Corp",
-			"url": "https://example.com",
-			"role": "Software Engineer",
-			"years": "2020 – 2022"
+			"organization": "GoGoX",
+			"url": "https://www.gogox.com/index/",
+			"logo": "/logos/gogox.png",
+			"role": "Software Engineer"
+		},
+		{
+			"organization": "Set Sail Software",
+			"url": "https://chatbot.com.hk/",
+			"logo": "/logos/setsail.png",
+			"logoBg": "bg-indigo-800",
+			"role": "Software Engineer Intern"
 		}
 	]
 }

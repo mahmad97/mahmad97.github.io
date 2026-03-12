@@ -6,13 +6,13 @@ import {
 	Subheading,
 	XlText,
 } from '@/components/typography';
-import data from '@/data/affiliations.json';
+import { advisorsAndSupervisors } from '@/data/affiliations.json';
 
 const AdvisorsAndSupervisorsSection = (): ReactElement => (
 	<section className='flex flex-col gap-3'>
 		<Subheading>Advisors & Supervisors</Subheading>
 		<ul className='grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-2'>
-			{data.advisorsAndSupervisors.map((item) => (
+			{advisorsAndSupervisors.map((item) => (
 				<li key={item.name} className='flex flex-col'>
 					<XlText>
 						<InlineLink href={item.url}>{item.name}</InlineLink>

@@ -1,13 +1,13 @@
 import type { ReactElement } from 'react';
 
 import { InlineLink, SmallText, Subheading, XlText } from '@/components/typography';
-import data from '@/data/affiliations.json';
+import { collaborators } from '@/data/affiliations.json';
 
 const CollaboratorsSection = (): ReactElement => (
 	<section className='flex flex-col gap-3'>
 		<Subheading>Collaborators</Subheading>
 		<ul className='flex flex-col gap-4'>
-			{data.collaborators.map((item) => (
+			{collaborators.map((item) => (
 				<li key={item.name} className='flex flex-col'>
 					<InlineLink href={item.url}>
 						<XlText>{item.name}</XlText>
