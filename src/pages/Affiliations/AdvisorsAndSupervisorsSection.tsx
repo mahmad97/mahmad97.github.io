@@ -9,8 +9,9 @@ import {
 import { advisorsAndSupervisors } from '@/data/affiliations.json';
 
 const AdvisorsAndSupervisorsSection = (): ReactElement => (
-	<section className='flex flex-col gap-3'>
+	<section className='flex flex-col gap-4'>
 		<Subheading>Advisors & Supervisors</Subheading>
+
 		<ul className='grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-2'>
 			{advisorsAndSupervisors.map((item) => (
 				<li key={item.name} className='flex flex-col'>

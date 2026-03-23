@@ -3,9 +3,10 @@ import type { ReactElement } from 'react';
 import { BaseText, InlineLink, Subheading } from '@/components/typography';
 
 const BiographySection = (): ReactElement => (
-	<section>
-		<Subheading className='mb-4'>Biography</Subheading>
-		<BaseText className='mb-4'>
+	<section className='flex flex-col gap-4'>
+		<Subheading>Biography</Subheading>
+
+		<BaseText>
 			I am a PhD student in Computer Science at{' '}
 			<InlineLink href='https://www.utsa.edu/'>
 				The University of Texas at San Antonio
@@ -19,6 +20,7 @@ const BiographySection = (): ReactElement => (
 			energy-efficient computing, embedded systems, and the implementation of
 			machine learning algorithms on novel hardware architectures.
 		</BaseText>
+
 		<BaseText>
 			I hold an MS in Computer Science from{' '}
 			<InlineLink href='https://www.psu.edu/'>

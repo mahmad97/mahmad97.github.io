@@ -27,6 +27,7 @@ const AffiliationCard = ({
 		) : (
 			<div className='w-full h-16 rounded-lg bg-neutral-100 dark:bg-neutral-800' />
 		)}
+
 		<div className='flex flex-col gap-1'>
 			<SmallText className='font-semibold'>
 				<InlineLink href={url}>{name}</InlineLink>

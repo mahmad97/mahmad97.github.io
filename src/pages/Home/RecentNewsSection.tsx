@@ -33,8 +33,9 @@ const recentNews = newsData.filter((item) => {
 });
 
 const RecentNewsSection = (): ReactElement => (
-	<section>
-		<Subheading className='mb-4'>Recent News</Subheading>
+	<section className='flex flex-col gap-4'>
+		<Subheading>Recent News</Subheading>
+
 		<ul className='space-y-3'>
 			{recentNews.map((item) => (
 				<li key={item.date} className='flex gap-4'>

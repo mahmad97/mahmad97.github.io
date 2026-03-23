@@ -17,6 +17,7 @@ const PageContainer = ({
 }: PageContainerProps): ReactElement => {
 	useEffect(() => {
 		document.title = heading ? `${BASE_TITLE} | ${heading}` : BASE_TITLE;
+
 		return () => {
 			document.title = BASE_TITLE;
 		};
