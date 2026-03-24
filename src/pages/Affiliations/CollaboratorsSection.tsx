@@ -12,7 +12,7 @@ const CollaboratorsSection = (): ReactElement => (
 	<section className='flex flex-col gap-4'>
 		<Subheading>Collaborators</Subheading>
 
-		<ul className='grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-2'>
+		<ul className='grid grid-cols-2 lg:grid-cols-4 gap-4'>
 			{collaborators.map((item) => (
 				<li key={item.name} className='flex flex-col'>
 					<XlText className='text-blue-500 dark:text-blue-500'>

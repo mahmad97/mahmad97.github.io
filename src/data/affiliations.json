@@ -3,31 +3,31 @@
 		{
 			"institution": "The University of Texas at San Antonio",
 			"url": "https://www.utsa.edu/",
-			"logo": "/logos/utsa.png",
+			"logo": "/logos/marks/utsa_mark.png",
 			"roles": "PhD Student, GRA, GTA"
 		},
 		{
 			"institution": "The Pennsylvania State University",
 			"url": "https://www.psu.edu/",
-			"logo": "/logos/psu.png",
+			"logo": "/logos/marks/psu_mark.png",
 			"roles": "MS Student, GRA, GTA"
 		},
 		{
 			"institution": "The University of Hong Kong",
 			"url": "https://www.hku.hk/",
-			"logo": "/logos/hku.png",
+			"logo": "/logos/marks/hku_mark.png",
 			"roles": "BEng Student, UGTA"
 		},
 		{
 			"institution": "The University of British Columbia",
 			"url": "https://www.ubc.ca/",
-			"logo": "/logos/ubc.png",
+			"logo": "/logos/marks/ubc_mark.png",
 			"roles": "Exchange Student (BSc)"
 		},
 		{
 			"institution": "Karachi Grammar School",
 			"url": "https://kgs.edu.pk/",
-			"logo": "/logos/kgs.png",
+			"logo": "/logos/marks/kgs_mark.png",
 			"roles": "Student, Prefect"
 		}
 	],
@@ -104,13 +104,13 @@
 		{
 			"organization": "GoGoX",
 			"url": "https://www.gogox.com/index/",
-			"logo": "/logos/gogox.png",
+			"logo": "/logos/marks/gogox_mark.png",
 			"role": "Software Engineer"
 		},
 		{
 			"organization": "Set Sail Software",
 			"url": "https://chatbot.com.hk/",
-			"logo": "/logos/setsail.png",
+			"logo": "/logos/marks/setsail_mark.png",
 			"logoBg": "bg-indigo-800",
 			"role": "Software Engineer Intern"
 		}

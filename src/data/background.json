@@ -1,0 +1,86 @@
+{
+	"education": [
+		{
+			"degree": "PhD in Computer Science",
+			"institution": "The University of Texas at San Antonio",
+			"logo": "",
+			"period": "2025 – Present",
+			"description": "Specialized in computer systems and computer architecture.",
+			"cgpa": "4.0 / 4.0",
+			"highlights": [
+				"Advisor: Dr. Mimi Xie.",
+				"Highlighted courses: Computer architecture, Programming languages and compilers, AI and hardware programming, Parallel and distributed computing.",
+				"Research: In-memory computing architectures for ML applications based on domain wall memory and other novel hardware."
+			]
+		},
+		{
+			"degree": "MS in Computer Science",
+			"institution": "The Pennsylvania State University",
+			"logo": "",
+			"period": "2022 – 2024",
+			"description": "Specialized in artificial intelligence and distributed systems.",
+			"cgpa": "4.0 / 4.0",
+			"highlights": [
+				"Research: Federated Learning under Non-IID Data",
+				"Dean's List, 2020 & 2021"
+			]
+		},
+		{
+			"degree": "BEng in Computer Science",
+			"institution": "The University of Hong Kong",
+			"logo": "",
+			"period": "2016 – 2020",
+			"description": "Studied computer architecture, algorithms, and software engineering principles.",
+			"cgpa": "4.0 / 4.0",
+			"highlights": [
+				"Graduated with Distinction",
+				"Senior project: Real-Time Object Detection on Edge Devices"
+			]
+		}
+	],
+	"experience": [
+		{
+			"role": "Graduate Research Assistant",
+			"organization": "ASIC Lab at The University of Texas at San Antonio",
+			"logo": "",
+			"period": "Jan 2025 – Present",
+			"description": "Researched in-memory computing architectures for ML applications based on domain wall memory and other novel hardware.",
+			"highlights": [
+				"Researched in-memory computing architectures using domain wall racetrack memory.",
+				"Designed and implemented algorithms on novel hardware.",
+				"Evaluated ML and non-ML workloads using simulations.",
+				"Reviewed research papers across research interests.",
+				"Authored and co-authored research papers."
+			]
+		},
+		{
+			"role": "Graduate Teaching Assistant",
+			"organization": "The University of Texas at San Antonio",
+			"logo": "",
+			"period": "Jan 2025 – Present",
+			"description": "Supported instruction for an undergraduate data analysis course, assisting students and contributing to course operations.",
+			"highlights": [
+				"Course: Data Analysis and Visualization.",
+				"Graded assignments and provided detailed feedback.",
+				"Conducted office hours to support students with course material.",
+				"Helped update and improve course content."
+			]
+		},
+		{
+			"role": "Software Engineer",
+			"organization": "Startup Inc.",
+			"period": "Jun 2019 – Aug 2021",
+			"description": "Built and maintained backend services for a SaaS analytics platform serving 10k+ users.",
+			"highlights": [
+				"Designed a real-time data pipeline using Kafka and Spark",
+				"Led migration from monolith to microservices architecture"
+			]
+		},
+		{
+			"role": "Undergraduate Research Assistant",
+			"organization": "State University — Vision Lab",
+			"period": "Jan 2018 – May 2019",
+			"description": "Assisted in collecting and annotating datasets for pedestrian detection research."
+		}
+	]
+}
