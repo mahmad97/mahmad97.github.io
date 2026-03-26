@@ -9,3 +9,13 @@
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+* {
+	scrollbar-width: thin;
+	scrollbar-color: var(--color-slate-300) var(--color-slate-50);
+	transition: scrollbar-color 200ms;
+}
+
+.dark, .dark * {
+	scrollbar-color: var(--color-slate-700) var(--color-slate-950);
+}
