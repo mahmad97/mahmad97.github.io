@@ -19,7 +19,7 @@
 			"logo": "/logos/academic/psu_short.png",
 			"period": "2022 – 2024",
 			"description": "Specialized in machine learning and distributed systems.",
-			"cgpa": "4.0 / 4.0",
+			"cgpa": "",
 			"highlights": [
 				"Research: Hybrid and customized ML algorithms for diverse real-world applications and their deployment."
 			]
@@ -29,11 +29,15 @@
 			"institution": "The University of Hong Kong",
 			"logo": "/logos/academic/hku_short.png",
 			"period": "2016 – 2020",
-			"description": "Studied computer architecture, algorithms, and software engineering principles.",
-			"cgpa": "4.0 / 4.0",
+			"description": "Specialized in AI applications and software engineering.",
+			"cgpa": "",
 			"highlights": [
-				"Graduated with Distinction",
-				"Senior project: Real-Time Object Detection on Edge Devices"
+				"Final Year Project: AI skincare advisor — an AI-powered skin condition classification and recommendation system.",
+				"Recipient of the HKU Foundation Entrance Scholarship, covering full tuition for the duration of study.",
+				"Vice Chairperson of the Muslim Students Association at HKU.",
+				"Residential Student Advisor for Starr Hall.",
+				"Faculty Student Advisor for the Faculty of Engineering.",
+				"Participated in ImagineHack 2017, a hackathon organized by Microsoft."
 			]
 		}
 	],
