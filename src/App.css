@@ -12,10 +12,12 @@
 
 * {
 	scrollbar-width: thin;
-	scrollbar-color: var(--color-slate-300) var(--color-slate-50);
-	transition: scrollbar-color 200ms;
+	scrollbar-color: var(--color-slate-300) transparent;
+	transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, scrollbar-color;
+	transition-duration: 200ms;
 }
 
-.dark, .dark * {
-	scrollbar-color: var(--color-slate-700) var(--color-slate-950);
+.dark,
+.dark * {
+	scrollbar-color: var(--color-slate-700) transparent;
 }
