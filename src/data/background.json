@@ -3,7 +3,7 @@
 		{
 			"degree": "PhD in Computer Science",
 			"institution": "The University of Texas at San Antonio",
-			"logo": "",
+			"logo": "/logos/academic/utsa_short.png",
 			"period": "2025 – Present",
 			"description": "Specialized in computer systems and computer architecture.",
 			"cgpa": "4.0 / 4.0",
@@ -16,19 +16,18 @@
 		{
 			"degree": "MS in Computer Science",
 			"institution": "The Pennsylvania State University",
-			"logo": "",
+			"logo": "/logos/academic/psu_short.png",
 			"period": "2022 – 2024",
-			"description": "Specialized in artificial intelligence and distributed systems.",
+			"description": "Specialized in machine learning and distributed systems.",
 			"cgpa": "4.0 / 4.0",
 			"highlights": [
-				"Research: Federated Learning under Non-IID Data",
-				"Dean's List, 2020 & 2021"
+				"Research: Hybrid and customized ML algorithms for diverse real-world applications and their deployment."
 			]
 		},
 		{
 			"degree": "BEng in Computer Science",
 			"institution": "The University of Hong Kong",
-			"logo": "",
+			"logo": "/logos/academic/hku_short.png",
 			"period": "2016 – 2020",
 			"description": "Studied computer architecture, algorithms, and software engineering principles.",
 			"cgpa": "4.0 / 4.0",
@@ -42,7 +41,7 @@
 		{
 			"role": "Graduate Research Assistant",
 			"organization": "ASIC Lab at The University of Texas at San Antonio",
-			"logo": "",
+			"logo": "/logos/academic/utsa_short.png",
 			"period": "Jan 2025 – Present",
 			"description": "Researched in-memory computing architectures for ML applications based on domain wall memory and other novel hardware.",
 			"highlights": [
@@ -56,7 +55,7 @@
 		{
 			"role": "Graduate Teaching Assistant",
 			"organization": "The University of Texas at San Antonio",
-			"logo": "",
+			"logo": "/logos/academic/utsa_short.png",
 			"period": "Jan 2025 – Present",
 			"description": "Supported instruction for an undergraduate data analysis course, assisting students and contributing to course operations.",
 			"highlights": [

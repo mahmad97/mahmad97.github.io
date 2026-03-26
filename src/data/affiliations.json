@@ -3,31 +3,31 @@
 		{
 			"institution": "The University of Texas at San Antonio",
 			"url": "https://www.utsa.edu/",
-			"logo": "/logos/marks/utsa_mark.png",
+			"logo": "/logos/academic/utsa_long.png",
 			"roles": "PhD Student, GRA, GTA"
 		},
 		{
 			"institution": "The Pennsylvania State University",
 			"url": "https://www.psu.edu/",
-			"logo": "/logos/marks/psu_mark.png",
+			"logo": "/logos/academic/psu_long.png",
 			"roles": "MS Student, GRA, GTA"
 		},
 		{
 			"institution": "The University of Hong Kong",
 			"url": "https://www.hku.hk/",
-			"logo": "/logos/marks/hku_mark.png",
+			"logo": "/logos/academic/hku_long.png",
 			"roles": "BEng Student, UGTA"
 		},
 		{
 			"institution": "The University of British Columbia",
 			"url": "https://www.ubc.ca/",
-			"logo": "/logos/marks/ubc_mark.png",
+			"logo": "/logos/academic/ubc_long.png",
 			"roles": "Exchange Student (BSc)"
 		},
 		{
 			"institution": "Karachi Grammar School",
 			"url": "https://kgs.edu.pk/",
-			"logo": "/logos/marks/kgs_mark.png",
+			"logo": "/logos/academic/kgs_long.png",
 			"roles": "Student, Prefect"
 		}
 	],
@@ -98,19 +98,44 @@
 			"name": "Matthew Ng",
 			"url": "https://www.linkedin.com/in/matthew-ng-770200148/",
 			"affiliation": "GoGoX"
+		},
+		{
+			"name": "Ali Farooqi",
+			"url": "https://alifarooqi.vercel.app/",
+			"affiliation": "HKU"
+		},
+		{
+			"name": "Ahmed Abbas Alvi",
+			"url": "https://ahmedabbasalvi.com/",
+			"affiliation": "HKU"
+		},
+		{
+			"name": "Saad Ghani",
+			"url": "https://www.linkedin.com/in/saad-ghani-9b5824158/",
+			"affiliation": "HKU"
+		},
+		{
+			"name": "Waqas Ali",
+			"url": "https://waqasali.dev/",
+			"affiliation": "HKU"
+		},
+		{
+			"name": "Subhayan Roy",
+			"url": "https://www.linkedin.com/in/subhayan-roy-577922156/",
+			"affiliation": "HKU"
 		}
 	],
 	"organizational": [
 		{
 			"organization": "GoGoX",
 			"url": "https://www.gogox.com/index/",
-			"logo": "/logos/marks/gogox_mark.png",
+			"logo": "/logos/gogox_long.png",
 			"role": "Software Engineer"
 		},
 		{
 			"organization": "Set Sail Software",
 			"url": "https://chatbot.com.hk/",
-			"logo": "/logos/marks/setsail_mark.png",
+			"logo": "/logos/setsail_long.png",
 			"logoBg": "bg-indigo-800",
 			"role": "Software Engineer Intern"
 		}
