@@ -23,7 +23,7 @@ const BackgroundCard = ({
 	cgpa,
 	highlights,
 }: BackgroundCardProps): ReactElement => (
-	<li className='p-4 border flex flex-col gap-3 rounded-xl border-slate-400 dark:border-slate-600 transition-colors duration-200'>
+	<li className='p-4 border flex flex-col gap-3 rounded-xl border-slate-400 dark:border-slate-600'>
 		<div className='flex items-start justify-between gap-4'>
 			<div className='flex items-center gap-3'>
 				{logo ? (

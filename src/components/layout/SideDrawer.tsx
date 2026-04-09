@@ -20,7 +20,7 @@ const SideDrawer = ({ isOpen, closeDrawer }: SideDrawerProps): ReactElement => {
 			/>
 			<aside
 				className={`fixed left-0 z-30 w-64 h-full px-4 py-3 border-r md:hidden flex flex-col border-slate-400 dark:border-slate-600 backdrop-blur transition-transform duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-				<div className='flex items-center justify-between pb-3 border-b border-slate-400 dark:border-slate-600 transition-colors duration-200'>
+				<div className='flex items-center justify-between pb-3 border-b border-slate-400 dark:border-slate-600'>
 					<Link
 						to='/'
 						className='w-10 h-10 [&>svg]:w-full [&>svg]:h-full'

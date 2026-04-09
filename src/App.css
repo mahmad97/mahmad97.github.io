@@ -10,6 +10,13 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@utility transition-colors {
+	transition-property:
+		color, background-color, border-color, outline-color, text-decoration-color,
+		fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to,
+		scrollbar-color;
+}
+
 * {
 	scrollbar-width: thin;
 	scrollbar-color: var(--color-slate-300) transparent;

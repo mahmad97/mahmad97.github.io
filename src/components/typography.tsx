@@ -15,36 +15,36 @@ type LinkProps = Readonly<{
 }>;
 
 const headingTextStyle =
-	'text-4xl font-semibold text-neutral-800 dark:text-neutral-200 transition-colors duration-200';
+	'text-4xl font-semibold text-neutral-800 dark:text-neutral-200';
 
 const subheadingTextStyle =
-	'text-3xl font-semibold text-neutral-800 dark:text-neutral-200 transition-colors duration-200';
+	'text-3xl font-semibold text-neutral-800 dark:text-neutral-200';
 
 const subsubheadingTextStyle =
-	'text-2xl font-semibold text-neutral-800 dark:text-neutral-200 transition-colors duration-200';
+	'text-2xl font-semibold text-neutral-800 dark:text-neutral-200';
 
 const xlTextStyle =
-	'text-xl font-medium text-neutral-800 dark:text-neutral-200 transition-colors duration-200';
+	'text-xl font-medium text-neutral-800 dark:text-neutral-200';
 
 const baseTextStyle =
-	'text-base font-normal text-neutral-800 dark:text-neutral-200 transition-colors duration-200';
+	'text-base font-normal text-neutral-800 dark:text-neutral-200';
 
 const smallTextStyle =
-	'text-sm font-normal text-neutral-600 dark:text-neutral-400 transition-colors duration-200';
+	'text-sm font-normal text-neutral-600 dark:text-neutral-400';
 
 const inlineLinkTextStyle = 'text-blue-500 dark:text-blue-500 hover:underline';
 
 const navHeadingStyle =
-	'text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 transition-colors duration-200';
+	'text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400';
 
 const navTextStyle =
-	'text-base font-normal [&.active]:font-bold pl-3 border-l -ml-px border-transparent [&.active]:border-blue-500 hover:[&:not(.active)]:border-neutral-800 dark:hover:[&:not(.active)]:border-neutral-200 [&.active]:text-blue-500 [&:not(.active)]:text-neutral-700 hover:[&:not(.active)]:text-neutral-800 dark:[&:not(.active)]:text-neutral-300 dark:hover:[&:not(.active)]:text-neutral-200 transition-colors duration-200';
+	'text-base font-normal [&.active]:font-bold pl-3 border-l -ml-px border-transparent [&.active]:border-blue-500 hover:[&:not(.active)]:border-neutral-800 dark:hover:[&:not(.active)]:border-neutral-200 [&.active]:text-blue-500 [&:not(.active)]:text-neutral-700 hover:[&:not(.active)]:text-neutral-800 dark:[&:not(.active)]:text-neutral-300 dark:hover:[&:not(.active)]:text-neutral-200';
 
 // const labelTextStyle =
-// 	'text-base font-bold text-slate-800 dark:text-slate-300 transition-colors duration-200';
+// 	'text-base font-bold text-slate-800 dark:text-slate-300';
 
 // const inputTextStyle =
-// 	'text-base font-normal text-neutral-700 dark:text-neutral-300 transition-colors duration-200';
+// 	'text-base font-normal text-neutral-700 dark:text-neutral-300';
 
 // const errorTextStyle = 'text-xs font-medium text-red-500';
 

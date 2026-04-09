@@ -32,7 +32,7 @@ const Navigation = ({ onClose }: NavigationProps): ReactElement => (
 		{navGroups.map((group) => (
 			<div key={group.label} className='flex flex-col gap-1'>
 				<span className={navHeadingStyle}>{group.label}</span>
-				<div className='border-l flex flex-col gap-1 border-slate-400 dark:border-slate-600 transition-colors duration-200'>
+				<div className='border-l flex flex-col gap-1 border-slate-400 dark:border-slate-600'>
 					{group.links.map((link) => (
 						<NavLink
 							key={link.to}

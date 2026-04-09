@@ -18,9 +18,9 @@ import './App.css';
 
 const App = (): ReactElement => {
 	return (
-		<div className='min-w-xs min-h-screen md:h-screen flex flex-col md:flex-row'>
+		<div className='min-w-xs h-screen overflow-y-auto md:overflow-y-hidden flex flex-col md:flex-row'>
 			<AppShell />
-			<div className='flex-grow overflow-y-auto flex flex-col'>
+			<div className='flex-grow md:overflow-y-auto flex flex-col'>
 				<main className='flex-grow'>
 					<Routes>
 						<Route path='/' element={<Home />} />

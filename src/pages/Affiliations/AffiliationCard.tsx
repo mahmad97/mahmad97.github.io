@@ -17,7 +17,7 @@ const AffiliationCard = ({
 	logoBg,
 	subtitle,
 }: AffiliationCardProps): ReactElement => (
-	<li className='p-4 border flex flex-col items-center text-center gap-3 rounded-xl border-slate-400 dark:border-slate-600 transition-colors duration-200'>
+	<li className='p-4 border flex flex-col items-center text-center gap-3 rounded-xl border-slate-400 dark:border-slate-600'>
 		{logo ? (
 			<img
 				src={logo}
