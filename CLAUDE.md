@@ -18,6 +18,7 @@ Personal academic/portfolio website for mahmad97.github.io built with React 19 +
 **Routing** (React Router v7): `App.tsx` defines all routes. Current pages: `/` (Home), `/publications`, `/projects`, `/news`, `/awards`, `/background`, `/affiliations`.
 
 **Component structure:**
+
 - `src/components/layout/` — structural wrappers (Header, Footer, PageContainer)
 - `src/components/ui/` — reusable UI elements
 - `src/pages/` — full-page components; complex pages are split into section files in a subdirectory (e.g., `src/pages/Home/`, `src/pages/Affiliations/`, `src/pages/Background/`)
@@ -35,6 +36,7 @@ Personal academic/portfolio website for mahmad97.github.io built with React 19 +
 ## Deployment
 
 Pushes to `main` trigger the GitHub Actions workflow (`.github/workflows/build-and-deploy.yml`), which:
+
 1. Compiles LaTeX files in `docs/` (`cv.tex`, `resume.tex`) and moves the resulting PDFs to `public/`
 2. Runs `npm run build`
 3. Deploys `dist/` to GitHub Pages
@@ -50,26 +52,34 @@ Tailwind CSS v4 uses a CSS-first config (no `tailwind.config.js`). Custom design
 All content is static JSON in `src/data/`. Do not add external API calls.
 
 **`news.json`** — array of timeline entries, newest first:
+
 ```json
-{ "date": "Mon YYYY", "text": "Entry text with optional [Markdown links](url)." }
+{
+	"date": "Mon YYYY",
+	"text": "Entry text with optional [Markdown links](url)."
+}
 ```
+
 Inline Markdown links (`[text](url)`) are parsed manually by `RecentNewsSection` and `News` — use standard Markdown link syntax, not HTML.
 
 **`background.json`** — two top-level arrays:
-- `education[]`: `degree`, `institution`, `logo` (path under `public/`), `period`, `description`, `cgpa` (empty string if omitted), `highlights` (string array)
-- `experience[]`: `role`, `organization`, `logo` (optional), `period`, `description`, `highlights` (optional string array)
+
+- `education[]`: `degree`, `institution`, `logo` (path under `public/`), `logoBg` (optional hex color for logo background), `period`, `description`, `cgpa` (empty string if omitted), `highlights` (string array)
+- `experience[]`: `role`, `organization`, `logo` (path under `public/`), `logoBg` (optional hex color for logo background), `period`, `description`, `highlights` (optional string array)
 
 **`affiliations.json`** — four top-level arrays:
+
 - `academic[]`: `institution`, `url`, `logo` (path under `public/`), `roles`
 - `advisorsAndSupervisors[]`: `name`, `url`, `title`, `affiliation`
 - `collaborators[]`: `name`, `url`, `affiliation`
-- `organizational[]`: `organization`, `url`, `logo` (path under `public/`), `role`, `logoBg` (optional Tailwind class for logo background)
+- `organizational[]`: `organization`, `url`, `logo` (path under `public/`), `role`, `logoBg` (optional hex color for logo background)
 
 Logos are served from `public/logos/` — reference them as `/logos/...` (not `@/assets/`).
 
 ## Pages in progress
 
 The following pages/routes exist but are stubs — do not wire them up or delete them:
+
 - `src/pages/Publications.tsx` — routed at `/publications`, shows "Work in progress..."
 - `src/pages/Projects.tsx` — routed at `/projects`, shows "Work in progress..."
 - `src/pages/Research.tsx` — file exists but is not currently routed

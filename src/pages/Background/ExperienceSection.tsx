@@ -15,6 +15,7 @@ const ExperienceSection = (): ReactElement => (
 					title={entry.role}
 					subtitle={entry.organization}
 					logo={entry.logo}
+					logoBg={entry.logoBg}
 					period={entry.period}
 					description={entry.description}
 					highlights={entry.highlights}

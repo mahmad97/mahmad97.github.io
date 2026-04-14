@@ -16,6 +16,7 @@ const EducationSection = (): ReactElement => (
 					title={entry.degree}
 					subtitle={entry.institution}
 					logo={entry.logo}
+					logoBg={entry.logoBg}
 					period={entry.period}
 					description={entry.description}
 					cgpa={entry.cgpa}

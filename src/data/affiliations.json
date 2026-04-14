@@ -129,13 +129,13 @@
 		{
 			"organization": "GoGoX",
 			"url": "https://www.gogox.com/index/",
-			"logo": "/logos/gogox_long.png",
+			"logo": "/logos/corporate/gogox_long.png",
 			"role": "Software Engineer"
 		},
 		{
 			"organization": "Set Sail Software",
 			"url": "https://chatbot.com.hk/",
-			"logo": "/logos/setsail_long.png",
+			"logo": "/logos/corporate/setsail_long.png",
 			"logoBg": "bg-indigo-800",
 			"role": "Software Engineer Intern"
 		}
