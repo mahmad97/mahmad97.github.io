@@ -46,7 +46,7 @@ const BackgroundCard = ({
 
 			<div className='flex flex-col gap-1 items-end shrink-0'>
 				<SmallText>{period}</SmallText>
-				{cgpa && <SmallText>CGPA: {cgpa}</SmallText>}
+				<SmallText className={cgpa ? '' : 'invisible'}>CGPA: {cgpa}</SmallText>
 			</div>
 		</div>
 
