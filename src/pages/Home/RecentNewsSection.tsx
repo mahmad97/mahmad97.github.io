@@ -42,7 +42,7 @@ const RecentNewsSection = (): ReactElement => (
 					<SmallText className='w-20 shrink-0 text-base font-medium'>
 						{item.date}
 					</SmallText>
-					<BaseText>{parseText(item.text)}</BaseText>
+					<BaseText>{parseText(item.description)}</BaseText>
 				</li>
 			))}
 		</ul>
