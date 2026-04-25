@@ -76,7 +76,7 @@
 			"role": "Software Engineer",
 			"organization": "GoGoX",
 			"logo": "/logos/corporate/gogox_short.png",
-			"logoBg": "#3730a3",
+			"logoBg": "#3193b8",
 			"period": "Sep 2020 – Jul 2022",
 			"description": "Full-stack engineer building and maintaining customer-facing web applications and internal tools for a logistics platform operating across multiple regions in Asia.",
 			"highlights": [
@@ -91,6 +91,8 @@
 		{
 			"role": "Software Engineer Intern",
 			"organization": "Set Sail Software",
+			"logo": "/logos/corporate/setsail_short.png",
+			"logoBg": "#5d0ec0",
 			"period": "May 2019 – Aug 2019",
 			"description": "Front-end development intern building analytics tooling for a chatbot platform.",
 			"highlights": [
