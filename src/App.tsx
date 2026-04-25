@@ -12,6 +12,7 @@ import News from '@/pages/News';
 import NotFound from '@/pages/NotFound';
 import Projects from '@/pages/Projects';
 import Publications from '@/pages/Publications';
+import Services from '@/pages/Services';
 // import BlogPost from './pages/BlogPost';
 
 import './App.css';
@@ -30,6 +31,7 @@ const App = (): ReactElement => {
 						<Route path='/background' element={<Background />} />
 						<Route path='/awards' element={<Awards />} />
 						<Route path='/affiliations' element={<Affiliations />} />
+						<Route path='/services' element={<Services />} />
 						{/* <Route path='/blog/:slug' element={<BlogPost />} /> */}
 						<Route path='*' element={<NotFound />} />
 					</Routes>

@@ -10,6 +10,7 @@ const navGroups = [
 		links: [
 			{ to: '/publications', label: 'Publications' },
 			{ to: '/projects', label: 'Projects' },
+			{ to: '/services', label: 'Services' },
 		],
 	},
 	{

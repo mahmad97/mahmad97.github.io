@@ -8,6 +8,7 @@ import BackgroundCard from './BackgroundCard';
 const ExperienceSection = (): ReactElement => (
 	<section className='flex flex-col gap-4'>
 		<Subheading>Experience</Subheading>
+
 		<ol className='flex flex-col gap-4'>
 			{experience.map((entry) => (
 				<BackgroundCard
