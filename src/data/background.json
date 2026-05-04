@@ -18,6 +18,7 @@
 			"degree": "MS in Computer Science",
 			"institution": "The Pennsylvania State University",
 			"logo": "/logos/academic/psu_short.png",
+			"logoBg": "#081e44",
 			"period": "Aug 2022 – May 2024",
 			"description": "Specialized in machine learning and distributed systems.",
 			"cgpa": "",
@@ -68,6 +69,21 @@
 			"description": "Supported instruction for an undergraduate data analysis course, assisting students and contributing to course operations.",
 			"highlights": [
 				"Course: Data Analysis and Visualization.",
+				"Graded assignments and provided detailed feedback.",
+				"Conducted office hours to support students with course material.",
+				"Helped update and improve course content."
+			]
+		},
+		{
+			"role": "Graduate Teaching Assistant",
+			"organization": "The Pennsylvania State University",
+			"logo": "/logos/academic/psu_short.png",
+			"logoBg": "#081e44",
+			"period": "Aug 2022 – May 2024",
+			"description": "Supported instruction for multiple undergraduate and graduate courses, assisting students and contributing to course operations.",
+			"highlights": [
+				"Undergraduate courses: Introduction to Programming, Java Programming, Operating Systems.",
+				"Graduate courses: Operating Systems, Distributed Systems.",
 				"Graded assignments and provided detailed feedback.",
 				"Conducted office hours to support students with course material.",
 				"Helped update and improve course content."
