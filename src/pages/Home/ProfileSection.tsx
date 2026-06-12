@@ -40,7 +40,7 @@ const ProfileSection = (): ReactElement => (
 				</IconButton>
 
 				<IconButton
-					href='https://scholar.google.com/citations?hl=en&user=jg16MDkAAAAJ&view_op=list_works&sortby=pubdate'
+					href='https://scholar.google.com/citations?user=jg16MDkAAAAJ'
 					title='Google Scholar'
 					target='_blank'
 					rel='noopener noreferrer'>

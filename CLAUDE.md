@@ -74,13 +74,16 @@ Inline Markdown links (`[text](url)`) are parsed manually by `RecentNewsSection`
 - `collaborators[]`: `name`, `url`, `affiliation`
 - `organizational[]`: `organization`, `url`, `logo` (path under `public/`), `role`, `logoBg` (optional hex color for logo background)
 
+**`publications.json`** — array of publication entries, newest first:
+
+- `title`, `authors` (string array of full names; "Mohammad Ahmad" is bolded by the page), `venue` (full journal/conference name), `year`, `doi` (used as the React key, not displayed), `url` (link to the indexed paper, empty string if not yet available)
+
 Logos are served from `public/logos/` — reference them as `/logos/...` (not `@/assets/`).
 
 ## Pages in progress
 
 The following pages/routes exist but are stubs — do not wire them up or delete them:
 
-- `src/pages/Publications.tsx` — routed at `/publications`, shows "Work in progress..."
 - `src/pages/Projects.tsx` — routed at `/projects`, shows "Work in progress..."
 - `src/pages/Research.tsx` — file exists but is not currently routed
 - Blog route (`/blog/:slug`) — commented out in `App.tsx`
