@@ -37,9 +37,9 @@ const Publications = (): ReactElement => (
 			{publicationsData.map((item) => (
 				<li
 					key={item.doi}
-					className='p-4 border flex flex-col gap-3 rounded-xl border-slate-400 dark:border-slate-600'>
+					className='p-4 border flex flex-col gap-2 rounded-xl border-slate-400 dark:border-slate-600'>
 					<div className='flex items-start justify-between gap-4'>
-						<div className='flex flex-col gap-1'>
+						<div className='flex flex-col gap-2'>
 							{item.url ? (
 								<InlineLink href={item.url} className='text-xl font-medium'>
 									{item.title}
