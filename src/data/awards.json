@@ -1,7 +1,11 @@
 [
 	{
 		"date": "July 2026",
-		"description": "DAC Young Fellows Fellowship. Covered conference registration costs for DAC 2026."
+		"description": "Won the 2-min paper presentation award at [DAC 2026](https://dac.com/)."
+	},
+	{
+		"date": "July 2026",
+		"description": "DAC Young Fellows Fellowship. Covered conference registration costs for [DAC 2026](https://dac.com/)."
 	},
 	{
 		"date": "Jun 2025",
@@ -13,6 +17,6 @@
 	},
 	{
 		"date": "Sep 2016",
-		"description": "[HKU Foundation](https://giving.hku.hk/about) Entrance Scholarship, covering full tuition for the duration of study."
+		"description": "[HKU Foundation](https://giving.hku.hk/about) Entrance Scholarship, covering full tuition for the 4 year duration of study."
 	}
 ]

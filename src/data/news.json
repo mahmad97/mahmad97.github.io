@@ -1,5 +1,9 @@
 [
 	{
+		"date": "Jul 2026",
+		"description": "Awarded the DAC Young Fellows fellowship. Attended [DAC 2026](https://dac.com/) as a Young Fellow and presented my research. Won the 2-min paper presentation award."
+	},
+	{
 		"date": "Mar 2026",
 		"description": "Paper \"Optimizing Task Scheduling in Fog Computing with Deadline Awareness\" accepted at SaTC 2026."
 	},
@@ -9,7 +13,7 @@
 	},
 	{
 		"date": "Jun 2025",
-		"description": "Awarded the DAC Young Fellows fellowship. Attended [DAC](https://archive.dac.com/about/conference-archive/62nd-dac-2025.html) 2025 as a Young Fellow and presented my research."
+		"description": "Awarded the DAC Young Fellows fellowship. Attended [DAC 2025](https://archive.dac.com/about/conference-archive/62nd-dac-2025.html) as a Young Fellow and presented my research."
 	},
 	{
 		"date": "Jan 2025",
