@@ -6,7 +6,7 @@ Feel free to use the code as a template or as an inspiration for your own websit
 
 ## Getting Started
 
-Requires [Node.js](https://nodejs.org/) 24 and npm 11.
+Requires [Node.js](https://nodejs.org/) 24 and npm 12.
 
 ```bash
 npm install      # Install dependencies
