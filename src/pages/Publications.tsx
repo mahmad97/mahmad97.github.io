@@ -2,6 +2,7 @@ import type { ReactElement, ReactNode } from 'react';
 
 import PageContainer from '@/components/layout/PageContainer';
 import {
+	accentTitleTextStyle,
 	BaseText,
 	InlineLink,
 	SmallText,
@@ -54,9 +55,7 @@ const Publications = (): ReactElement => (
 									{item.title}
 								</InlineLink>
 							) : (
-								<XlText className='text-blue-500 dark:text-blue-500'>
-									{item.title}
-								</XlText>
+								<XlText className={accentTitleTextStyle}>{item.title}</XlText>
 							)}
 							<BaseText className='text-neutral-500 dark:text-neutral-400'>
 								{formatAuthors(item.authors)}

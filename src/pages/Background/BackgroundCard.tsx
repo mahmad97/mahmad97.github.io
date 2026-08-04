@@ -1,6 +1,11 @@
 import type { ReactElement } from 'react';
 
-import { BaseText, SmallText, XlText } from '@/components/typography';
+import {
+	accentTitleTextStyle,
+	BaseText,
+	SmallText,
+	XlText,
+} from '@/components/typography';
 import { DEFAULT_LOGO_BG } from '@/utils/logo';
 
 interface BackgroundCardProps {
@@ -39,7 +44,7 @@ const BackgroundCard = ({
 					<div className='h-14 w-14 rounded-sm shrink-0 bg-neutral-100 dark:bg-neutral-800' />
 				)}
 				<div>
-					<XlText className='text-blue-500 dark:text-blue-500'>{title}</XlText>
+					<XlText className={accentTitleTextStyle}>{title}</XlText>
 					<BaseText className='text-neutral-500 dark:text-neutral-400'>
 						{subtitle}
 					</BaseText>

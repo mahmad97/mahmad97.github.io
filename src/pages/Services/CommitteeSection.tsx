@@ -1,6 +1,7 @@
 import type { ReactElement } from 'react';
 
 import {
+	accentTitleTextStyle,
 	InlineLink,
 	SmallText,
 	Subheading,
@@ -24,7 +25,7 @@ const CommitteeSection = (): ReactElement => (
 		<ul className='flex flex-col gap-3'>
 			{committee.map((item) => (
 				<li key={`${item.organization}-${item.year}`} className='flex flex-col'>
-					<XlText className='text-blue-500 dark:text-blue-500'>
+					<XlText className={accentTitleTextStyle}>
 						{item.url ? (
 							<InlineLink href={item.url}>{item.organization}</InlineLink>
 						) : (
