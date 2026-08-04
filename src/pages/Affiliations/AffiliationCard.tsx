@@ -25,8 +25,8 @@ const AffiliationCard = ({
 				src={logo}
 				alt={name}
 				className='w-full h-16 p-2 rounded-sm object-contain'
-					style={{ backgroundColor: logoBg ?? DEFAULT_LOGO_BG }}
-				/>
+				style={{ backgroundColor: logoBg ?? DEFAULT_LOGO_BG }}
+			/>
 		) : (
 			<div className='w-full h-16 rounded-lg bg-neutral-100 dark:bg-neutral-800' />
 		)}
