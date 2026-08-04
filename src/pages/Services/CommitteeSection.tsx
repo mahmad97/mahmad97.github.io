@@ -1,9 +1,19 @@
 import type { ReactElement } from 'react';
 
-import { InlineLink, SmallText, Subheading, XlText } from '@/components/typography';
+import {
+	InlineLink,
+	SmallText,
+	Subheading,
+	XlText,
+} from '@/components/typography';
 import servicesData from '@/data/services.json';
 
-type CommitteeEntry = { organization: string; url: string; role: string; year: string };
+type CommitteeEntry = {
+	organization: string;
+	url: string;
+	role: string;
+	year: string;
+};
 
 const committee = servicesData.committee as CommitteeEntry[];
 
