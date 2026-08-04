@@ -71,11 +71,13 @@ All content is static JSON in `src/data/`. Do not add external API calls.
 ```json
 {
 	"date": "Mon YYYY",
-	"text": "Entry text with optional [Markdown links](url)."
+	"description": "Entry text with optional [Markdown links](url)."
 }
 ```
 
-Inline Markdown links (`[text](url)`) are parsed manually by `RecentNewsSection` and `News` — use standard Markdown link syntax, not HTML.
+`awards.json` uses the same `date` + `description` shape.
+
+Inline Markdown links (`[text](url)`) are rendered by `parseInlineLinks` in `src/utils/markdown.tsx` — use standard Markdown link syntax, not HTML. Nothing else in the string is parsed. `date` is not unique (dates repeat), so don't key React lists by it.
 
 **`background.json`** — two top-level arrays:
 
