@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Backlog
+
+`TODO.md` at the repo root tracks pending tasks and ideas. Read it when asked what to work on next, and when a task is finished, tick it there and move it to the `## Done` section with the date.
+
 ## Commands
 
 ```bash
