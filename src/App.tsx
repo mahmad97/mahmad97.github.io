@@ -27,11 +27,11 @@ const App = (): ReactElement => {
 						<Route path='/' element={<Home />} />
 						<Route path='/publications' element={<Publications />} />
 						<Route path='/projects' element={<Projects />} />
+						<Route path='/services' element={<Services />} />
 						<Route path='/news' element={<News />} />
 						<Route path='/background' element={<Background />} />
 						<Route path='/awards' element={<Awards />} />
 						<Route path='/affiliations' element={<Affiliations />} />
-						<Route path='/services' element={<Services />} />
 						{/* <Route path='/blog/:slug' element={<BlogPost />} /> */}
 						<Route path='*' element={<NotFound />} />
 					</Routes>

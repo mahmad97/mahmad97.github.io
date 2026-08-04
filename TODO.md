@@ -19,8 +19,6 @@ things so they stop taking up head space.
       route change
 - [ ] Fill in the Projects page — currently ships a live `/projects` route that
       says "Work in progress..."
-- [ ] Decide the fate of `src/pages/Research.tsx` — file exists, isn't routed,
-      unclear if it's superseded by Publications
 
 ## Accessibility
 
@@ -147,3 +145,7 @@ Decisions already made — here so they don't get re-filed as bugs.
 ## Done
 
 <!-- Move completed items here with the date, newest first. -->
+
+- [x] Decided the fate of `src/pages/Research.tsx` — deleted. It was an unrouted
+      stub superseded by Publications; also dropped its CLAUDE.md mention
+      _(2026-08-04)_

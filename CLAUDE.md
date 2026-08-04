@@ -89,5 +89,4 @@ Logos are served from `public/logos/` — reference them as `/logos/...` (not `@
 The following pages/routes exist but are stubs — do not wire them up or delete them:
 
 - `src/pages/Projects.tsx` — routed at `/projects`, shows "Work in progress..."
-- `src/pages/Research.tsx` — file exists but is not currently routed
 - Blog route (`/blog/:slug`) — commented out in `App.tsx`
