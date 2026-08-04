@@ -1,6 +1,7 @@
 import type { ReactElement } from 'react';
 
 import { BaseText, SmallText, XlText } from '@/components/typography';
+import { DEFAULT_LOGO_BG } from '@/utils/logo';
 
 interface BackgroundCardProps {
 	title: string;
@@ -8,6 +9,7 @@ interface BackgroundCardProps {
 	period: string;
 	description: string;
 	logo?: string;
+	/** Hex colour for the tile behind the logo. */
 	logoBg?: string;
 	cgpa?: string;
 	highlights?: string[];
@@ -31,7 +33,7 @@ const BackgroundCard = ({
 						src={logo}
 						alt={subtitle}
 						className='h-14 w-14 rounded-sm object-contain shrink-0 p-2'
-						style={{ backgroundColor: logoBg ?? '#f8fafc' }}
+						style={{ backgroundColor: logoBg ?? DEFAULT_LOGO_BG }}
 					/>
 				) : (
 					<div className='h-14 w-14 rounded-sm shrink-0 bg-neutral-100 dark:bg-neutral-800' />

@@ -1,11 +1,13 @@
 import type { ReactElement } from 'react';
 
 import { InlineLink, SmallText } from '@/components/typography';
+import { DEFAULT_LOGO_BG } from '@/utils/logo';
 
 interface AffiliationCardProps {
 	name: string;
 	url: string;
 	logo?: string;
+	/** Hex colour for the tile behind the logo. */
 	logoBg?: string;
 	subtitle: string;
 }
@@ -22,8 +24,9 @@ const AffiliationCard = ({
 			<img
 				src={logo}
 				alt={name}
-				className={`w-full h-16 p-2 rounded-sm object-contain ${logoBg ?? 'bg-slate-50'}`}
-			/>
+				className='w-full h-16 p-2 rounded-sm object-contain'
+					style={{ backgroundColor: logoBg ?? DEFAULT_LOGO_BG }}
+				/>
 		) : (
 			<div className='w-full h-16 rounded-lg bg-neutral-100 dark:bg-neutral-800' />
 		)}
