@@ -32,13 +32,16 @@ const baseTextStyle =
 const smallTextStyle =
 	'text-sm font-normal text-neutral-600 dark:text-neutral-400';
 
-const inlineLinkTextStyle = 'text-blue-500 dark:text-blue-500 hover:underline';
+// blue-500 measures 3.60:1 on the slate-50 background — under the 4.5:1 WCAG AA
+// needs for body text. blue-600 is 5.01:1. Dark mode keeps blue-500, which is
+// already 5.36:1 on slate-950 and would drop to 3.84:1 if darkened to match.
+const inlineLinkTextStyle = 'text-blue-600 dark:text-blue-500 hover:underline';
 
 const navHeadingStyle =
 	'text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400';
 
 const navTextStyle =
-	'text-base font-normal [&.active]:font-bold pl-3 border-l -ml-px border-transparent [&.active]:border-blue-500 hover:[&:not(.active)]:border-neutral-800 dark:hover:[&:not(.active)]:border-neutral-200 [&.active]:text-blue-500 [&:not(.active)]:text-neutral-700 hover:[&:not(.active)]:text-neutral-800 dark:[&:not(.active)]:text-neutral-300 dark:hover:[&:not(.active)]:text-neutral-200';
+	'text-base font-normal [&.active]:font-bold pl-3 border-l -ml-px border-transparent [&.active]:border-blue-500 hover:[&:not(.active)]:border-neutral-800 dark:hover:[&:not(.active)]:border-neutral-200 [&.active]:text-blue-600 dark:[&.active]:text-blue-500 [&:not(.active)]:text-neutral-700 hover:[&:not(.active)]:text-neutral-800 dark:[&:not(.active)]:text-neutral-300 dark:hover:[&:not(.active)]:text-neutral-200';
 
 // const labelTextStyle =
 // 	'text-base font-bold text-slate-800 dark:text-slate-300';

@@ -3,7 +3,7 @@ import type { ReactElement } from 'react';
 import { Link } from 'react-router';
 
 import PageContainer from '@/components/layout/PageContainer';
-import { BaseText } from '@/components/typography';
+import { BaseText, inlineLinkTextStyle } from '@/components/typography';
 import { buildMeta } from '@/utils/meta';
 
 const meta = () => [
@@ -19,7 +19,7 @@ const NotFound = (): ReactElement => (
 	<PageContainer heading='404'>
 		<BaseText>
 			Page not found.{' '}
-			<Link to='/' className='text-blue-500 hover:underline'>
+			<Link to='/' className={inlineLinkTextStyle}>
 				Go home
 			</Link>
 		</BaseText>
