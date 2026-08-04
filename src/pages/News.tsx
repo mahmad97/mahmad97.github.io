@@ -3,6 +3,15 @@ import type { ReactElement, ReactNode } from 'react';
 import PageContainer from '@/components/layout/PageContainer';
 import { BaseText, InlineLink, SmallText } from '@/components/typography';
 import newsData from '@/data/news.json';
+import { buildMeta } from '@/utils/meta';
+
+const meta = () =>
+	buildMeta({
+		title: 'News',
+		description:
+			'Recent news and updates from Mohammad Ahmad — papers, talks, awards, and academic milestones.',
+		path: '/news',
+	});
 
 const parseText = (text: string): ReactNode => {
 	const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
@@ -37,4 +46,5 @@ const News = (): ReactElement => (
 	</PageContainer>
 );
 
+export { meta };
 export default News;

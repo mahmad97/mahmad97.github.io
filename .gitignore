@@ -1,8 +1,12 @@
 # Node modules and build output
 node_modules
+build
 dist
 dist-ssr
 *.local
+
+# React Router generated route types
+.react-router
 
 # Logs
 logs

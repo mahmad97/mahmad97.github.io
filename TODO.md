@@ -14,9 +14,17 @@ things so they stop taking up head space.
 ## Up next
 
 - [ ] **Scroll position persists across navigation.** The scroll container is an
-      inner `div` (`App.tsx`), so router navigation never resets it — going from
-      a scrolled page to a taller one lands you mid-content. Reset `scrollTop` on
-      route change
+      inner `div` (`src/root.tsx`), so router navigation never resets it — going
+      from a scrolled page to a taller one lands you mid-content. Re-measured
+      after the framework-mode migration: still 438px down. `<ScrollRestoration />`
+      is now mounted but only ever drives `window`, which never scrolls here, so
+      it can't help. Either reset `scrollTop` on route change with a small hook,
+      or make the document the scroller (see below)
+- [ ] **Consider letting the document scroll instead of an inner div.** Make the
+      sidebar `fixed` and drop `h-screen` + `overflow-y-auto` from the shell.
+      That one change would let the mounted `<ScrollRestoration />` work natively,
+      make `#anchor` links work, restore mobile URL-bar auto-hide, and retire the
+      `h-screen` vs `h-dvh` question — it's the root cause behind several items here
 - [ ] Fill in the Projects page — currently ships a live `/projects` route that
       says "Work in progress..."
 
@@ -43,12 +51,6 @@ Findings from a rendered-page audit (Chrome, 1440px and 390px, both themes).
 
 ## Visual & consistency
 
-- [ ] **Blue text that isn't a link** — publication titles with no `url`
-      (`Publications.tsx`) and every degree/role title (`BackgroundCard.tsx`) are
-      `text-blue-500` but not clickable. Reserve blue for links
-- [ ] **`logoBg` has two incompatible formats** — hex in `background.json` (used
-      via `style`), a Tailwind class in `affiliations.json` (used via
-      `className`). Pick one. CLAUDE.md documents both as hex, which is wrong
 - [ ] **Logo tiles aren't theme-aware** — in dark mode the HKU tile glares white
       while the UTSA and Penn State tiles vanish into the card
 - [ ] **CGPA placeholder reserves an empty line** (`invisible` in
@@ -93,22 +95,28 @@ Findings from a rendered-page audit (Chrome, 1440px and 390px, both themes).
 
 ## SEO & discoverability
 
-Per-page `<title>` already works via `PageContainer` — verified. The gap is
-everything else in `<head>`.
+Title, description, Open Graph, and Twitter tags now come from each route's
+`meta` export and are baked into the pre-rendered HTML — see `src/utils/meta.ts`.
 
-- [ ] Meta description — currently absent on every route
-- [ ] Open Graph + Twitter card tags — links to the site currently unfurl bare
-- [ ] `public/robots.txt` and a `sitemap.xml` (can be generated at build time from
-      the route list in `App.tsx`)
+- [ ] `public/robots.txt` and a `sitemap.xml` (generate at build time from the
+      route list in `src/routes.ts`)
 - [ ] JSON-LD `Person` / `ScholarlyArticle` structured data
-- [ ] Canonical URLs — the `404.html` redirect trick means paths can be reached
-      more than one way
+- [ ] `<link rel="canonical">` per route — `og:url` is set, but the canonical
+      link tag isn't. Needs a `links` export per route module
 - [ ] Favicon set beyond `public/MA.svg` — apple-touch-icon, manifest
+- [ ] OG image — `og:image` is unset, so link previews have no thumbnail
 
 ## Quality & infra
 
+- [ ] **`npm run lint` is broken** and was already broken before the router
+      migration: `eslint.config.js` passes `reactHooks.configs['recommended-latest']`,
+      which the installed `eslint-plugin-react-hooks` no longer accepts in flat
+      config ("Flat config requires \"plugins\" to be an object"). Fix before
+      wiring lint into CI, or CI will just go red
 - [ ] CI runs `npm run build` only — add `npm run lint` to the workflow so lint
       errors don't reach `main`
+- [ ] No `ErrorBoundary` export in `src/root.tsx` — a thrown render error falls
+      back to React Router's bare default page
 - [ ] No PR check workflow: Dependabot PRs merge without ever being built. Add a
       `pull_request` trigger that builds + lints
 - [ ] No formatter config committed (no Prettier, no `.editorconfig`) — style is
@@ -141,11 +149,31 @@ Decisions already made — here so they don't get re-filed as bugs.
   `Header.tsx` use `backdrop-blur` with no background colour on purpose; the
   page showing through is the desired look. Not a bug — leave it alone.
   _(2026-08-04)_
+- **Blue text that isn't a link is fine.** Publication titles with no `url`
+  (`Publications.tsx`) and degree/role titles (`BackgroundCard.tsx`) are
+  `text-blue-500` without being clickable. "Reserve blue for links" is a
+  convention, not a rule, and this is a personal site — the colour is the point.
+  Separate from the light-mode link contrast item under
+  [Accessibility](#accessibility), which is a real WCAG failure and still open.
+  _(2026-08-04)_
 
 ## Done
 
 <!-- Move completed items here with the date, newest first. -->
 
+- [x] **Migrated React Router to framework mode with full pre-rendering.**
+      `ssr: false` + `prerender: true`; `appDirectory` is `src`. Added
+      `react-router.config.ts`, `src/routes.ts`, `src/root.tsx`, `src/utils/meta.ts`;
+      deleted `index.html`, `src/main.tsx`, `src/App.tsx`, and the `public/404.html`
+      redirect shim. All 8 routes now emit static HTML with real content and full
+      `<head>` tags; the SPA fallback is copied to `404.html` by `postbuild`.
+      Build output moved `dist/` → `build/client/` (workflow updated)
+      _(2026-08-04)_
+
+- [x] **`logoBg` is hex everywhere now** — `AffiliationCard` applied it as a
+      Tailwind class, `BackgroundCard` as inline `style`. Both use `style`;
+      the one class value (`bg-indigo-800`) became its hex `#372aac`, and the
+      shared fallback lives in `src/utils/logo.ts` _(2026-08-04)_
 - [x] Decided the fate of `src/pages/Research.tsx` — deleted. It was an unrouted
       stub superseded by Publications; also dropped its CLAUDE.md mention
       _(2026-08-04)_

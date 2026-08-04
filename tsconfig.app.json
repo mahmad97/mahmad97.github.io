@@ -19,6 +19,9 @@
 			"@/*": ["./src/*"]
 		},
 
+		/* React Router writes generated route types here (`react-router typegen`) */
+		"rootDirs": [".", "./.react-router/types"],
+
 		/* Linting */
 		"strict": true,
 		"noUnusedLocals": true,
@@ -27,5 +30,5 @@
 		"noFallthroughCasesInSwitch": true,
 		"noUncheckedSideEffectImports": true
 	},
-	"include": ["src"]
+	"include": ["src", ".react-router/types/**/*"]
 }

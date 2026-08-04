@@ -3,6 +3,15 @@ import type { ReactElement, ReactNode } from 'react';
 import PageContainer from '@/components/layout/PageContainer';
 import { BaseText, InlineLink, SmallText } from '@/components/typography';
 import awardsData from '@/data/awards.json';
+import { buildMeta } from '@/utils/meta';
+
+const meta = () =>
+	buildMeta({
+		title: 'Awards',
+		description:
+			'Awards, scholarships, and honours received by Mohammad Ahmad.',
+		path: '/awards',
+	});
 
 const parseText = (text: string): ReactNode => {
 	const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
@@ -37,4 +46,5 @@ const Awards = (): ReactElement => (
 	</PageContainer>
 );
 
+export { meta };
 export default Awards;

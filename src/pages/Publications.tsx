@@ -8,6 +8,15 @@ import {
 	XlText,
 } from '@/components/typography';
 import publicationsData from '@/data/publications.json';
+import { buildMeta } from '@/utils/meta';
+
+const meta = () =>
+	buildMeta({
+		title: 'Publications',
+		description:
+			'Peer-reviewed publications by Mohammad Ahmad on computer architecture, in-memory computing, and embedded systems.',
+		path: '/publications',
+	});
 
 const OWN_NAME = 'Mohammad Ahmad';
 
@@ -65,4 +74,5 @@ const Publications = (): ReactElement => (
 	</PageContainer>
 );
 
+export { meta };
 export default Publications;
