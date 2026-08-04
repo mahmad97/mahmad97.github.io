@@ -1,5 +1,6 @@
 import type { ReactElement } from 'react';
 
+import { useEffect } from 'react';
 import { LuX } from 'react-icons/lu';
 import { Link } from 'react-router';
 
@@ -12,13 +13,28 @@ type SideDrawerProps = Readonly<{
 }>;
 
 const SideDrawer = ({ isOpen, closeDrawer }: SideDrawerProps): ReactElement => {
+	useEffect(() => {
+		if (!isOpen) return;
+
+		const onKeyDown = (event: KeyboardEvent): void => {
+			if (event.key === 'Escape') closeDrawer();
+		};
+
+		document.addEventListener('keydown', onKeyDown);
+		return () => document.removeEventListener('keydown', onKeyDown);
+	}, [isOpen, closeDrawer]);
+
 	return (
 		<>
 			<div
 				className={`md:hidden fixed inset-0 z-20 bg-black/20 dark:bg-black/40 transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
 				onClick={closeDrawer}
 			/>
+			{/* `inert` when closed: the drawer is only translated off-screen, so
+			    without it the 8 controls inside stay focusable and keyboard users
+			    tab through invisible links after the hamburger. */}
 			<aside
+				inert={!isOpen}
 				className={`fixed left-0 z-30 w-64 h-full px-4 py-3 border-r md:hidden flex flex-col border-slate-400 dark:border-slate-600 backdrop-blur transition-transform duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
 				<div className='flex items-center justify-between pb-3 border-b border-slate-400 dark:border-slate-600'>
 					<Link
@@ -31,7 +47,7 @@ const SideDrawer = ({ isOpen, closeDrawer }: SideDrawerProps): ReactElement => {
 					<button
 						type='button'
 						className='cursor-pointer text-blue-500'
-						aria-label='Open menu'
+						aria-label='Close menu'
 						onClick={closeDrawer}>
 						<LuX size={24} strokeWidth={2.5} />
 					</button>
