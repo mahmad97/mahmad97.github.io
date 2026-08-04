@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react';
+import type { ReactElement, RefObject } from 'react';
 
 import { LuMenu } from 'react-icons/lu';
 import { Link } from 'react-router';
@@ -8,9 +8,10 @@ import ThemeToggle from '@/components/ui/ThemeToggle';
 
 type HeaderProps = Readonly<{
 	onMenuClick: () => void;
+	menuButtonRef: RefObject<HTMLButtonElement | null>;
 }>;
 
-const Header = ({ onMenuClick }: HeaderProps): ReactElement => (
+const Header = ({ onMenuClick, menuButtonRef }: HeaderProps): ReactElement => (
 	<header className='sticky top-0 z-10 border-b md:hidden border-slate-400 dark:border-slate-600 backdrop-blur'>
 		<div className='h-16 px-4 flex items-center justify-between'>
 			<Link to='/' className='w-10 h-10 [&>svg]:w-full [&>svg]:h-full'>
@@ -20,6 +21,7 @@ const Header = ({ onMenuClick }: HeaderProps): ReactElement => (
 			<div className='flex gap-4 items-center'>
 				<ThemeToggle />
 				<button
+					ref={menuButtonRef}
 					type='button'
 					className='cursor-pointer text-blue-500'
 					aria-label='Open menu'
