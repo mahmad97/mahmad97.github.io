@@ -20,12 +20,15 @@ things so they stop taking up head space.
 
 Findings from a rendered-page audit (Chrome, 1440px and 390px, both themes).
 
-- [ ] **Focus doesn't return to the hamburger when the drawer closes** — now that
-      the closed drawer is `inert`, closing it while focus is inside drops focus
-      to `<body>`. Needs a focus-return (and arguably a focus trap while open)
-- [ ] **Link colour fails WCAG AA in light mode**: `blue-500` measures 3.6:1 on
-      the `slate-50` background, needs 4.5:1. Dark mode passes. Darken to
-      `blue-600`/`700` in light only — `inlineLinkTextStyle` in `typography.tsx`
+- [ ] **Blue text that isn't a link still fails WCAG AA in light mode.** The
+      `XlText` titles in `Publications.tsx`, `BackgroundCard.tsx`,
+      `CommitteeSection.tsx`, and `CollaboratorsSection.tsx` are `text-blue-500`
+      — the same 3.60:1 on `slate-50` that the link colour was. `text-xl` at
+      `font-medium` is 20px non-bold, which is _not_ WCAG "large text" (that
+      needs 24px, or 18.66px bold), so the 4.5:1 threshold applies. Left alone
+      because [Settled](#settled) says the colour is deliberate, and that note
+      settles the colour but not the contrast — `blue-600` keeps it blue and
+      measures 5.01:1. Worth a decision either way
 - [ ] **Heading levels skip h3** — `XlText` renders `<h4>`, so Background
       outlines as h1 → h2 → h4. Card titles should be h3
 - [ ] **No focus-visible style** — the UA default outline draws a black box
@@ -133,13 +136,34 @@ Decisions already made — here so they don't get re-filed as bugs.
   (`Publications.tsx`) and degree/role titles (`BackgroundCard.tsx`) are
   `text-blue-500` without being clickable. "Reserve blue for links" is a
   convention, not a rule, and this is a personal site — the colour is the point.
-  Separate from the light-mode link contrast item under
-  [Accessibility](#accessibility), which is a real WCAG failure and still open.
-  _(2026-08-04)_
+  This settles _which_ colour, not how dark it has to be: those titles are still
+  `blue-500` at 3.60:1, which is a genuine AA failure and is filed under
+  [Accessibility](#accessibility). The link colour that used to share the
+  problem is fixed. _(2026-08-04)_
 
 ## Done
 
 <!-- Move completed items here with the date, newest first. -->
+
+- [x] **Link colour meets WCAG AA in both themes.** Light mode moves to
+      `blue-600` (5.01:1 on `slate-50`); dark mode keeps `blue-500`, which is
+      already 5.36:1 on `slate-950` and would fall to 3.84:1 if darkened to
+      match. Ratios were measured, not assumed: Tailwind's `oklch()` values were
+      painted to a canvas and read back as sRGB, which reproduced the 3.60:1
+      figure this list already had for `blue-500`. Applied to all three link
+      styles, since the failure was the colour and not one component —
+      `inlineLinkTextStyle`, the active `navTextStyle`, and the hard-coded link
+      in `NotFound.tsx` (which now reuses `inlineLinkTextStyle`). Icon buttons
+      keep `blue-500`: as non-text UI they need 3:1, and 3.60:1 clears it
+      _(2026-08-04)_
+
+- [x] **The drawer now has a complete focus contract.** Opening moves focus to
+      the close button, Tab and Shift+Tab wrap inside the drawer instead of
+      walking into the page behind the overlay, and closing — by Escape, by the
+      close button, or by clicking the overlay — returns focus to the hamburger
+      rather than dropping it to `<body>`. A `wasOpen` guard keeps a freshly
+      loaded page from stealing focus. The trap is what makes the added
+      `role='dialog'` + `aria-modal='true'` honest _(2026-08-04)_
 
 - [x] **Prettier and `.editorconfig` are committed.** The config wasn't guessed —
       it was derived by running Prettier against the existing source and picking
