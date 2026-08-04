@@ -6,18 +6,36 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 const config = tseslint.config([
-	globalIgnores(['dist']),
+	globalIgnores(['build', '.react-router']),
 	{
 		files: ['**/*.{ts,tsx}'],
 		extends: [
 			js.configs.recommended,
 			tseslint.configs.recommended,
-			reactHooks.configs['recommended-latest'],
+			reactHooks.configs.flat['recommended-latest'],
 			reactRefresh.configs.vite,
 		],
 		languageOptions: {
 			ecmaVersion: 2020,
 			globals: globals.browser,
+		},
+	},
+	{
+		files: ['src/root.tsx', 'src/pages/**/*.tsx'],
+		rules: {
+			'react-refresh/only-export-components': [
+				'error',
+				{
+					allowExportNames: [
+						'meta',
+						'links',
+						'loader',
+						'clientLoader',
+						'handle',
+						'shouldRevalidate',
+					],
+				},
+			],
 		},
 	},
 ]);
