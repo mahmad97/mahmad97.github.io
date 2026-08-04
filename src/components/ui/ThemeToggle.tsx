@@ -1,9 +1,10 @@
 import type { ReactElement } from 'react';
 
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { LuMonitor, LuMoonStar, LuSun } from 'react-icons/lu';
 
 import IconButton from '@/components/ui/IconButton';
+import type { Theme } from '@/hooks/useTheme';
 import { useTheme } from '@/hooks/useTheme';
 
 import './ThemeToggle.css';
@@ -21,12 +22,10 @@ const getIcon = (mode: string): ReactElement => {
 
 const ThemeToggle = (): ReactElement => {
 	const [theme, setTheme] = useTheme();
-	const prevThemeRef = useRef(theme);
-	const [animating, setAnimating] = useState(false);
+	const [exitingTheme, setExitingTheme] = useState<Theme | null>(null);
 
 	const handleClick = (): void => {
-		prevThemeRef.current = theme;
-		setAnimating(true);
+		setExitingTheme(theme);
 
 		if (theme === 'light') {
 			setTheme('dark');
@@ -42,18 +41,18 @@ const ThemeToggle = (): ReactElement => {
 			title='Toggle theme'
 			onClick={handleClick}
 			className='overflow-hidden'>
-			{animating && (
+			{exitingTheme && (
 				<span
 					className='absolute'
 					style={{ animation: 'slideOut 0.25s forwards' }}
-					onAnimationEnd={() => setAnimating(false)}>
-					{getIcon(prevThemeRef.current)}
+					onAnimationEnd={() => setExitingTheme(null)}>
+					{getIcon(exitingTheme)}
 				</span>
 			)}
 
 			<span
 				className='absolute'
-				style={animating ? { animation: 'slideIn 0.25s forwards' } : {}}>
+				style={exitingTheme ? { animation: 'slideIn 0.25s forwards' } : {}}>
 				{getIcon(theme)}
 			</span>
 		</IconButton>
