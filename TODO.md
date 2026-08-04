@@ -20,15 +20,6 @@ things so they stop taking up head space.
 
 Findings from a rendered-page audit (Chrome, 1440px and 390px, both themes).
 
-- [ ] **Blue text that isn't a link still fails WCAG AA in light mode.** The
-      `XlText` titles in `Publications.tsx`, `BackgroundCard.tsx`,
-      `CommitteeSection.tsx`, and `CollaboratorsSection.tsx` are `text-blue-500`
-      — the same 3.60:1 on `slate-50` that the link colour was. `text-xl` at
-      `font-medium` is 20px non-bold, which is _not_ WCAG "large text" (that
-      needs 24px, or 18.66px bold), so the 4.5:1 threshold applies. Left alone
-      because [Settled](#settled) says the colour is deliberate, and that note
-      settles the colour but not the contrast — `blue-600` keeps it blue and
-      measures 5.01:1. Worth a decision either way
 - [ ] **Heading levels skip h3** — `XlText` renders `<h4>`, so Background
       outlines as h1 → h2 → h4. Card titles should be h3
 - [ ] **No focus-visible style** — the UA default outline draws a black box
@@ -61,8 +52,8 @@ Findings from a rendered-page audit (Chrome, 1440px and 390px, both themes).
       component — title, blurb, stack, links (repo / paper / demo), year, status
 - [ ] Keep `news.json` current — last entry should never be more than a few
       months stale or the site reads as abandoned
-- [ ] Publications: `url` is an empty string on some entries — backfill as papers
-      get indexed
+- [ ] Publications: keep `url` filled in as papers get indexed. Nothing is
+      missing one today (1 of 1 has a url), so this is a watch item, not a chore
 - [ ] Add a short research-interests paragraph to Home for people who land there
       from a paper
 - [ ] Review `docs/cv.tex` and `docs/resume.tex` against the site data — they
@@ -136,14 +127,29 @@ Decisions already made — here so they don't get re-filed as bugs.
   (`Publications.tsx`) and degree/role titles (`BackgroundCard.tsx`) are
   `text-blue-500` without being clickable. "Reserve blue for links" is a
   convention, not a rule, and this is a personal site — the colour is the point.
-  This settles _which_ colour, not how dark it has to be: those titles are still
-  `blue-500` at 3.60:1, which is a genuine AA failure and is filed under
-  [Accessibility](#accessibility). The link colour that used to share the
-  problem is fixed. _(2026-08-04)_
+  This settles _which_ colour, not how dark it is: they are `blue-600` in light
+  mode via `accentTitleTextStyle`, for contrast, and still unmistakably blue.
+  _(2026-08-04)_
 
 ## Done
 
 <!-- Move completed items here with the date, newest first. -->
+
+- [x] **The non-link blue titles are `blue-600` in light mode too**, so every
+      piece of blue text on the site now clears 4.5:1. The colour lives in one
+      place now — `accentTitleTextStyle` in `typography.tsx` — instead of the
+      same `text-blue-500 dark:text-blue-500` literal copy-pasted into
+      `Publications.tsx`, `BackgroundCard.tsx`, `CommitteeSection.tsx`, and
+      `CollaboratorsSection.tsx`, which is how it drifted from the link colour in
+      the first place.
+      Worth knowing where this is actually visible: only Background renders these
+      titles today (9 of them, measured 5.01:1 light / 5.36:1 dark). The other
+      three pages wrap the title in an `InlineLink` whenever the entry has a
+      `url`, and right now every entry does — 1 of 1 publication, 12 of 12
+      collaborators, and the committee list is empty. So the change is a real fix
+      on Background and correct-but-dormant elsewhere until an entry without a
+      `url` shows up. Verified across all four pages in both themes: links worst
+      5.01:1 light / 5.36:1 dark _(2026-08-04)_
 
 - [x] **Link colour meets WCAG AA in both themes.** Light mode moves to
       `blue-600` (5.01:1 on `slate-50`); dark mode keeps `blue-500`, which is
