@@ -20,12 +20,9 @@ things so they stop taking up head space.
 
 Findings from a rendered-page audit (Chrome, 1440px and 390px, both themes).
 
-- [ ] **Closed mobile drawer stays in the tab order** — its links sit off-screen
-      at x=-240 but remain focusable, so keyboard users tab into 8 invisible
-      controls after the hamburger. Mark it `inert` when closed
-- [ ] **Drawer close button is labelled `aria-label='Open menu'`** — two buttons
-      announce identically. Should be "Close menu"
-- [ ] **Escape doesn't close the drawer** (verified — no keydown handler)
+- [ ] **Focus doesn't return to the hamburger when the drawer closes** — now that
+      the closed drawer is `inert`, closing it while focus is inside drops focus
+      to `<body>`. Needs a focus-return (and arguably a focus trap while open)
 - [ ] **Link colour fails WCAG AA in light mode**: `blue-500` measures 3.6:1 on
       the `slate-50` background, needs 4.5:1. Dark mode passes. Darken to
       `blue-600`/`700` in light only — `inlineLinkTextStyle` in `typography.tsx`
@@ -53,11 +50,7 @@ Findings from a rendered-page audit (Chrome, 1440px and 390px, both themes).
 
 ## Code health
 
-- [ ] `parseText` is copy-pasted identically into `News.tsx`, `Awards.tsx`, and
-      `RecentNewsSection.tsx` — extract it
-- [ ] `RecentNewsSection` keys by `item.date`, and `news.json` has "Sep 2016"
-      twice — a duplicate-key collision currently masked by the 5-year filter
-- [ ] CLAUDE.md says `news.json` entries use a `text` field; they use `description`
+- [ ] Nothing open right now.
 
 ## Content
 
@@ -97,13 +90,15 @@ Title, description, Open Graph, and Twitter tags now come from each route's
 
 ## Quality & infra
 
-- [ ] **`npm run lint` is broken** and was already broken before the router
-      migration: `eslint.config.js` passes `reactHooks.configs['recommended-latest']`,
-      which the installed `eslint-plugin-react-hooks` no longer accepts in flat
-      config ("Flat config requires \"plugins\" to be an object"). Fix before
-      wiring lint into CI, or CI will just go red
-- [ ] CI runs `npm run build` only — add `npm run lint` to the workflow so lint
-      errors don't reach `main`
+- [ ] **`npm run preview` doesn't serve what GitHub Pages serves.** Vite previews
+      as an SPA, so a bare `/news` falls back to the root `index.html` and you get
+      the _Home_ page's markup, on top of which the client renders News — two full
+      app trees stacked in `<body>`. `/news/` (trailing slash) serves the right
+      file. Production is unaffected: Pages resolves the directory index. Until
+      this is fixed, always preview with a trailing slash, or any rendered-page
+      audit will be measuring the wrong DOM. Fix is probably `appType: 'mpa'` in
+      `vite.config.ts`, but that's shared with `npm run dev`, so it needs checking
+      against the `*` catch-all before committing to it
 - [ ] No `ErrorBoundary` export in `src/root.tsx` — a thrown render error falls
       back to React Router's bare default page
 - [ ] No PR check workflow: Dependabot PRs merge without ever being built. Add a
@@ -150,31 +145,42 @@ Decisions already made — here so they don't get re-filed as bugs.
 
 <!-- Move completed items here with the date, newest first. -->
 
-- [x] **The document is the scroller now, and scroll position resets across
-      navigation.** Dropped `h-screen` + `overflow-y-auto` from the shell in
-      `src/root.tsx` (`min-h-screen` instead) and pinned the sidebar with
-      `md:sticky md:top-0 md:h-screen` — `sticky` rather than the `fixed` this
-      list proposed, so the aside keeps its slot in the flex row and the content
-      column needs no matching margin. The already-mounted `<ScrollRestoration />`
-      does the rest: navigation resets to top, back restores position. Verified
-      over CDP at 1440px and 390px — scroll reset, back-restore, pinned sidebar,
-      sticky mobile header, no horizontal overflow, and no spurious scrollbar or
-      floating footer on a short page. Closes the two scroll items and the
-      `h-screen` vs `h-dvh` question _(2026-08-04)_
+- [x] **`npm run lint` runs again, and CI runs it.** `eslint.config.js` now uses
+      `reactHooks.configs.flat['recommended-latest']` — the top-level
+      `recommended-latest` is the eslintrc shape, whose `plugins` is a string
+      array that flat config rejects. Also repointed the stale `dist` ignore at
+      `build`/`.react-router`. That surfaced 10 real errors, now all fixed:
+      9 × `only-export-components` on route modules (allow-listed `meta`/`links`
+      and friends for `src/pages/**` and `src/root.tsx` — `action` and `headers`
+      deliberately left off, since the prerender build fails on them and lint
+      catching that early is useful), plus one `react-hooks/refs` in
+      `ThemeToggle` (see below). `npm run lint` is now a step in
+      `build-and-deploy.yml`, before the build _(2026-08-04)_
 
-- [x] **Migrated React Router to framework mode with full pre-rendering.**
-      `ssr: false` + `prerender: true`; `appDirectory` is `src`. Added
-      `react-router.config.ts`, `src/routes.ts`, `src/root.tsx`, `src/utils/meta.ts`;
-      deleted `index.html`, `src/main.tsx`, `src/App.tsx`, and the `public/404.html`
-      redirect shim. All 8 routes now emit static HTML with real content and full
-      `<head>` tags; the SPA fallback is copied to `404.html` by `postbuild`.
-      Build output moved `dist/` → `build/client/` (workflow updated)
-      _(2026-08-04)_
+- [x] **`ThemeToggle` no longer reads a ref during render.** The outgoing theme
+      is rendered output — the icon that slides away — so it's `useState` now
+      instead of `useRef` + a separate `animating` boolean. One piece of state
+      where there were two. Verified the full light → dark → system → light
+      cycle and that the outgoing icon mounts during the animation and unmounts
+      on `animationend` _(2026-08-04)_
 
-- [x] **`logoBg` is hex everywhere now** — `AffiliationCard` applied it as a
-      Tailwind class, `BackgroundCard` as inline `style`. Both use `style`;
-      the one class value (`bg-indigo-800`) became its hex `#372aac`, and the
-      shared fallback lives in `src/utils/logo.ts` _(2026-08-04)_
-- [x] Decided the fate of `src/pages/Research.tsx` — deleted. It was an unrouted
-      stub superseded by Publications; also dropped its CLAUDE.md mention
-      _(2026-08-04)_
+- [x] **Drawer accessibility: `inert`, correct label, Escape.** The closed drawer
+      is `inert`, so its 9 controls are no longer tab-reachable (verified by
+      trying to focus each one); the close button says "Close menu" instead of
+      "Open menu"; and Escape closes the drawer via a document-level keydown
+      listener that's only attached while open. `AppShell`'s handlers are
+      `useCallback`'d so that listener isn't re-attached on every render.
+      Follow-up filed under [Accessibility](#accessibility): focus should return
+      to the hamburger on close _(2026-08-04)_
+
+- [x] **`parseText` extracted to `parseInlineLinks` in `src/utils/markdown.tsx`**
+      and the three copies in `News.tsx`, `Awards.tsx`, and `RecentNewsSection.tsx`
+      deleted. The splitter and the matcher have to stay as two separate patterns:
+      `String.split` splices _every_ capture group into its output, so a single
+      shared pattern would emit the link text and href as extra literal strings
+      after each anchor _(2026-08-04)_
+
+- [x] **`RecentNewsSection` keys by index, not `item.date`** — `news.json` has
+      "Sep 2016" twice, and the collision was only hidden by the 5-year filter.
+      Also corrected CLAUDE.md, which documented the field as `text` when it is
+      and always was `description` _(2026-08-04)_
