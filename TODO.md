@@ -190,31 +190,3 @@ Decisions already made — here so they don't get re-filed as bugs.
       separate typecheck step, since `npm run build` already runs `tsc -b`.
       `format:check` was added to the deploy workflow too, so `main` is held to
       the same bar as a PR rather than being allowed to drift _(2026-08-04)_
-
-- [x] **`npm run lint` runs again, and CI runs it.** `eslint.config.js` now uses
-      `reactHooks.configs.flat['recommended-latest']` — the top-level
-      `recommended-latest` is the eslintrc shape, whose `plugins` is a string
-      array that flat config rejects. Also repointed the stale `dist` ignore at
-      `build`/`.react-router`. That surfaced 10 real errors, now all fixed:
-      9 × `only-export-components` on route modules (allow-listed `meta`/`links`
-      and friends for `src/pages/**` and `src/root.tsx` — `action` and `headers`
-      deliberately left off, since the prerender build fails on them and lint
-      catching that early is useful), plus one `react-hooks/refs` in
-      `ThemeToggle` (see below). `npm run lint` is now a step in
-      `build-and-deploy.yml`, before the build _(2026-08-04)_
-
-- [x] **`ThemeToggle` no longer reads a ref during render.** The outgoing theme
-      is rendered output — the icon that slides away — so it's `useState` now
-      instead of `useRef` + a separate `animating` boolean. One piece of state
-      where there were two. Verified the full light → dark → system → light
-      cycle and that the outgoing icon mounts during the animation and unmounts
-      on `animationend` _(2026-08-04)_
-
-- [x] **Drawer accessibility: `inert`, correct label, Escape.** The closed drawer
-      is `inert`, so its 9 controls are no longer tab-reachable (verified by
-      trying to focus each one); the close button says "Close menu" instead of
-      "Open menu"; and Escape closes the drawer via a document-level keydown
-      listener that's only attached while open. `AppShell`'s handlers are
-      `useCallback`'d so that listener isn't re-attached on every render.
-      Follow-up filed under [Accessibility](#accessibility): focus should return
-      to the hamburger on close _(2026-08-04)_
