@@ -8,39 +8,38 @@ things so they stop taking up head space.
 - `- [ ]` open, `- [x]` done. Move finished items to [Done](#done) with the date.
 - Anything urgent goes in [Up next](#up-next); everything else lives in the
   backlog under its area. New idea with no obvious home → [Ideas](#ideas).
-- Add a `—` note after an item when the _why_ isn't obvious in six months.
+- Keep items to a line or two. Add a `—` note only when the _why_ isn't obvious
+  in six months.
 - Prefix with `@claude` if it's something to hand to Claude Code directly.
 
 ## Up next
 
-- [ ] Fill in the Projects page — currently ships a live `/projects` route that
-      says "Work in progress..."
+- [ ] Fill in the Projects page — `/projects` says "Work in progress..."
 
 ## Accessibility
 
-Findings from a rendered-page audit (Chrome, 1440px and 390px, both themes).
+From a rendered-page audit (Chrome, 1440px and 390px, both themes).
 
-- [ ] **Heading levels skip h3** — `XlText` renders `<h4>`, so Background
-      outlines as h1 → h2 → h4. Card titles should be h3
-- [ ] **No focus-visible style** — the UA default outline draws a black box
-      through the sidebar's left border. Design a real focus ring
+- [ ] Card titles should be h3 — `XlText` renders `<h4>`, so Background outlines
+      h1 → h2 → h4
+- [ ] Focus-visible style — the UA default outline cuts through the sidebar's
+      left border
 - [ ] Icon buttons are 36×36; the touch-target guideline is 44×44
 - [ ] Skip-to-content link
 - [ ] Reduced-motion support for the drawer and theme transitions
 
 ## Visual & consistency
 
-- [ ] **Logo tiles aren't theme-aware** — in dark mode the HKU tile glares white
-      while the UTSA and Penn State tiles vanish into the card
-- [ ] **CGPA placeholder reserves an empty line** (`invisible` in
-      `BackgroundCard.tsx`), leaving an unexplained gap on cards without one
-- [ ] **Footer "Last updated <month>" is `new Date()`** — always the current
-      month, so it asserts freshness it doesn't know. Use the build date or drop it
+- [ ] Adjust the GoGoX long logo
+- [ ] Logo tiles aren't theme-aware — HKU glares white in dark mode, UTSA and
+      Penn State vanish into the card
+- [ ] CGPA placeholder reserves an empty line (`invisible` in `BackgroundCard.tsx`)
+- [ ] Footer "Last updated <month>" is `new Date()`, so it asserts freshness it
+      doesn't know — use the build date or drop it
 - [ ] Services page is a single unbulleted, oddly indented line on an empty page
 - [ ] Home hero leaves a large dead area right of the name block on desktop
-- [ ] Mobile nav review on a real phone. The `h-screen` vs `h-dvh` half of this
-      is settled — nothing viewport-height-sized is left on mobile now that the
-      document scrolls; the one remaining `h-screen` is the `md:` sidebar
+- [ ] Mobile nav review on a real phone — the only `h-screen` left is the `md:`
+      sidebar
 
 ## Code health
 
@@ -48,67 +47,55 @@ Findings from a rendered-page audit (Chrome, 1440px and 390px, both themes).
 
 ## Content
 
-- [ ] Projects page: pick a schema (`src/data/projects.json`) before writing the
-      component — title, blurb, stack, links (repo / paper / demo), year, status
-- [ ] Keep `news.json` current — last entry should never be more than a few
-      months stale or the site reads as abandoned
-- [ ] Publications: keep `url` filled in as papers get indexed. Nothing is
-      missing one today (1 of 1 has a url), so this is a watch item, not a chore
-- [ ] Add a short research-interests paragraph to Home for people who land there
-      from a paper
+- [ ] Projects: pick a schema (`src/data/projects.json`) before writing the
+      component — title, blurb, stack, links, year, status
+- [ ] Keep `news.json` current — a stale last entry reads as abandoned
+- [ ] Publications: keep `url` filled in as papers get indexed (1 of 1 today)
+- [ ] Short research-interests paragraph on Home
 - [ ] Review `docs/cv.tex` and `docs/resume.tex` against the site data — they
       drift apart independently
 
 ## Pages & features
 
-- [ ] Blog: the `/blog/:slug` route is commented out in `App.tsx`. Either commit
-      to it (needs a Markdown pipeline + post index) or delete the stub
-- [ ] BibTeX copy button per publication — the thing academics actually want from
-      a publications page
-- [ ] Filter/group publications by year or venue once the list outgrows one screen
-- [ ] Search across news + publications (client-side, data is static and small)
+- [ ] Blog: commit to `/blog/:slug` (needs a Markdown pipeline + post index) or
+      delete the stub
+- [ ] BibTeX copy button per publication
+- [ ] Filter/group publications by year or venue once the list outgrows a screen
+- [ ] Client-side search across news + publications
 - [ ] Print stylesheet for Publications and Background
 
 ## SEO & discoverability
 
-Title, description, Open Graph, and Twitter tags now come from each route's
-`meta` export and are baked into the pre-rendered HTML — see `src/utils/meta.ts`.
+Title, description, Open Graph, and Twitter tags come from each route's `meta`
+export — see `src/utils/meta.ts`.
 
-- [ ] `public/robots.txt` and a `sitemap.xml` (generate at build time from the
-      route list in `src/routes.ts`)
-- [ ] JSON-LD `Person` / `ScholarlyArticle` structured data
-- [ ] `<link rel="canonical">` per route — `og:url` is set, but the canonical
-      link tag isn't. Needs a `links` export per route module
+- [ ] `public/robots.txt` and `sitemap.xml`, generated at build time from
+      `src/routes.ts`
+- [ ] JSON-LD `Person` / `ScholarlyArticle`
+- [ ] `<link rel="canonical">` per route — needs a `links` export per module
 - [ ] Favicon set beyond `public/MA.svg` — apple-touch-icon, manifest
 - [ ] OG image — `og:image` is unset, so link previews have no thumbnail
 
 ## Quality & infra
 
-- [ ] **`npm run preview` doesn't serve what GitHub Pages serves.** Vite previews
-      as an SPA, so a bare `/news` falls back to the root `index.html` and you get
-      the _Home_ page's markup, on top of which the client renders News — two full
-      app trees stacked in `<body>`. `/news/` (trailing slash) serves the right
-      file. Production is unaffected: Pages resolves the directory index. Until
-      this is fixed, always preview with a trailing slash, or any rendered-page
-      audit will be measuring the wrong DOM. Fix is probably `appType: 'mpa'` in
-      `vite.config.ts`, but that's shared with `npm run dev`, so it needs checking
-      against the `*` catch-all before committing to it
-- [ ] No `ErrorBoundary` export in `src/root.tsx` — a thrown render error falls
-      back to React Router's bare default page
-- [ ] No tests at all. Lowest-value-per-effort first: a smoke test that every
-      route in `App.tsx` renders, and a schema check on the `src/data/*.json`
-      files so a malformed entry fails the build instead of the page
+- [ ] `npm run preview` doesn't serve what GitHub Pages serves. Vite previews as
+      an SPA, so a bare `/news` falls back to the root `index.html` and stacks two
+      app trees. Preview with a trailing slash until it's fixed, or an audit
+      measures the wrong DOM. Production is unaffected. `appType: 'mpa'` is the
+      likely fix, but it's shared with `npm run dev` — check the `*` catch-all first
+- [ ] No `ErrorBoundary` export in `src/root.tsx`
+- [ ] No tests — start with a smoke test per route and a schema check on
+      `src/data/*.json`
 - [ ] Run `npm run analyze` occasionally — nothing watches bundle size
-- [ ] Lighthouse pass — the audit above covered contrast, headings, focus, and
-      tab order by hand; Lighthouse would also cover performance and best practices
+- [ ] Lighthouse pass for performance and best practices
 - [ ] Verify the theme toggle has no flash-of-wrong-theme on slow connections
 
 ## Ideas
 
 Unfiltered. Half of these should never be built.
 
-- [ ] Citation counts pulled from Scholar — would need a build-time fetch, and
-      CLAUDE.md rules out runtime API calls
+- [ ] Citation counts pulled from Scholar — needs a build-time fetch; CLAUDE.md
+      rules out runtime API calls
 - [ ] Talks / posters page (slides as PDFs alongside the CV)
 - [ ] Dark-mode-aware OG image generated at build time
 - [ ] Timeline visualisation for Background instead of the current list
@@ -119,74 +106,28 @@ Unfiltered. Half of these should never be built.
 
 Decisions already made — here so they don't get re-filed as bugs.
 
-- **The translucent drawer and header are intentional.** `SideDrawer.tsx` and
-  `Header.tsx` use `backdrop-blur` with no background colour on purpose; the
-  page showing through is the desired look. Not a bug — leave it alone.
-  _(2026-08-04)_
-- **Blue text that isn't a link is fine.** Publication titles with no `url`
-  (`Publications.tsx`) and degree/role titles (`BackgroundCard.tsx`) are
-  `text-blue-500` without being clickable. "Reserve blue for links" is a
-  convention, not a rule, and this is a personal site — the colour is the point.
-  This settles _which_ colour, not how dark it is: they are `blue-600` in light
-  mode via `accentTitleTextStyle`, for contrast, and still unmistakably blue.
-  _(2026-08-04)_
+- **The translucent drawer and header are intentional.** `backdrop-blur` with no
+  background colour is the look. _(2026-08-04)_
+- **Blue text that isn't a link is fine.** Publication titles with no `url`, and
+  degree/role titles, are blue without being clickable. Which shade is settled
+  too: `blue-600` in light mode via `accentTitleTextStyle`. _(2026-08-04)_
 
 ## Done
 
 <!-- Move completed items here with the date, newest first. -->
 
-- [x] **The non-link blue titles are `blue-600` in light mode too**, so every
-      piece of blue text on the site now clears 4.5:1. The colour lives in one
-      place now — `accentTitleTextStyle` in `typography.tsx` — instead of the
-      same `text-blue-500 dark:text-blue-500` literal copy-pasted into
-      `Publications.tsx`, `BackgroundCard.tsx`, `CommitteeSection.tsx`, and
-      `CollaboratorsSection.tsx`, which is how it drifted from the link colour in
-      the first place.
-      Worth knowing where this is actually visible: only Background renders these
-      titles today (9 of them, measured 5.01:1 light / 5.36:1 dark). The other
-      three pages wrap the title in an `InlineLink` whenever the entry has a
-      `url`, and right now every entry does — 1 of 1 publication, 12 of 12
-      collaborators, and the committee list is empty. So the change is a real fix
-      on Background and correct-but-dormant elsewhere until an entry without a
-      `url` shows up. Verified across all four pages in both themes: links worst
-      5.01:1 light / 5.36:1 dark _(2026-08-04)_
-
-- [x] **Link colour meets WCAG AA in both themes.** Light mode moves to
-      `blue-600` (5.01:1 on `slate-50`); dark mode keeps `blue-500`, which is
-      already 5.36:1 on `slate-950` and would fall to 3.84:1 if darkened to
-      match. Ratios were measured, not assumed: Tailwind's `oklch()` values were
-      painted to a canvas and read back as sRGB, which reproduced the 3.60:1
-      figure this list already had for `blue-500`. Applied to all three link
-      styles, since the failure was the colour and not one component —
-      `inlineLinkTextStyle`, the active `navTextStyle`, and the hard-coded link
-      in `NotFound.tsx` (which now reuses `inlineLinkTextStyle`). Icon buttons
-      keep `blue-500`: as non-text UI they need 3:1, and 3.60:1 clears it
-      _(2026-08-04)_
-
-- [x] **The drawer now has a complete focus contract.** Opening moves focus to
-      the close button, Tab and Shift+Tab wrap inside the drawer instead of
-      walking into the page behind the overlay, and closing — by Escape, by the
-      close button, or by clicking the overlay — returns focus to the hamburger
-      rather than dropping it to `<body>`. A `wasOpen` guard keeps a freshly
-      loaded page from stealing focus. The trap is what makes the added
-      `role='dialog'` + `aria-modal='true'` honest _(2026-08-04)_
-
-- [x] **Prettier and `.editorconfig` are committed.** The config wasn't guessed —
-      it was derived by running Prettier against the existing source and picking
-      the options that reproduced it: `useTabs`, `singleQuote`, `jsxSingleQuote`,
-      `bracketSameLine` leaves 39 of 41 files untouched, which is what the editor
-      had been doing all along. Formatting the repo therefore changed only 5
-      files, all genuine drift: a misindented `<img>` in `AffiliationCard`,
-      two over-long lines in `CommitteeSection`, a long `transition-property` in
-      `App.css`, spaces-not-tabs in `tsconfig.node.json`, and quote style in
-      `dependabot.yml`. Prettier left the Tailwind v4 `@theme` / `@custom-variant`
-      / `@utility` at-rules alone. Added `npm run format` and
-      `npm run format:check` _(2026-08-04)_
-
-- [x] **PR check workflow.** `.github/workflows/pr-checks.yml` runs on
-      `pull_request`: format check, lint, then build. Dependabot PRs now get
-      built before they can be merged. No LaTeX step — the PDFs are deploy
-      artifacts that nothing imports, so the build doesn't need them — and no
-      separate typecheck step, since `npm run build` already runs `tsc -b`.
-      `format:check` was added to the deploy workflow too, so `main` is held to
-      the same bar as a PR rather than being allowed to drift _(2026-08-04)_
+- [x] Non-link blue titles are `blue-600` in light mode, so all blue text clears
+      4.5:1. The colour lives in `accentTitleTextStyle` (`typography.tsx`) instead
+      of being copy-pasted into four files _(2026-08-04)_
+- [x] Link colour meets WCAG AA in both themes — `blue-600` light (5.01:1),
+      `blue-500` dark (5.36:1). Applied to `inlineLinkTextStyle`, the active
+      `navTextStyle`, and `NotFound.tsx`. Icon buttons keep `blue-500`, which
+      clears the 3:1 bar for non-text UI _(2026-08-04)_
+- [x] Drawer focus contract — focus moves to the close button on open, Tab wraps
+      inside, and closing returns focus to the hamburger _(2026-08-04)_
+- [x] Prettier and `.editorconfig` committed, plus `npm run format` and
+      `format:check`. Config was derived from the existing source, so formatting
+      the repo changed only 5 files _(2026-08-04)_
+- [x] `.github/workflows/pr-checks.yml` runs format, lint, and build on
+      `pull_request`, so Dependabot PRs get built before merge. `format:check`
+      added to the deploy workflow too _(2026-08-04)_
