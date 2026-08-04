@@ -188,15 +188,3 @@ Decisions already made — here so they don't get re-filed as bugs.
       `useCallback`'d so that listener isn't re-attached on every render.
       Follow-up filed under [Accessibility](#accessibility): focus should return
       to the hamburger on close _(2026-08-04)_
-
-- [x] **`parseText` extracted to `parseInlineLinks` in `src/utils/markdown.tsx`**
-      and the three copies in `News.tsx`, `Awards.tsx`, and `RecentNewsSection.tsx`
-      deleted. The splitter and the matcher have to stay as two separate patterns:
-      `String.split` splices _every_ capture group into its output, so a single
-      shared pattern would emit the link text and href as extra literal strings
-      after each anchor _(2026-08-04)_
-
-- [x] **`RecentNewsSection` keys by index, not `item.date`** — `news.json` has
-      "Sep 2016" twice, and the collision was only hidden by the 5-year filter.
-      Also corrected CLAUDE.md, which documented the field as `text` when it is
-      and always was `description` _(2026-08-04)_
