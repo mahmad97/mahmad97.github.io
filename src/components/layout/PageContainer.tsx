@@ -7,9 +7,6 @@ type PageContainerProps = Readonly<{
 	heading?: string;
 }>;
 
-// The document title now comes from each route's `meta` export (see
-// `@/utils/meta`), so it lands in the pre-rendered HTML instead of being set
-// after hydration.
 const PageContainer = ({
 	children,
 	heading,

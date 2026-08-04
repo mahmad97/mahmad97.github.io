@@ -1,6 +1,5 @@
 import { type RouteConfig, index, route } from '@react-router/dev/routes';
 
-// Paths are relative to `appDirectory` (`src`), set in react-router.config.ts.
 const routes = [
 	index('pages/Home/index.tsx'),
 	route('publications', 'pages/Publications.tsx'),

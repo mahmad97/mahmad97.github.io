@@ -49,7 +49,7 @@ const Layout = ({ children }: LayoutProps): ReactElement => (
 				dangerouslySetInnerHTML={{ __html: setThemeScript }}
 			/>
 		</head>
-		<body className='w-full h-full min-w-xs bg-slate-50 dark:bg-slate-950 text-neutral-800 dark:text-neutral-200'>
+		<body className='w-full min-w-xs bg-slate-50 dark:bg-slate-950 text-neutral-800 dark:text-neutral-200'>
 			{children}
 			<ScrollRestoration />
 			<Scripts />
@@ -58,9 +58,9 @@ const Layout = ({ children }: LayoutProps): ReactElement => (
 );
 
 const Root = (): ReactElement => (
-	<div className='min-w-xs h-screen overflow-y-auto md:overflow-y-hidden flex flex-col md:flex-row'>
+	<div className='min-w-xs min-h-screen flex flex-col md:flex-row'>
 		<AppShell />
-		<div className='flex-grow md:overflow-y-auto flex flex-col'>
+		<div className='flex-grow flex flex-col'>
 			<main className='flex-grow'>
 				<Outlet />
 			</main>

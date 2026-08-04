@@ -13,18 +13,6 @@ things so they stop taking up head space.
 
 ## Up next
 
-- [ ] **Scroll position persists across navigation.** The scroll container is an
-      inner `div` (`src/root.tsx`), so router navigation never resets it — going
-      from a scrolled page to a taller one lands you mid-content. Re-measured
-      after the framework-mode migration: still 438px down. `<ScrollRestoration />`
-      is now mounted but only ever drives `window`, which never scrolls here, so
-      it can't help. Either reset `scrollTop` on route change with a small hook,
-      or make the document the scroller (see below)
-- [ ] **Consider letting the document scroll instead of an inner div.** Make the
-      sidebar `fixed` and drop `h-screen` + `overflow-y-auto` from the shell.
-      That one change would let the mounted `<ScrollRestoration />` work natively,
-      make `#anchor` links work, restore mobile URL-bar auto-hide, and retire the
-      `h-screen` vs `h-dvh` question — it's the root cause behind several items here
 - [ ] Fill in the Projects page — currently ships a live `/projects` route that
       says "Work in progress..."
 
@@ -59,8 +47,9 @@ Findings from a rendered-page audit (Chrome, 1440px and 390px, both themes).
       month, so it asserts freshness it doesn't know. Use the build date or drop it
 - [ ] Services page is a single unbulleted, oddly indented line on an empty page
 - [ ] Home hero leaves a large dead area right of the name block on desktop
-- [ ] Mobile nav review on a real phone — also check `h-screen` vs `h-dvh`, since
-      `100vh` and mobile browser chrome don't agree
+- [ ] Mobile nav review on a real phone. The `h-screen` vs `h-dvh` half of this
+      is settled — nothing viewport-height-sized is left on mobile now that the
+      document scrolls; the one remaining `h-screen` is the `md:` sidebar
 
 ## Code health
 
@@ -160,6 +149,18 @@ Decisions already made — here so they don't get re-filed as bugs.
 ## Done
 
 <!-- Move completed items here with the date, newest first. -->
+
+- [x] **The document is the scroller now, and scroll position resets across
+      navigation.** Dropped `h-screen` + `overflow-y-auto` from the shell in
+      `src/root.tsx` (`min-h-screen` instead) and pinned the sidebar with
+      `md:sticky md:top-0 md:h-screen` — `sticky` rather than the `fixed` this
+      list proposed, so the aside keeps its slot in the flex row and the content
+      column needs no matching margin. The already-mounted `<ScrollRestoration />`
+      does the rest: navigation resets to top, back restores position. Verified
+      over CDP at 1440px and 390px — scroll reset, back-restore, pinned sidebar,
+      sticky mobile header, no horizontal overflow, and no spurious scrollbar or
+      floating footer on a short page. Closes the two scroll items and the
+      `h-screen` vs `h-dvh` question _(2026-08-04)_
 
 - [x] **Migrated React Router to framework mode with full pre-rendering.**
       `ssr: false` + `prerender: true`; `appDirectory` is `src`. Added

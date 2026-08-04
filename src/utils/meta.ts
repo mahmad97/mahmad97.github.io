@@ -1,21 +1,19 @@
 import type { MetaDescriptor } from 'react-router';
 
 const SITE_NAME = 'Mohammad Ahmad';
-const SITE_URL = 'https://mahmad97.github.io';
+const SITE_URL = 'https://mahmad.dev';
 
 type PageMeta = Readonly<{
-	/** Page name, prepended to the site name. Omit on the home page. */
 	title?: string;
 	description: string;
-	/** Route path, used to build the absolute og:url. */
 	path: string;
 }>;
 
-/**
- * Builds the `<head>` tags for a route. Pre-rendering writes these into the
- * static HTML, so crawlers see them without running any JavaScript.
- */
-const buildMeta = ({ title, description, path }: PageMeta): MetaDescriptor[] => {
+const buildMeta = ({
+	title,
+	description,
+	path,
+}: PageMeta): MetaDescriptor[] => {
 	const fullTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
 
 	return [
