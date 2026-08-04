@@ -101,10 +101,6 @@ Title, description, Open Graph, and Twitter tags now come from each route's
       against the `*` catch-all before committing to it
 - [ ] No `ErrorBoundary` export in `src/root.tsx` — a thrown render error falls
       back to React Router's bare default page
-- [ ] No PR check workflow: Dependabot PRs merge without ever being built. Add a
-      `pull_request` trigger that builds + lints
-- [ ] No formatter config committed (no Prettier, no `.editorconfig`) — style is
-      whatever the editor did that day
 - [ ] No tests at all. Lowest-value-per-effort first: a smoke test that every
       route in `App.tsx` renders, and a schema check on the `src/data/*.json`
       files so a malformed entry fails the build instead of the page
@@ -144,6 +140,26 @@ Decisions already made — here so they don't get re-filed as bugs.
 ## Done
 
 <!-- Move completed items here with the date, newest first. -->
+
+- [x] **Prettier and `.editorconfig` are committed.** The config wasn't guessed —
+      it was derived by running Prettier against the existing source and picking
+      the options that reproduced it: `useTabs`, `singleQuote`, `jsxSingleQuote`,
+      `bracketSameLine` leaves 39 of 41 files untouched, which is what the editor
+      had been doing all along. Formatting the repo therefore changed only 5
+      files, all genuine drift: a misindented `<img>` in `AffiliationCard`,
+      two over-long lines in `CommitteeSection`, a long `transition-property` in
+      `App.css`, spaces-not-tabs in `tsconfig.node.json`, and quote style in
+      `dependabot.yml`. Prettier left the Tailwind v4 `@theme` / `@custom-variant`
+      / `@utility` at-rules alone. Added `npm run format` and
+      `npm run format:check` _(2026-08-04)_
+
+- [x] **PR check workflow.** `.github/workflows/pr-checks.yml` runs on
+      `pull_request`: format check, lint, then build. Dependabot PRs now get
+      built before they can be merged. No LaTeX step — the PDFs are deploy
+      artifacts that nothing imports, so the build doesn't need them — and no
+      separate typecheck step, since `npm run build` already runs `tsc -b`.
+      `format:check` was added to the deploy workflow too, so `main` is held to
+      the same bar as a PR rather than being allowed to drift _(2026-08-04)_
 
 - [x] **`npm run lint` runs again, and CI runs it.** `eslint.config.js` now uses
       `reactHooks.configs.flat['recommended-latest']` — the top-level
