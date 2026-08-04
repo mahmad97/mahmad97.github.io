@@ -37,6 +37,12 @@ const smallTextStyle =
 // already 5.36:1 on slate-950 and would drop to 3.84:1 if darkened to match.
 const inlineLinkTextStyle = 'text-blue-600 dark:text-blue-500 hover:underline';
 
+// Blue titles that aren't links: publication titles with no url, degree and
+// role names, committee organisations, collaborator names. Deliberately blue —
+// see the Settled note in TODO.md — and the same contrast pair as a link, since
+// `text-xl` at `font-medium` is 20px non-bold and so isn't WCAG "large text".
+const accentTitleTextStyle = 'text-blue-600 dark:text-blue-500';
+
 const navHeadingStyle =
 	'text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400';
 
@@ -108,6 +114,7 @@ export {
 	baseTextStyle,
 	smallTextStyle,
 	inlineLinkTextStyle,
+	accentTitleTextStyle,
 	Heading,
 	Subheading,
 	Subsubheading,

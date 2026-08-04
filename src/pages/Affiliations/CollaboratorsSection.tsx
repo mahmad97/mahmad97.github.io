@@ -1,6 +1,7 @@
 import type { ReactElement } from 'react';
 
 import {
+	accentTitleTextStyle,
 	InlineLink,
 	SmallText,
 	Subheading,
@@ -15,7 +16,7 @@ const CollaboratorsSection = (): ReactElement => (
 		<ul className='grid grid-cols-2 lg:grid-cols-4 gap-4'>
 			{collaborators.map((item) => (
 				<li key={item.name} className='flex flex-col'>
-					<XlText className='text-blue-500 dark:text-blue-500'>
+					<XlText className={accentTitleTextStyle}>
 						{item.url ? (
 							<InlineLink href={item.url}>{item.name}</InlineLink>
 						) : (
