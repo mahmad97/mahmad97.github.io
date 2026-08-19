@@ -28,7 +28,7 @@ Current pages: `/` (Home), `/publications`, `/projects`, `/services`, `/news`, `
 **Rendering:** `ssr: false` + `prerender: true` in `react-router.config.ts` — every route is pre-rendered to static HTML at build time.
 
 - Route modules must not export `action` or `headers`; the build fails if they do.
-- The `*` catch-all can't be pre-rendered. It's served via the SPA fallback, which `postbuild` copies to `404.html` for GitHub Pages.
+- The `*` catch-all can't be pre-rendered. It's served via the SPA fallback, which `postbuild` copies to `404.html` for GitHub Pages. No leaf route renders in that document, so `root.tsx` exports its `meta` (`NOT_FOUND_META` from `src/utils/meta.ts`, shared with `NotFound.tsx`).
 
 **Page metadata:** each route module holds a `PAGE` descriptor (`title`, `description`, `path`) and named-exports `meta` (built with `buildMeta` — title, description, Open Graph, Twitter, `og:image`) and `links` (built with `buildLinks` — the canonical URL), both from `src/utils/meta.ts`. Add or edit those exports rather than setting `document.title` imperatively. `pageUrl` appends the trailing slash GitHub Pages redirects to, so canonical URLs, `og:url`, and the sitemap agree.
 

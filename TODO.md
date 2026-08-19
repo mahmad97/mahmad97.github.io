@@ -69,9 +69,7 @@ From a rendered-page audit (Chrome, 1440px and 390px, both themes).
 Title, description, Open Graph, Twitter, and canonical tags come from each
 route's `meta` and `links` exports — see `src/utils/meta.ts`.
 
-- [ ] `404.html` has no `<title>` and no `noindex` until JS runs — the SPA
-      fallback ships the root shell, and `NotFound`'s `meta` only applies after
-      hydration
+- [ ] Nothing open right now.
 
 ## Quality & infra
 
@@ -113,6 +111,11 @@ Decisions already made — here so they don't get re-filed as bugs.
 
 <!-- Move completed items here with the date, newest first. -->
 
+- [x] `404.html` carries its `<title>`, description, and `noindex` in the static
+      HTML — `root.tsx` exports the shell's `meta`, which is the only document
+      rendered without a leaf route. `NotFound.tsx` shares the same descriptor
+      _(2026-08-19)_
+
 - [x] OG image at `public/og-image.png`, rendered from `scripts/og-image.html`,
       so link previews are `summary_large_image` cards instead of blank
       _(2026-08-19)_
@@ -124,6 +127,3 @@ Decisions already made — here so they don't get re-filed as bugs.
       `/news` 301s to `/news/` _(2026-08-19)_
 - [x] JSON-LD — `Person` on Home, one `ScholarlyArticle` per paper on
       Publications, both from `src/utils/structuredData.ts` _(2026-08-19)_
-- [x] `robots.txt` and `sitemap.xml`, written by `scripts/postbuild.mjs` from
-      `src/routes.ts`. The script also owns the `404.html` copy and fails the
-      build if a route it would list wasn't pre-rendered _(2026-08-19)_
