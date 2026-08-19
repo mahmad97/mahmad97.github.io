@@ -66,15 +66,12 @@ From a rendered-page audit (Chrome, 1440px and 390px, both themes).
 
 ## SEO & discoverability
 
-Title, description, Open Graph, and Twitter tags come from each route's `meta`
-export — see `src/utils/meta.ts`.
+Title, description, Open Graph, Twitter, and canonical tags come from each
+route's `meta` and `links` exports — see `src/utils/meta.ts`.
 
-- [ ] `public/robots.txt` and `sitemap.xml`, generated at build time from
-      `src/routes.ts`
-- [ ] JSON-LD `Person` / `ScholarlyArticle`
-- [ ] `<link rel="canonical">` per route — needs a `links` export per module
-- [ ] Favicon set beyond `public/MA.svg` — apple-touch-icon, manifest
-- [ ] OG image — `og:image` is unset, so link previews have no thumbnail
+- [ ] `404.html` has no `<title>` and no `noindex` until JS runs — the SPA
+      fallback ships the root shell, and `NotFound`'s `meta` only applies after
+      hydration
 
 ## Quality & infra
 
@@ -116,18 +113,17 @@ Decisions already made — here so they don't get re-filed as bugs.
 
 <!-- Move completed items here with the date, newest first. -->
 
-- [x] Non-link blue titles are `blue-600` in light mode, so all blue text clears
-      4.5:1. The colour lives in `accentTitleTextStyle` (`typography.tsx`) instead
-      of being copy-pasted into four files _(2026-08-04)_
-- [x] Link colour meets WCAG AA in both themes — `blue-600` light (5.01:1),
-      `blue-500` dark (5.36:1). Applied to `inlineLinkTextStyle`, the active
-      `navTextStyle`, and `NotFound.tsx`. Icon buttons keep `blue-500`, which
-      clears the 3:1 bar for non-text UI _(2026-08-04)_
-- [x] Drawer focus contract — focus moves to the close button on open, Tab wraps
-      inside, and closing returns focus to the hamburger _(2026-08-04)_
-- [x] Prettier and `.editorconfig` committed, plus `npm run format` and
-      `format:check`. Config was derived from the existing source, so formatting
-      the repo changed only 5 files _(2026-08-04)_
-- [x] `.github/workflows/pr-checks.yml` runs format, lint, and build on
-      `pull_request`, so Dependabot PRs get built before merge. `format:check`
-      added to the deploy workflow too _(2026-08-04)_
+- [x] OG image at `public/og-image.png`, rendered from `scripts/og-image.html`,
+      so link previews are `summary_large_image` cards instead of blank
+      _(2026-08-19)_
+- [x] Favicon set — `favicon.ico` (16/32/48), `apple-touch-icon.png`,
+      `icon-192/512.png`, a maskable icon, and `site.webmanifest`. Regenerate
+      the rasters with `npm run assets` _(2026-08-19)_
+- [x] `<link rel="canonical">` per route through a `links` export. Canonical and
+      `og:url` use the trailing-slash form GitHub Pages actually serves, since
+      `/news` 301s to `/news/` _(2026-08-19)_
+- [x] JSON-LD — `Person` on Home, one `ScholarlyArticle` per paper on
+      Publications, both from `src/utils/structuredData.ts` _(2026-08-19)_
+- [x] `robots.txt` and `sitemap.xml`, written by `scripts/postbuild.mjs` from
+      `src/routes.ts`. The script also owns the `404.html` copy and fails the
+      build if a route it would list wasn't pre-rendered _(2026-08-19)_

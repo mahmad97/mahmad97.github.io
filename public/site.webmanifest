@@ -1,0 +1,21 @@
+{
+	"name": "Mohammad Ahmad",
+	"short_name": "M. Ahmad",
+	"description": "Personal site of Mohammad Ahmad, PhD student in Computer Science at The University of Texas at San Antonio.",
+	"start_url": "/",
+	"scope": "/",
+	"display": "browser",
+	"theme_color": "#2b7fff",
+	"background_color": "#f8fafc",
+	"icons": [
+		{ "src": "/MA.svg", "type": "image/svg+xml", "sizes": "any" },
+		{ "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
+		{ "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" },
+		{
+			"src": "/icon-maskable-512.png",
+			"type": "image/png",
+			"sizes": "512x512",
+			"purpose": "maskable"
+		}
+	]
+}

@@ -4,6 +4,7 @@ import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
 
 import AppShell from '@/components/layout/AppShell';
 import Footer from '@/components/layout/Footer';
+import { NOT_FOUND_META } from '@/utils/meta';
 
 import './App.css';
 
@@ -41,7 +42,20 @@ const Layout = ({ children }: LayoutProps): ReactElement => (
 		<head>
 			<meta charSet='UTF-8' />
 			<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+			<meta
+				name='theme-color'
+				media='(prefers-color-scheme: light)'
+				content='#f8fafc'
+			/>
+			<meta
+				name='theme-color'
+				media='(prefers-color-scheme: dark)'
+				content='#020617'
+			/>
 			<link rel='icon' type='image/svg+xml' href='/MA.svg' />
+			<link rel='icon' sizes='16x16 32x32 48x48' href='/favicon.ico' />
+			<link rel='apple-touch-icon' href='/apple-touch-icon.png' />
+			<link rel='manifest' href='/site.webmanifest' />
 			<Meta />
 			<Links />
 			<script
@@ -57,6 +71,12 @@ const Layout = ({ children }: LayoutProps): ReactElement => (
 	</html>
 );
 
+// The shell is only rendered without a leaf route for the SPA fallback, which
+// `postbuild` copies to `404.html`. Pre-rendered routes each export their own
+// `meta`, which replaces this one — so these are the 404 page's tags, in the
+// static HTML rather than waiting on hydration.
+const meta = () => NOT_FOUND_META;
+
 const Root = (): ReactElement => (
 	<div className='min-w-xs min-h-screen flex flex-col md:flex-row'>
 		<AppShell />
@@ -69,5 +89,5 @@ const Root = (): ReactElement => (
 	</div>
 );
 
-export { Layout };
+export { Layout, meta };
 export default Root;

@@ -1,17 +1,7 @@
 import type { ReactElement } from 'react';
 
 import { Subheading } from '@/components/typography';
-
-const researchInterests = [
-	'Computer Architecture',
-	'In-Memory Computing',
-	'Domain Wall Memory',
-	'Embedded Systems',
-	'TinyML',
-	'ML on Novel Hardware',
-	'Intermittent Computing',
-	'IoT',
-];
+import researchInterests from '@/data/researchInterests.json';
 
 const ResearchInterestsSection = (): ReactElement => (
 	<section className='flex flex-col gap-4'>

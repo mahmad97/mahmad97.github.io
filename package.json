@@ -17,12 +17,13 @@
 	"scripts": {
 		"dev": "react-router dev",
 		"build": "react-router typegen && tsc -b && react-router build",
-		"postbuild": "cp build/client/__spa-fallback.html build/client/404.html",
+		"postbuild": "node scripts/postbuild.mjs",
 		"preview": "vite preview",
 		"lint": "eslint .",
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
 		"typecheck": "react-router typegen && tsc -b",
+		"assets": "node scripts/generate-assets.mjs",
 		"analyze": "npx vite-bundle-visualizer"
 	},
 	"dependencies": {

@@ -1,18 +1,21 @@
 import type { ReactElement } from 'react';
 
 import PageContainer from '@/components/layout/PageContainer';
-import { buildMeta } from '@/utils/meta';
+import { buildLinks, buildMeta } from '@/utils/meta';
 
 // import CommitteeSection from './CommitteeSection';
 import ReviewerSection from './ReviewerSection';
 
-const meta = () =>
-	buildMeta({
-		title: 'Services',
-		description:
-			'Academic service by Mohammad Ahmad, including peer review for conferences and symposia.',
-		path: '/services',
-	});
+const PAGE = {
+	title: 'Services',
+	description:
+		'Academic service by Mohammad Ahmad, including peer review for conferences and symposia.',
+	path: '/services',
+};
+
+const meta = () => buildMeta(PAGE);
+
+const links = () => buildLinks(PAGE);
 
 const Services = (): ReactElement => (
 	<PageContainer heading='Services'>
@@ -21,5 +24,5 @@ const Services = (): ReactElement => (
 	</PageContainer>
 );
 
-export { meta };
+export { links, meta };
 export default Services;

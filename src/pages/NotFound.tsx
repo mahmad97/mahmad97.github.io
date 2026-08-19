@@ -4,16 +4,9 @@ import { Link } from 'react-router';
 
 import PageContainer from '@/components/layout/PageContainer';
 import { BaseText, inlineLinkTextStyle } from '@/components/typography';
-import { buildMeta } from '@/utils/meta';
+import { NOT_FOUND_META } from '@/utils/meta';
 
-const meta = () => [
-	...buildMeta({
-		title: 'Page not found',
-		description: 'The requested page could not be found.',
-		path: '/404',
-	}),
-	{ name: 'robots', content: 'noindex' },
-];
+const meta = () => NOT_FOUND_META;
 
 const NotFound = (): ReactElement => (
 	<PageContainer heading='404'>

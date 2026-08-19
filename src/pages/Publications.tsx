@@ -9,15 +9,22 @@ import {
 	XlText,
 } from '@/components/typography';
 import publicationsData from '@/data/publications.json';
-import { buildMeta } from '@/utils/meta';
+import { buildLinks, buildMeta } from '@/utils/meta';
+import { publicationSchemas } from '@/utils/structuredData';
 
-const meta = () =>
-	buildMeta({
-		title: 'Publications',
-		description:
-			'Peer-reviewed publications by Mohammad Ahmad on computer architecture, in-memory computing, and embedded systems.',
-		path: '/publications',
-	});
+const PAGE = {
+	title: 'Publications',
+	description:
+		'Peer-reviewed publications by Mohammad Ahmad on computer architecture, in-memory computing, and embedded systems.',
+	path: '/publications',
+};
+
+const meta = () => [
+	...buildMeta(PAGE),
+	{ 'script:ld+json': publicationSchemas },
+];
+
+const links = () => buildLinks(PAGE);
 
 const OWN_NAME = 'Mohammad Ahmad';
 
@@ -73,5 +80,5 @@ const Publications = (): ReactElement => (
 	</PageContainer>
 );
 
-export { meta };
+export { links, meta };
 export default Publications;

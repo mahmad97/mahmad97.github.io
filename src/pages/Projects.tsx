@@ -1,14 +1,17 @@
 import type { ReactElement } from 'react';
 
 import PageContainer from '@/components/layout/PageContainer';
-import { buildMeta } from '@/utils/meta';
+import { buildLinks, buildMeta } from '@/utils/meta';
 
-const meta = () =>
-	buildMeta({
-		title: 'Projects',
-		description: 'Research and software projects by Mohammad Ahmad.',
-		path: '/projects',
-	});
+const PAGE = {
+	title: 'Projects',
+	description: 'Research and software projects by Mohammad Ahmad.',
+	path: '/projects',
+};
+
+const meta = () => buildMeta(PAGE);
+
+const links = () => buildLinks(PAGE);
 
 const Projects = (): ReactElement => (
 	<PageContainer heading='Projects'>
@@ -16,5 +19,5 @@ const Projects = (): ReactElement => (
 	</PageContainer>
 );
 
-export { meta };
+export { links, meta };
 export default Projects;

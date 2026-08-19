@@ -4,15 +4,17 @@ import PageContainer from '@/components/layout/PageContainer';
 import { BaseText, SmallText } from '@/components/typography';
 import awardsData from '@/data/awards.json';
 import { parseInlineLinks } from '@/utils/markdown';
-import { buildMeta } from '@/utils/meta';
+import { buildLinks, buildMeta } from '@/utils/meta';
 
-const meta = () =>
-	buildMeta({
-		title: 'Awards',
-		description:
-			'Awards, scholarships, and honours received by Mohammad Ahmad.',
-		path: '/awards',
-	});
+const PAGE = {
+	title: 'Awards',
+	description: 'Awards, scholarships, and honours received by Mohammad Ahmad.',
+	path: '/awards',
+};
+
+const meta = () => buildMeta(PAGE);
+
+const links = () => buildLinks(PAGE);
 
 const Awards = (): ReactElement => (
 	<PageContainer heading='Awards'>
@@ -29,5 +31,5 @@ const Awards = (): ReactElement => (
 	</PageContainer>
 );
 
-export { meta };
+export { links, meta };
 export default Awards;

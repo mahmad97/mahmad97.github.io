@@ -4,15 +4,18 @@ import PageContainer from '@/components/layout/PageContainer';
 import { BaseText, SmallText } from '@/components/typography';
 import newsData from '@/data/news.json';
 import { parseInlineLinks } from '@/utils/markdown';
-import { buildMeta } from '@/utils/meta';
+import { buildLinks, buildMeta } from '@/utils/meta';
 
-const meta = () =>
-	buildMeta({
-		title: 'News',
-		description:
-			'Recent news and updates from Mohammad Ahmad — papers, talks, awards, and academic milestones.',
-		path: '/news',
-	});
+const PAGE = {
+	title: 'News',
+	description:
+		'Recent news and updates from Mohammad Ahmad — papers, talks, awards, and academic milestones.',
+	path: '/news',
+};
+
+const meta = () => buildMeta(PAGE);
+
+const links = () => buildLinks(PAGE);
 
 const News = (): ReactElement => (
 	<PageContainer heading='News'>
@@ -29,5 +32,5 @@ const News = (): ReactElement => (
 	</PageContainer>
 );
 
-export { meta };
+export { links, meta };
 export default News;

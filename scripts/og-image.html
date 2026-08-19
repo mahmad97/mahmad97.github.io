@@ -1,0 +1,114 @@
+<!doctype html>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+	href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Roboto+Mono:wght@500&display=swap"
+	rel="stylesheet" />
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	body {
+		width: 1200px;
+		height: 630px;
+		display: flex;
+		align-items: center;
+		gap: 64px;
+		padding: 76px 80px;
+		position: relative;
+		overflow: hidden;
+		background: #020617;
+		color: #f1f5f9;
+		font-family: 'Inter', system-ui, sans-serif;
+		border-top: 10px solid #2b7fff;
+	}
+
+	/* Same accent the site uses for links and the logo tile, softened. */
+	body::after {
+		content: '';
+		position: absolute;
+		right: -180px;
+		bottom: -240px;
+		width: 620px;
+		height: 620px;
+		border-radius: 50%;
+		background: radial-gradient(
+			circle,
+			rgba(43, 127, 255, 0.3),
+			transparent 70%
+		);
+	}
+
+	img {
+		width: 360px;
+		height: 360px;
+		flex-shrink: 0;
+		object-fit: cover;
+		border-radius: 24px;
+		border: 1px solid rgba(241, 245, 249, 0.1);
+	}
+
+	.text {
+		display: flex;
+		flex-direction: column;
+		gap: 28px;
+		z-index: 1;
+	}
+
+	h1 {
+		font-size: 74px;
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		line-height: 1;
+	}
+
+	.role {
+		font-size: 29px;
+		line-height: 1.5;
+		color: #cbd5e1;
+	}
+
+	.role strong {
+		font-weight: 600;
+		color: #e2e8f0;
+	}
+
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+	}
+
+	.tags span {
+		padding: 7px 18px;
+		font-size: 21px;
+		border-radius: 999px;
+		border: 1px solid #1e3a8a;
+		background: #172554;
+		color: #93c5fd;
+	}
+
+	.site {
+		font-family: 'Roboto Mono', monospace;
+		font-size: 24px;
+		color: #60a5fa;
+	}
+</style>
+<img src="__PROFILE_SRC__" alt="" />
+<div class="text">
+	<h1>Mohammad Ahmad</h1>
+	<p class="role">
+		<strong>PhD Student in Computer Science</strong><br />
+		College of AI, Cyber and Computing<br />
+		The University of Texas at San Antonio
+	</p>
+	<div class="tags">
+		<span>Computer Architecture</span>
+		<span>In-Memory Computing</span>
+		<span>Domain Wall Memory</span>
+	</div>
+	<p class="site">mahmad.dev</p>
+</div>
