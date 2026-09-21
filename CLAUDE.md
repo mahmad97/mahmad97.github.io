@@ -102,6 +102,12 @@ Inline Markdown links (`[text](url)`) are rendered by `parseInlineLinks` in `src
 
 **`researchInterests.json`** — flat array of strings. Renders the pill row on Home and feeds `knowsAbout` in the JSON-LD `Person`.
 
+**`projects.json`** — array of project entries, newest first:
+
+- `title`, `period` (e.g. `"Jan 2025 – Present"`), `status` (e.g. `"Ongoing"`), `description`, `highlights` (string array), `stack` (string array of tools, shown as tags), `links` (array of `{ "label", "url" }`, empty array if none)
+
+Keep under-review work anonymous here: no paper/system names or headline results while a double-blind submission is pending.
+
 Logos are served from `public/logos/` — reference them as `/logos/...` (not `@/assets/`).
 
 `logoBg` is a hex colour (e.g. `#032044`), applied via inline `style`. Cards fall
@@ -111,5 +117,4 @@ back to `DEFAULT_LOGO_BG` in `src/utils/logo.ts` when it is omitted.
 
 The following pages/routes exist but are stubs — do not wire them up or delete them:
 
-- `src/pages/Projects.tsx` — routed at `/projects`, shows "Work in progress..."
 - Blog route (`/blog/:slug`) — commented out in `src/routes.ts`

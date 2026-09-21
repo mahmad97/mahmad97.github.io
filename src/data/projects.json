@@ -1,0 +1,16 @@
+[
+	{
+		"title": "Processing-in-Memory with Domain Wall Memory",
+		"period": "Jan 2025 – Present",
+		"status": "Ongoing",
+		"description": "An in-memory computing architecture for domain wall (racetrack) memory that computes directly on stored data, cutting the data movement between memory and processor that dominates energy in machine learning workloads.",
+		"highlights": [
+			"Uses multi-domain magnetic tunnel junction reads to evaluate several stored operands in a single memory access.",
+			"Reduces many operands to one result in peripheral CMOS logic, without writing intermediate results back into the racetrack.",
+			"Supports addition, multiplication, and multiply-accumulate on shared reduction hardware, targeting neural network inference.",
+			"Evaluated from circuit to system: LTSpice for cell-level energy and latency, NVSim for array-level cost, and RTSim for end-to-end workloads."
+		],
+		"stack": ["LTSpice", "NVSim", "RTSim", "Python"],
+		"links": []
+	}
+]

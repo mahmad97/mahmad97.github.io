@@ -14,7 +14,7 @@ things so they stop taking up head space.
 
 ## Up next
 
-- [ ] Fill in the Projects page — `/projects` says "Work in progress..."
+- [ ] Nothing open right now.
 
 ## Accessibility
 
@@ -47,8 +47,8 @@ From a rendered-page audit (Chrome, 1440px and 390px, both themes).
 
 ## Content
 
-- [ ] Projects: pick a schema (`src/data/projects.json`) before writing the
-      component — title, blurb, stack, links, year, status
+- [ ] Projects: once DATE 2027 reviews are back, name the DWM project and add
+      results + paper/repo links — kept generic during double-blind review
 - [ ] Keep `news.json` current — a stale last entry reads as abandoned
 - [ ] Publications: keep `url` filled in as papers get indexed (1 of 1 today)
 - [ ] Short research-interests paragraph on Home
@@ -111,6 +111,8 @@ Decisions already made — here so they don't get re-filed as bugs.
 
 <!-- Move completed items here with the date, newest first. -->
 
+- [x] Projects page backed by `src/data/projects.json`, starting with the
+      domain wall memory PIM project _(2026-09-21)_
 - [x] `404.html` carries its `<title>`, description, and `noindex` in the static
       HTML — `root.tsx` exports the shell's `meta`, which is the only document
       rendered without a leaf route. `NotFound.tsx` shares the same descriptor
