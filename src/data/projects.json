@@ -1,6 +1,6 @@
 [
 	{
-		"title": "Processing-in-Memory with Domain Wall Memory",
+		"title": "In-Memory Computing with Domain Wall Memory",
 		"period": "Jan 2025 – Present",
 		"status": "Ongoing",
 		"description": "An in-memory computing architecture for domain wall (racetrack) memory that computes directly on stored data, cutting the data movement between memory and processor that dominates energy in machine learning workloads.",
@@ -11,6 +11,71 @@
 			"Evaluated from circuit to system: LTSpice for cell-level energy and latency, NVSim for array-level cost, and RTSim for end-to-end workloads."
 		],
 		"stack": ["LTSpice", "NVSim", "RTSim", "Python"],
+		"links": []
+	},
+	{
+		"title": "Vehicle Lane-Change Prediction",
+		"period": "Dec 2023",
+		"status": "Completed",
+		"description": "My Master's project at Penn State: a hybrid LSTM-HMM model that predicts whether a vehicle will change lanes left, keep its lane, or change lanes right from its recent trajectory, evaluated on the NGSIM highway dataset.",
+		"highlights": [
+			"Pairs a hidden Markov model with an LSTM that produces its emission probabilities, so the HMM captures maneuver phases while the LSTM learns features from the raw trajectory.",
+			"Trains one model per maneuver and classifies a trajectory by which model assigns it the highest likelihood, computed with the forward algorithm in log space.",
+			"Outperformed standalone LSTM and neural-emission HMM baselines trained on the same data."
+		],
+		"stack": ["Python", "PyTorch", "NumPy", "Jupyter"],
+		"links": [
+			{
+				"label": "GitHub",
+				"url": "https://github.com/mahmad97/Vehicle-Lane-Change-Prediction-using-LSTMHMM"
+			}
+		]
+	},
+	{
+		"title": "Skin Infection Detection",
+		"period": "Apr 2023",
+		"status": "Completed",
+		"description": "A real-time skin infection detection app that classifies photos of affected skin, supporting early diagnosis and reducing reliance on in-person consultations.",
+		"highlights": [
+			"Built and deployed with a distributed full-stack architecture: an Android client, Flask and Node.js services, and a PostgreSQL database, containerized with Docker.",
+			"Runs image classification on-device for real-time results."
+		],
+		"stack": ["Android", "Flask", "Node.js", "PostgreSQL", "Docker"],
+		"links": []
+	},
+	{
+		"title": "AI Skincare Advisor",
+		"period": "Apr 2020",
+		"status": "Completed",
+		"description": "My final year project at HKU: a mobile app that scores a user's skin concerns from a selfie and recommends skincare products suited to them.",
+		"highlights": [
+			"Built a computer vision pipeline that locates facial landmarks, then scores acne, wrinkles and crow's feet, dark eye circles, sallowness, and skin tone, alongside age and gender estimation.",
+			"Recommends products from a catalogue compiled from Sephora's website, matching the skin scores and the user's text input with NLP techniques.",
+			"Served the pipeline through a Flask API consumed by a React Native mobile app."
+		],
+		"stack": [
+			"Python",
+			"OpenCV",
+			"dlib",
+			"CNTK",
+			"NLTK",
+			"Flask",
+			"React Native"
+		],
+		"links": [
+			{
+				"label": "GitHub",
+				"url": "https://github.com/mahmad97/AI_skincare_advisor"
+			}
+		]
+	},
+	{
+		"title": "Web-Based Chat Application",
+		"period": "Nov 2017",
+		"status": "Completed",
+		"description": "A real-time chat system where multiple users can send messages simultaneously, with conversations updating automatically.",
+		"highlights": [],
+		"stack": ["MongoDB", "Express.js", "Angular", "Node.js"],
 		"links": []
 	}
 ]

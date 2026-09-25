@@ -5,6 +5,8 @@ import { FaGoogleScholar } from 'react-icons/fa6';
 import { LuFileUser, LuMail } from 'react-icons/lu';
 
 import profileImg from '@/assets/images/profile.png';
+// Re-enable with the CV button below once docs/cv.tex is up to date.
+// import FileUserStackIcon from '@/assets/icons/file-user-stack.svg?react';
 import OrchidIcon from '@/assets/icons/orchid.svg?react';
 import Button from '@/components/ui/Button';
 import IconButton from '@/components/ui/IconButton';
@@ -64,11 +66,18 @@ const ProfileSection = (): ReactElement => (
 				</IconButton>
 			</div>
 
-			<div>
+			<div className='flex gap-4'>
 				<Button href='/resume.pdf' target='_blank' rel='noopener noreferrer'>
 					<LuFileUser size={24} strokeWidth={2} />
 					Resume
 				</Button>
+
+				{/* Hidden until docs/cv.tex is up to date.
+				<Button href='/cv.pdf' target='_blank' rel='noopener noreferrer'>
+					<FileUserStackIcon className='w-6 h-6' />
+					CV
+				</Button>
+				*/}
 			</div>
 		</div>
 	</section>

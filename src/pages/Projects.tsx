@@ -43,13 +43,15 @@ const Projects = (): ReactElement => (
 
 					<BaseText>{item.description}</BaseText>
 
-					<ul className='flex flex-col gap-1 list-disc list-outside pl-4'>
-						{item.highlights.map((h) => (
-							<li key={h}>
-								<SmallText className='inline'>{h}</SmallText>
-							</li>
-						))}
-					</ul>
+					{item.highlights.length > 0 && (
+						<ul className='flex flex-col gap-1 list-disc list-outside pl-4'>
+							{item.highlights.map((h) => (
+								<li key={h}>
+									<SmallText className='inline'>{h}</SmallText>
+								</li>
+							))}
+						</ul>
+					)}
 
 					<ul className='flex flex-wrap gap-2'>
 						{item.stack.map((tool) => (

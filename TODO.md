@@ -54,6 +54,8 @@ From a rendered-page audit (Chrome, 1440px and 390px, both themes).
 - [ ] Short research-interests paragraph on Home
 - [ ] Review `docs/cv.tex` and `docs/resume.tex` against the site data — they
       drift apart independently
+- [ ] Un-hide the CV button in `src/pages/Home/ProfileSection.tsx` once the
+      updated `docs/cv.tex` from the other machine is pushed
 
 ## Pages & features
 
