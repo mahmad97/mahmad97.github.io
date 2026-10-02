@@ -2,12 +2,12 @@ import type { ReactElement } from 'react';
 
 import { BaseText, SmallText, Subheading } from '@/components/typography';
 import newsData from '@/data/news.json';
+import { BUILD_YEAR } from '@/utils/buildDate';
 import { parseInlineLinks } from '@/utils/markdown';
 
-const currentYear = new Date().getFullYear();
 const recentNews = newsData.filter((item) => {
 	const year = parseInt(item.date.split(' ')[1]);
-	return year >= currentYear - 4;
+	return year >= BUILD_YEAR - 4;
 });
 
 const RecentNewsSection = (): ReactElement => (

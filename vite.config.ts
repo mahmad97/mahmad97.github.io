@@ -6,6 +6,9 @@ import { defineConfig } from 'vite';
 
 const config = defineConfig({
 	plugins: [svgr(), tailwindcss(), reactRouter()],
+	define: {
+		__BUILD_DATE__: JSON.stringify(new Date().toISOString()),
+	},
 	resolve: {
 		alias: {
 			'@': path.resolve(import.meta.dirname, './src'),
