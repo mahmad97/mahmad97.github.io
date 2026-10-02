@@ -11,8 +11,7 @@ const Footer = (): ReactElement => (
 			<InlineLink href='https://github.com/mahmad97/mahmad97.github.io'>
 				{'</>'}
 			</InlineLink>{' '}
-			• Last updated{' '}
-			{BUILD_MONTH}
+			• Last updated {BUILD_MONTH}
 		</SmallText>
 	</footer>
 );
