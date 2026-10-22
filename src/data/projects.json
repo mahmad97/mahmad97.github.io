@@ -1,5 +1,19 @@
 [
 	{
+		"title": "Stochastic Computing CNNs on Domain Wall Memory",
+		"period": "Jul 2026 – Present",
+		"status": "Ongoing",
+		"description": "A stochastic computing CNN accelerator built on domain wall in-memory computing, with the algorithm and the hardware designed together: the choices that set accuracy also set circuit cost, so they are made against each other.",
+		"highlights": [
+			"Runs the entire inference datapath in the stochastic domain, with multiply, accumulate, activation, and pooling all operating on bitstreams.",
+			"Built a bit-accurate stochastic computing inference simulator for LeNet-5 and AlexNet on MNIST and CIFAR.",
+			"Explores stream generators, accumulators, activations, and stream lengths, comparing designs at equal accuracy and equal area.",
+			"Costs each design from circuit to system: LTSpice for cell-level energy and latency, NVSim for array-level cost, and RTSim for data movement."
+		],
+		"stack": ["Python", "PyTorch", "LTSpice", "NVSim", "RTSim"],
+		"links": []
+	},
+	{
 		"title": "In-Memory Computing with Domain Wall Memory",
 		"period": "Jan 2025 – Present",
 		"status": "Ongoing",
