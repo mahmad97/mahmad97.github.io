@@ -1,9 +1,8 @@
 import type { ReactElement } from 'react';
 
 import PageContainer from '@/components/layout/PageContainer';
-import { BaseText, SmallText } from '@/components/typography';
+import Timeline from '@/components/ui/Timeline';
 import awardsData from '@/data/awards.json';
-import { parseInlineLinks } from '@/utils/markdown';
 import { buildLinks, buildMeta } from '@/utils/meta';
 
 const PAGE = {
@@ -18,16 +17,7 @@ const links = () => buildLinks(PAGE);
 
 const Awards = (): ReactElement => (
 	<PageContainer heading='Awards'>
-		<ul className='space-y-3'>
-			{awardsData.map((item, i) => (
-				<li key={i} className='flex gap-4'>
-					<SmallText className='w-20 shrink-0 text-base font-medium'>
-						{item.date}
-					</SmallText>
-					<BaseText>{parseInlineLinks(item.description)}</BaseText>
-				</li>
-			))}
-		</ul>
+		<Timeline items={awardsData} />
 	</PageContainer>
 );
 
