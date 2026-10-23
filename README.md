@@ -6,7 +6,7 @@ Feel free to use the code as a template or as an inspiration for your own websit
 
 ## Getting Started
 
-Requires [Node.js](https://nodejs.org/) 24 and npm 12.
+Requires the [Node.js](https://nodejs.org/) version in [`.nvmrc`](.nvmrc) (`nvm use` picks it up).
 
 ```bash
 npm install      # Install dependencies
