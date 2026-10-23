@@ -3,14 +3,13 @@ import type { ReactElement } from 'react';
 import { InlineLink, SmallText } from '@/components/typography';
 import { DEFAULT_LOGO_BG } from '@/utils/logo';
 
-interface AffiliationCardProps {
+type AffiliationCardProps = Readonly<{
 	name: string;
 	url: string;
 	logo?: string;
-	/** Hex colour for the tile behind the logo. */
 	logoBg?: string;
 	subtitle: string;
-}
+}>;
 
 const AffiliationCard = ({
 	name,

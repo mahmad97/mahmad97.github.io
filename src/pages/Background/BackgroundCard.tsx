@@ -8,17 +8,16 @@ import {
 } from '@/components/typography';
 import { DEFAULT_LOGO_BG } from '@/utils/logo';
 
-interface BackgroundCardProps {
+type BackgroundCardProps = Readonly<{
 	title: string;
 	subtitle: string;
 	period: string;
 	description: string;
 	logo?: string;
-	/** Hex colour for the tile behind the logo. */
 	logoBg?: string;
 	cgpa?: string;
 	highlights?: string[];
-}
+}>;
 
 const BackgroundCard = ({
 	title,
