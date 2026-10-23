@@ -21,11 +21,6 @@ const meta = () => buildMeta(PAGE);
 
 const links = () => buildLinks(PAGE);
 
-interface ProjectLink {
-	label: string;
-	url: string;
-}
-
 const Projects = (): ReactElement => (
 	<PageContainer heading='Projects'>
 		<ul className='flex flex-col gap-4'>
@@ -65,7 +60,7 @@ const Projects = (): ReactElement => (
 
 					{item.links.length > 0 && (
 						<div className='flex flex-wrap gap-4'>
-							{(item.links as ProjectLink[]).map((link) => (
+							{item.links.map((link) => (
 								<InlineLink key={link.url} href={link.url}>
 									{link.label}
 								</InlineLink>

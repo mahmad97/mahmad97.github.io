@@ -83,4 +83,4 @@ const useTheme = () => {
 };
 
 export { useTheme };
-export type { Theme, DocTheme };
+export type { Theme };

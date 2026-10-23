@@ -15,7 +15,7 @@ const Sidebar = (): ReactElement => {
 				</Link>
 			</div>
 
-			<Navigation onClose={() => {}} />
+			<Navigation />
 
 			<div className='pt-3 border-t border-slate-400 dark:border-slate-600'>
 				<ThemeToggle />

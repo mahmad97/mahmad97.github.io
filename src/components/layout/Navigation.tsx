@@ -25,7 +25,7 @@ const navGroups = [
 ];
 
 type NavigationProps = Readonly<{
-	onClose: () => void;
+	onClose?: () => void;
 }>;
 
 const Navigation = ({ onClose }: NavigationProps): ReactElement => (
