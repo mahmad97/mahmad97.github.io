@@ -35,6 +35,6 @@ npm run preview  # Preview production build at localhost:3000
 | Category        | Technology                                |
 | --------------- | ----------------------------------------- |
 | Editor/IDE      | [VS Code](https://code.visualstudio.com/) |
-| AI Assist       | [Claude](https://claude.ai/new)           |
+| AI Assist       | [Claude](https://claude.ai/)              |
 | Version Control | [Git](https://git-scm.com/)               |
 | Repository      | [GitHub](https://github.com/)             |
