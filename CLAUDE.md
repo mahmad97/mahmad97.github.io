@@ -55,7 +55,7 @@ Current pages: `/` (Home), `/publications`, `/projects`, `/services`, `/news`, `
 
 Pushes to `main` trigger the GitHub Actions workflow (`.github/workflows/build-and-deploy.yml`), which:
 
-1. Compiles LaTeX files in `docs/` (`cv.tex`, `resume.tex`) and moves the resulting PDFs to `public/`
+1. Compiles LaTeX files in `docs/` (`cv.tex`, `resume.tex`) and copies the resulting PDFs to `public/`. The PDFs are cached by a hash of `docs/*.tex`, so the compile only runs when a `.tex` file changes
 2. Runs `npm run build`, which pre-renders every route; `postbuild` (`scripts/postbuild.mjs`) then copies the SPA fallback to `404.html` and writes `robots.txt` and `sitemap.xml` from `src/routes.ts`
 3. Deploys `build/client/` to GitHub Pages
 

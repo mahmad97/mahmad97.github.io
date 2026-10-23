@@ -25,14 +25,22 @@ jobs:
         with:
           node-version-file: '.nvmrc'
 
+      - name: Restore compiled PDFs
+        id: latex-cache
+        uses: actions/cache@v6
+        with:
+          path: docs/*.pdf
+          key: latex-${{ hashFiles('docs/*.tex') }}
+
       - name: Compile LaTeX files
+        if: steps.latex-cache.outputs.cache-hit != 'true'
         uses: xu-cheng/latex-action@v4
         with:
           root_file: ./*.tex
           working_directory: docs/
 
-      - name: Move PDFs to public directory
-        run: mv docs/*.pdf public/
+      - name: Copy PDFs to public directory
+        run: cp docs/*.pdf public/
 
       - name: Setup Pages
         uses: actions/configure-pages@v6
