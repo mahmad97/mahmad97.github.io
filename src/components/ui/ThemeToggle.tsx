@@ -9,7 +9,7 @@ import { useTheme } from '@/hooks/useTheme';
 
 import './ThemeToggle.css';
 
-const getIcon = (mode: string): ReactElement => {
+const getIcon = (mode: Theme): ReactElement => {
 	switch (mode) {
 		case 'light':
 			return <LuSun size={24} strokeWidth={2.5} />;

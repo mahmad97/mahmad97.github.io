@@ -1,5 +1,7 @@
 import type { ReactElement, ReactNode } from 'react';
 
+import { twMerge } from 'tailwind-merge';
+
 type IconButtonProps = Readonly<{
 	children: ReactNode;
 	title: string;
@@ -20,7 +22,7 @@ const IconButton = ({
 	target,
 	rel,
 	onClick,
-	className = '',
+	className,
 }: IconButtonProps): ReactElement =>
 	href ? (
 		<a
@@ -29,7 +31,7 @@ const IconButton = ({
 			aria-label={title}
 			target={target}
 			rel={rel}
-			className={`${iconButtonStyle} ${className}`}>
+			className={twMerge(iconButtonStyle, className)}>
 			{children}
 		</a>
 	) : (
@@ -38,7 +40,7 @@ const IconButton = ({
 			title={title}
 			aria-label={title}
 			onClick={onClick}
-			className={`${iconButtonStyle} ${className}`}>
+			className={twMerge(iconButtonStyle, className)}>
 			{children}
 		</button>
 	);
