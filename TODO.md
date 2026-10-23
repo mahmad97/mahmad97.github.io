@@ -34,8 +34,6 @@ From a rendered-page audit (Chrome, 1440px and 390px, both themes).
 - [ ] Logo tiles aren't theme-aware — HKU glares white in dark mode, UTSA and
       Penn State vanish into the card
 - [ ] CGPA placeholder reserves an empty line (`invisible` in `BackgroundCard.tsx`)
-- [ ] Footer "Last updated <month>" is `new Date()`, so it asserts freshness it
-      doesn't know — use the build date or drop it
 - [ ] Services page is a single unbulleted, oddly indented line on an empty page
 - [ ] Home hero leaves a large dead area right of the name block on desktop
 - [ ] Mobile nav review on a real phone — the only `h-screen` left is the `md:`
@@ -113,6 +111,8 @@ Decisions already made — here so they don't get re-filed as bugs.
 
 <!-- Move completed items here with the date, newest first. -->
 
+- [x] Footer "Last updated" and Recent News use the build date, not
+      `new Date()` _(2026-10-02)_
 - [x] Projects page backed by `src/data/projects.json`, starting with the
       domain wall memory PIM project _(2026-09-21)_
 - [x] `404.html` carries its `<title>`, description, and `noindex` in the static
