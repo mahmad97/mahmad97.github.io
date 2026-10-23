@@ -1,14 +1,4 @@
-// Regenerates the raster assets in `public/` from their sources:
-//
-//   public/MA.svg                → favicon.ico, icon-192/512.png,
-//                                  icon-maskable-512.png, apple-touch-icon.png
-//   scripts/og-image.html        → og-image.png (1200x630 link preview)
-//
-// Run it with `npm run assets` after changing the logo, the portrait, or the
-// template; the outputs are committed, so the deploy workflow never needs a
-// browser. Rendering is done by headless Chrome (set CHROME to override the
-// binary) — the OG template pulls Inter and Roboto Mono from Google Fonts, so
-// generation needs network access.
+// The outputs are committed so the deploy workflow never needs a browser.
 import { execFile } from 'node:child_process';
 import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
@@ -76,11 +66,15 @@ const renderMasked = async (size, out, inset) => {
 	});
 };
 
+const ICO_TYPE_ICON = 1;
+const COLOUR_PLANES = 1;
+const BITS_PER_PIXEL = 32;
+
 // ICO is just a directory of images; every size here is a PNG payload, which
 // every browser still in use understands.
 const buildIco = (icons) => {
 	const header = Buffer.alloc(6);
-	header.writeUInt16LE(1, 2);
+	header.writeUInt16LE(ICO_TYPE_ICON, 2);
 	header.writeUInt16LE(icons.length, 4);
 
 	let offset = header.length + icons.length * 16;
@@ -89,8 +83,8 @@ const buildIco = (icons) => {
 		const entry = Buffer.alloc(16);
 		entry.writeUInt8(size, 0);
 		entry.writeUInt8(size, 1);
-		entry.writeUInt16LE(1, 4); // colour planes
-		entry.writeUInt16LE(32, 6); // bits per pixel
+		entry.writeUInt16LE(COLOUR_PLANES, 4);
+		entry.writeUInt16LE(BITS_PER_PIXEL, 6);
 		entry.writeUInt32LE(data.length, 8);
 		entry.writeUInt32LE(offset, 12);
 		offset += data.length;

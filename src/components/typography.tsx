@@ -1,5 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
-// Exporting style constants alongside components for design token reusability
 import type { ReactElement, ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
 

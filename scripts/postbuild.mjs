@@ -1,10 +1,5 @@
-// Runs after `react-router build`. Everything here needs the pre-rendered
-// output, so it can't be a Vite plugin or a file in `public/`:
-//
-//   - `404.html`   — GitHub Pages' not-found page, which is how the `*` route
-//                    gets served (Vite writes it as `__spa-fallback.html`)
-//   - `sitemap.xml`— one <loc> per pre-rendered route, read from `src/routes.ts`
-//   - `robots.txt` — points crawlers at the sitemap
+// Everything here needs the pre-rendered output, so it can't be a Vite plugin
+// or a file in `public/`.
 import { access, copyFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';

@@ -24,10 +24,9 @@ const SideDrawer = ({
 	const closeButtonRef = useRef<HTMLButtonElement>(null);
 	const wasOpen = useRef(false);
 
-	// Move focus into the drawer on open and back to the hamburger on close.
-	// Without the return step `inert` drops focus to <body> and a keyboard user
-	// restarts from the top of the document. Guarded by `wasOpen` so the first
-	// render doesn't steal focus on a page that was never opened.
+	// Without returning focus to the hamburger, `inert` drops it to <body> and a
+	// keyboard user restarts from the top. `wasOpen` stops the first render
+	// stealing focus.
 	useEffect(() => {
 		if (isOpen) {
 			wasOpen.current = true;
@@ -78,7 +77,7 @@ const SideDrawer = ({
 				onClick={closeDrawer}
 			/>
 			{/* `inert` when closed: the drawer is only translated off-screen, so
-			    without it the 8 controls inside stay focusable and keyboard users
+			    without it the controls inside stay focusable and keyboard users
 			    tab through invisible links after the hamburger. */}
 			<aside
 				ref={asideRef}

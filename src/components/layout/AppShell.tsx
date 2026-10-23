@@ -19,17 +19,14 @@ const AppShell = (): ReactElement => {
 
 	return (
 		<>
-			{/* Mobile topbar */}
 			<Header onMenuClick={openDrawer} menuButtonRef={menuButtonRef} />
 
-			{/* Mobile drawer */}
 			<SideDrawer
 				isOpen={open}
 				closeDrawer={closeDrawer}
 				menuButtonRef={menuButtonRef}
 			/>
 
-			{/* Desktop sidebar */}
 			<Sidebar />
 		</>
 	);
